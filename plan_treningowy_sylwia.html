@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Treningowy Sylwii – Upper/Lower</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #e8566a;
+    --rose-light: #f4869a;
+    --rose-dark: #c03a50;
+    --peach: #f7c5a8;
+    --cream: #fdf6f0;
+    --warm-white: #fff9f5;
+    --charcoal: #2d2020;
+    --muted: #8a6a6e;
+    --border: rgba(232,86,106,0.15);
+    --card-bg: rgba(255,255,255,0.85);
+    --shadow: 0 4px 24px rgba(192,58,80,0.10);
+    --shadow-lg: 0 12px 48px rgba(192,58,80,0.18);
+    --radius: 18px;
+    --radius-sm: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background decoration */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,86,106,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px; left: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(247,197,168,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 48px 20px 36px;
+  }
+  .header-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--rose), var(--rose-light));
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(232,86,106,0.3);
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: var(--charcoal);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .header h1 span { color: var(--rose); }
+  .header p {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* PROFILE CARD */
+  .profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    backdrop-filter: blur(8px);
+  }
+  .profile-stat {
+    text-align: center;
+  }
+  .profile-stat .val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--rose);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .profile-stat .lbl {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .profile-divider {
+    width: 1px;
+    background: var(--border);
+    align-self: stretch;
+  }
+
+  /* SCHEDULE STRIP */
+  .schedule-strip {
+    background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    margin-bottom: 28px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 32px rgba(192,58,80,0.25);
+  }
+  .schedule-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+  .schedule-days {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .day-pill {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+  }
+  .day-pill.active {
+    background: white;
+    color: var(--rose-dark);
+    border-color: white;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 100px;
+    padding: 11px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    white-space: nowrap;
+  }
+  .tab-btn:hover {
+    border-color: var(--rose-light);
+    color: var(--rose);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(232,86,106,0.12);
+  }
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+    border-color: var(--rose);
+    color: white;
+    box-shadow: 0 6px 24px rgba(232,86,106,0.35);
+    transform: translateY(-1px);
+  }
+  .tab-icon { margin-right: 6px; }
+
+  /* TAB CONTENT */
+  .tab-content { display: none; animation: fadeSlide 0.3s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--rose), var(--rose-light));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 16px rgba(232,86,106,0.3);
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+  .section-title p {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  /* INFO BADGES ROW */
+  .info-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .info-badge {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--charcoal);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .info-badge .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--rose);
+  }
+
+  /* WARMUP */
+  .warmup-box {
+    background: linear-gradient(135deg, rgba(247,197,168,0.3), rgba(232,86,106,0.08));
+    border: 1px solid rgba(247,197,168,0.6);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--charcoal);
+  }
+  .warmup-box strong { color: var(--rose-dark); font-weight: 700; }
+
+  /* EXERCISE TABLE */
+  .exercise-table {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+  }
+
+  .exercise-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .exercise-table thead {
+    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+    color: white;
+  }
+  .exercise-table thead th {
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .exercise-table thead th:first-child { padding-left: 20px; }
+
+  .exercise-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .exercise-table tbody tr:last-child { border-bottom: none; }
+  .exercise-table tbody tr:hover { background: rgba(232,86,106,0.04); }
+
+  .exercise-table tbody td {
+    padding: 13px 14px;
+    vertical-align: middle;
+    color: var(--charcoal);
+    line-height: 1.4;
+  }
+  .exercise-table tbody td:first-child { padding-left: 20px; }
+
+  .ex-num {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, var(--rose), var(--rose-light));
+    color: white;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .ex-name {
+    font-weight: 600;
+    color: var(--charcoal);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .ex-muscle {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .badge-ss {
+    display: inline-block;
+    background: rgba(232,86,106,0.12);
+    color: var(--rose-dark);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+  }
+
+  .weight-cell {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--rose);
+  }
+
+  .progression-cell {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .tempo-cell {
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--charcoal);
+    background: rgba(0,0,0,0.04);
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  /* GROUP LABELS */
+  .group-row td {
+    background: rgba(232,86,106,0.05) !important;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--rose-dark) !important;
+    padding: 8px 20px !important;
+  }
+
+  /* TIMER */
+  .timer-widget {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+  }
+  .timer-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .timer-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--rose);
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+  }
+  .timer-presets {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .preset-btn {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .preset-btn:hover, .preset-btn.active {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: white;
+    box-shadow: 0 4px 16px rgba(232,86,106,0.3);
+  }
+  .timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  .timer-btn {
+    border: none;
+    border-radius: 100px;
+    padding: 12px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .timer-btn.start {
+    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+    color: white;
+    box-shadow: 0 6px 24px rgba(232,86,106,0.35);
+  }
+  .timer-btn.start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(232,86,106,0.4);
+  }
+  .timer-btn.reset {
+    background: white;
+    color: var(--muted);
+    border: 2px solid var(--border);
+  }
+  .timer-btn.reset:hover { background: var(--cream); }
+
+  /* TIPS BOX */
+  .tips-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+  }
+  .tips-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .tip-item {
+    background: rgba(232,86,106,0.05);
+    border: 1px solid rgba(232,86,106,0.12);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .tip-item .tip-icon { font-size: 20px; margin-bottom: 6px; display: block; }
+  .tip-item strong { color: var(--rose-dark); display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+
+  /* PROGRESSION GUIDE */
+  .prog-guide {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+  }
+  .prog-guide h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+  }
+  .prog-table { width: 100%; font-size: 13px; }
+  .prog-table tr { border-bottom: 1px solid var(--border); }
+  .prog-table tr:last-child { border-bottom: none; }
+  .prog-table td { padding: 10px 4px; vertical-align: top; }
+  .prog-table td:first-child { width: 50%; font-weight: 600; }
+  .prog-table td:last-child { color: var(--muted); }
+
+  /* SUPPS TAB */
+  .supp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .supp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .supp-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .supp-card .emoji { font-size: 32px; display: block; margin-bottom: 10px; }
+  .supp-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+  .supp-card .dose { font-size: 12px; font-weight: 700; color: var(--rose); background: rgba(232,86,106,0.1); padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 8px; }
+  .supp-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .exercise-table { font-size: 12px; overflow-x: auto; }
+    .exercise-table table { min-width: 700px; }
+    .profile-card { grid-template-columns: repeat(2, 1fr); }
+    .timer-display { font-size: 3rem; }
+    .tab-btn { padding: 9px 16px; font-size: 12px; }
+  }
+
+  /* SCROLLABLE TABLE WRAPPER */
+  .table-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-badge">💪 Plan treningowy</div>
+    <h1>Plan <span>Sylwii</span><br>Upper / Lower</h1>
+    <p>3 treningi w tygodniu · Priorytet: pośladki & nogi · Cel: redukcja i definicja</p>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="profile-card">
+    <div class="profile-stat">
+      <span class="val">165 cm</span>
+      <span class="lbl">Wzrost</span>
+    </div>
+    <div class="profile-stat">
+      <span class="val">60–62 kg</span>
+      <span class="lbl">Waga</span>
+    </div>
+    <div class="profile-stat">
+      <span class="val">6+ msc</span>
+      <span class="lbl">Staż</span>
+    </div>
+    <div class="profile-stat">
+      <span class="val">–3 kg</span>
+      <span class="lbl">Cel wagowy</span>
+    </div>
+    <div class="profile-stat">
+      <span class="val">ULL</span>
+      <span class="lbl">Format</span>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="schedule-strip">
+    <span class="schedule-label">📅 Harmonogram</span>
+    <div class="schedule-days">
+      <span class="day-pill active">Środa – Lower 1</span>
+      <span class="day-pill active">Piątek – Upper</span>
+      <span class="day-pill active">Sobota – Lower 2</span>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('lower1')"><span class="tab-icon">🔥</span>Lower 1 – Środa</button>
+    <button class="tab-btn" onclick="showTab('lower2')"><span class="tab-icon">⚡</span>Lower 2 – Sobota</button>
+    <button class="tab-btn" onclick="showTab('upper')"><span class="tab-icon">💪</span>Upper – Piątek</button>
+    <button class="tab-btn" onclick="showTab('timer')"><span class="tab-icon">⏱️</span>Timer</button>
+    <button class="tab-btn" onclick="showTab('diet')"><span class="tab-icon">🥗</span>Dieta</button>
+    <button class="tab-btn" onclick="showTab('supps')"><span class="tab-icon">💊</span>Suplementacja</button>
+  </div>
+
+  <!-- ==================== LOWER 1 ==================== -->
+  <div id="lower1" class="tab-content active">
+    <div class="section-header">
+      <div class="section-icon">🔥</div>
+      <div class="section-title">
+        <h2>Lower 1 – Dominacja biodra</h2>
+        <p>Hip thrust · Martwy rumuński · Wykroki · Superserie izolacyjne · Brzuch</p>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <span class="info-badge"><span class="dot"></span>Czas: 65–75 min</span>
+      <span class="info-badge"><span class="dot"></span>Serie: ~27</span>
+      <span class="info-badge"><span class="dot"></span>Fokus: pośladki + tylna uda</span>
+    </div>
+
+    <div class="warmup-box">
+      <strong>🏃 Rozgrzewka (5–10 min):</strong> orbitrek / rower / spacer + aktywacja pośladków: mostek BW 3×15, muszle 2×20. Zjedz 1–1.5h przed! 🍌 Wypij 300–500ml wody 💧
+    </div>
+
+    <div class="exercise-table">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ćwiczenie</th>
+              <th>Partia</th>
+              <th>Serie × Powt.</th>
+              <th>Tempo</th>
+              <th>Przerwa</th>
+              <th>Ciężar start</th>
+              <th>Progresja</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-row"><td colspan="8">⚡ BLOK 1 – CIĘŻKIE GŁÓWNE</td></tr>
+            <tr>
+              <td><div class="ex-num">1</div></td>
+              <td>
+                <span class="ex-name">Hip thrust ze sztangą (ciężki)</span>
+                <span class="ex-muscle">Pośladki wielki, sredni</span>
+              </td>
+              <td>Pośladki</td>
+              <td><strong>4 × 8–10</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>180s</td>
+              <td class="weight-cell">50 kg</td>
+              <td class="progression-cell">4×10 → +5kg<br><em>Serie przy boku, chodź 60s!</em></td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">2</div></td>
+              <td>
+                <span class="ex-name">Martwy ciąg rumuński (RDL)</span>
+                <span class="ex-muscle">Pośladki, tylna część uda</span>
+              </td>
+              <td>Pośladki / Tyłuda</td>
+              <td><strong>4 × 8–10</strong></td>
+              <td><span class="tempo-cell">3-1-2-0</span></td>
+              <td>180s</td>
+              <td class="weight-cell">40 kg</td>
+              <td class="progression-cell">4×10 → +5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">3</div></td>
+              <td>
+                <span class="ex-name">Wykroki bułgarskie z hantlami</span>
+                <span class="ex-muscle">Pośladki, kwadryceps</span>
+              </td>
+              <td>Pośladki / Quad</td>
+              <td><strong>3 × 10–12</strong></td>
+              <td><span class="tempo-cell">3-1-1-0</span></td>
+              <td>90s</td>
+              <td class="weight-cell">8 kg</td>
+              <td class="progression-cell">3×12 → +2.5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🔗 BLOK 2 – SUPERSERIA SS1 (wyciąg)</td></tr>
+            <tr>
+              <td><div class="ex-num">4</div></td>
+              <td>
+                <span class="ex-name">Odwodzenie nogi na wyciągu (L+P) <span class="badge-ss">SS1</span></span>
+                <span class="ex-muscle">Pośladek średni</span>
+              </td>
+              <td>Pośladek średni</td>
+              <td><strong>2 × 12–15</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>–</td>
+              <td class="weight-cell">15 kg</td>
+              <td class="progression-cell">2×15 → +2.5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">5</div></td>
+              <td>
+                <span class="ex-name">Kickbacki na wyciągu (L+P) <span class="badge-ss">SS1</span></span>
+                <span class="ex-muscle">Pośladek wielki (dolna)</span>
+              </td>
+              <td>Pośladki</td>
+              <td><strong>2 × 12–15</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>75s</td>
+              <td class="weight-cell">20 kg</td>
+              <td class="progression-cell">2×15 → +2.5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🔗 BLOK 3 – SUPERSERIA SS2 (maszyny)</td></tr>
+            <tr>
+              <td><div class="ex-num">6</div></td>
+              <td>
+                <span class="ex-name">Przywodzenie na maszynie <span class="badge-ss">SS2</span></span>
+                <span class="ex-muscle">Przywodziciele</span>
+              </td>
+              <td>Przywodziciele</td>
+              <td><strong>3 × 15–20</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>–</td>
+              <td class="weight-cell">27 kg</td>
+              <td class="progression-cell">3×20 → +5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">7</div></td>
+              <td>
+                <span class="ex-name">Odwodzenie na maszynie <span class="badge-ss">SS2</span></span>
+                <span class="ex-muscle">Odwodziciele, pośladek średni</span>
+              </td>
+              <td>Pośladek średni</td>
+              <td><strong>3 × 15–20</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>60s</td>
+              <td class="weight-cell">55 kg</td>
+              <td class="progression-cell">3×20 → +5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🧘 BLOK 4 – BRZUCH</td></tr>
+            <tr>
+              <td><div class="ex-num">8</div></td>
+              <td>
+                <span class="ex-name">Unoszenie nóg w zwisie / Dead Bug</span>
+                <span class="ex-muscle">Brzuch dolny, core</span>
+              </td>
+              <td>Brzuch</td>
+              <td><strong>3 × 15–20</strong></td>
+              <td>–</td>
+              <td>90s</td>
+              <td class="weight-cell">BW</td>
+              <td class="progression-cell">+1 powt./tydzień</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">9</div></td>
+              <td>
+                <span class="ex-name">Brzuszki z talerzem</span>
+                <span class="ex-muscle">Brzuch górny</span>
+              </td>
+              <td>Brzuch</td>
+              <td><strong>3 × 15–20</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>75s</td>
+              <td class="weight-cell">10 kg</td>
+              <td class="progression-cell">3×20 → +2.5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">10</div></td>
+              <td>
+                <span class="ex-name">Russian Twist</span>
+                <span class="ex-muscle">Skośne brzucha</span>
+              </td>
+              <td>Brzuch</td>
+              <td><strong>3 × 20–30</strong></td>
+              <td>–</td>
+              <td>60s</td>
+              <td class="weight-cell">10 kg</td>
+              <td class="progression-cell">3×30 → +2.5kg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <h3>💡 Wskazówki do Lower 1</h3>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <span class="tip-icon">🍑</span>
+          <strong>Hip thrust</strong>
+          Przerwa 180s — chodź 60s zamiast siedzieć. Wydech na górze co 1–2 powtórzenia. Pauza 1s na górze!
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">📐</span>
+          <strong>RDL – technika</strong>
+          Plecy neutralne cały czas. Sztanga schodzi wzdłuż nóg. Czujesz rozciąganie tylnej uda = dobrze!
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">🔗</span>
+          <strong>Superserie</strong>
+          SS1: odwodzenie → od razu kickback (bez pauzy) → 75s przerwa. SS2: tak samo przywodzenie → odwodzenie.
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">⏱️</span>
+          <strong>Kolejność</strong>
+          Nie skracaj przerw w bloku 1. To fundament treningu — pełny odpoczynek = lepsza progresja.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== LOWER 2 ==================== -->
+  <div id="lower2" class="tab-content">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div class="section-title">
+        <h2>Lower 2 – Dominacja kolana</h2>
+        <p>Przysiad · Sumo · Step-ups · Suwnica · Hip thrust lżejszy · Brzuch</p>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <span class="info-badge"><span class="dot"></span>Czas: 60–70 min</span>
+      <span class="info-badge"><span class="dot"></span>Serie: ~28</span>
+      <span class="info-badge"><span class="dot"></span>Fokus: quad + pośladki</span>
+    </div>
+
+    <div class="warmup-box">
+      <strong>🏃 Rozgrzewka przysiadu:</strong> BW × 2×15 → 20kg × 8 → 35kg × 5. Przerwa po przysiadu: <strong>240s!</strong> Chodź 60s między seriami. Wydech na górze co 1–2 przysiady 🧘
+    </div>
+
+    <div class="exercise-table">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ćwiczenie</th>
+              <th>Partia</th>
+              <th>Serie × Powt.</th>
+              <th>Tempo</th>
+              <th>Przerwa</th>
+              <th>Ciężar start</th>
+              <th>Progresja</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-row"><td colspan="8">⚡ BLOK 1 – PRZYSIADY</td></tr>
+            <tr>
+              <td><div class="ex-num">1</div></td>
+              <td>
+                <span class="ex-name">Przysiad ze sztangą</span>
+                <span class="ex-muscle">Kwadryceps, pośladki, core</span>
+              </td>
+              <td>Quad / Pośladki</td>
+              <td><strong>4 × 6–8</strong></td>
+              <td><span class="tempo-cell">3-1-1-0</span></td>
+              <td>240s</td>
+              <td class="weight-cell">47.5 kg</td>
+              <td class="progression-cell">4×8 → +2.5kg<br><em>Chodź 60s między!</em></td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">2</div></td>
+              <td>
+                <span class="ex-name">Przysiad sumo (1 hantel)</span>
+                <span class="ex-muscle">Przywodziciele, pośladki</span>
+              </td>
+              <td>Pośladki / Przywodziciele</td>
+              <td><strong>3 × 12–15</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>90s</td>
+              <td class="weight-cell">22.5 kg</td>
+              <td class="progression-cell">3×15 → +2.5kg<br><em>1 hantel trzymany obiema rękami!</em></td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🦵 BLOK 2 – POMOCNICZE</td></tr>
+            <tr>
+              <td><div class="ex-num">3</div></td>
+              <td>
+                <span class="ex-name">Step-ups z hantlami</span>
+                <span class="ex-muscle">Pośladki, quad</span>
+              </td>
+              <td>Pośladki / Quad</td>
+              <td><strong>3 × 10–12 / nogę</strong></td>
+              <td><span class="tempo-cell">2-1-1-0</span></td>
+              <td>90s</td>
+              <td class="weight-cell">12.5 kg</td>
+              <td class="progression-cell">3×12 → +2.5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">4</div></td>
+              <td>
+                <span class="ex-name">Suwnica (leg curl)</span>
+                <span class="ex-muscle">Tylna część uda (dwugłowy)</span>
+              </td>
+              <td>Tyłuda</td>
+              <td><strong>3 × 8–12</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>90s</td>
+              <td class="weight-cell">75 kg</td>
+              <td class="progression-cell">3×12 → +5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🔗 BLOK 3 – SUPERSERIA SS1</td></tr>
+            <tr>
+              <td><div class="ex-num">5</div></td>
+              <td>
+                <span class="ex-name">Hip thrust lżejszy (~55% ciężkiego) <span class="badge-ss">SS1</span></span>
+                <span class="ex-muscle">Pośladki – pompka / wykończenie</span>
+              </td>
+              <td>Pośladki</td>
+              <td><strong>3 × 15–20</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>–</td>
+              <td class="weight-cell">27.5 kg</td>
+              <td class="progression-cell">3×20 → +5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">6</div></td>
+              <td>
+                <span class="ex-name">Prostowanie nóg – leg extension <span class="badge-ss">SS1</span></span>
+                <span class="ex-muscle">Kwadryceps</span>
+              </td>
+              <td>Quad</td>
+              <td><strong>3 × 12–15</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>75s</td>
+              <td class="weight-cell">30 kg</td>
+              <td class="progression-cell">3×15 → +5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🧘 BLOK 4 – BRZUCH</td></tr>
+            <tr>
+              <td><div class="ex-num">7</div></td>
+              <td>
+                <span class="ex-name">Unoszenie nóg / Dead Bug</span>
+                <span class="ex-muscle">Brzuch dolny, core</span>
+              </td>
+              <td>Brzuch</td>
+              <td><strong>3 × 15–20</strong></td>
+              <td>–</td>
+              <td>90s</td>
+              <td class="weight-cell">BW</td>
+              <td class="progression-cell">+1 powt./tydzień</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">8</div></td>
+              <td>
+                <span class="ex-name">Russian Twist</span>
+                <span class="ex-muscle">Skośne brzucha</span>
+              </td>
+              <td>Brzuch</td>
+              <td><strong>3 × 20–30</strong></td>
+              <td>–</td>
+              <td>60s</td>
+              <td class="weight-cell">10 kg</td>
+              <td class="progression-cell">3×30 → +2.5kg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <h3>💡 Wskazówki do Lower 2</h3>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <span class="tip-icon">🦵</span>
+          <strong>Przysiad</strong>
+          Przerwa 240s — to nie żart! Chodź aktywnie przez 60s. Zakres 6–8 to siłowy — bez "czarnych kropek" (zawrotów).
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">🤲</span>
+          <strong>Sumo</strong>
+          1 hantel 22.5kg trzymany obiema rękami pionowo. Stopy szeroko, kolana "na zewnątrz". Nie 2 hantle!
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">📊</span>
+          <strong>Hip thrust lżejszy</strong>
+          ~55% ciężaru z Lower 1. Jeśli ciężki = 50kg, tu: 27–30kg. Pompka pośladków ważniejsza niż ciężar.
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">🪜</span>
+          <strong>Step-ups</strong>
+          Naciskaj piętę na step. Nie odpychaj od tyłu — to ma pracować pośladek, nie łydka.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== UPPER ==================== -->
+  <div id="upper" class="tab-content">
+    <div class="section-header">
+      <div class="section-icon">💪</div>
+      <div class="section-title">
+        <h2>Upper – Góra ciała</h2>
+        <p>Klatka · Plecy · Barki · Biceps · Triceps · Brzuch</p>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <span class="info-badge"><span class="dot"></span>Czas: 65–75 min</span>
+      <span class="info-badge"><span class="dot"></span>Serie: ~25</span>
+      <span class="info-badge"><span class="dot"></span>Fokus: plecy + ramiona</span>
+    </div>
+
+    <div class="warmup-box">
+      <strong>🏃 Rozgrzewka:</strong> 5 min ramionami / orbitrek + circle rotacje ramion, band pull-aparts 2×15. Rozgrzewka ławki: 10 kg × 15 → 20 kg × 10 → 25 kg × 5.
+    </div>
+
+    <div class="exercise-table">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ćwiczenie</th>
+              <th>Partia</th>
+              <th>Serie × Powt.</th>
+              <th>Tempo</th>
+              <th>Przerwa</th>
+              <th>Ciężar start</th>
+              <th>Progresja</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-row"><td colspan="8">🏋️ BLOK 1 – KLATKA PIERSIOWA</td></tr>
+            <tr>
+              <td><div class="ex-num">1</div></td>
+              <td>
+                <span class="ex-name">Wyciskanie sztangi na ławce płaskiej</span>
+                <span class="ex-muscle">Klatka środkowa, triceps, delty przednie</span>
+              </td>
+              <td>Klatka</td>
+              <td><strong>4 × 8–10</strong></td>
+              <td><span class="tempo-cell">3-1-1-0</span></td>
+              <td>120s</td>
+              <td class="weight-cell">30 kg</td>
+              <td class="progression-cell">4×10 → +2.5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">2</div></td>
+              <td>
+                <span class="ex-name">Wyciskanie hantli – skos dodatni</span>
+                <span class="ex-muscle">Klatka górna, delty przednie</span>
+              </td>
+              <td>Klatka górna</td>
+              <td><strong>3 × 10–12</strong></td>
+              <td><span class="tempo-cell">3-1-1-0</span></td>
+              <td>90s</td>
+              <td class="weight-cell">12 kg</td>
+              <td class="progression-cell">3×12 → +2.5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🏔️ BLOK 2 – PLECY</td></tr>
+            <tr>
+              <td><div class="ex-num">3</div></td>
+              <td>
+                <span class="ex-name">Wiosłowanie sztangą / hantlami</span>
+                <span class="ex-muscle">Plecy szerokie, środkowe, tylne delty</span>
+              </td>
+              <td>Plecy</td>
+              <td><strong>4 × 8–10</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>120s</td>
+              <td class="weight-cell">25 kg</td>
+              <td class="progression-cell">4×10 → +5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">4</div></td>
+              <td>
+                <span class="ex-name">Przyciąganie linki / ściąganie wyciąg dolny</span>
+                <span class="ex-muscle">Plecy szerokie, biceps</span>
+              </td>
+              <td>Plecy</td>
+              <td><strong>3 × 10–12</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>90s</td>
+              <td class="weight-cell">40 kg</td>
+              <td class="progression-cell">3×12 → +5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🎯 BLOK 3 – BARKI</td></tr>
+            <tr>
+              <td><div class="ex-num">5</div></td>
+              <td>
+                <span class="ex-name">Wyciskanie hantli nad głowę siedząc</span>
+                <span class="ex-muscle">Delty przednie i środkowe, triceps</span>
+              </td>
+              <td>Barki</td>
+              <td><strong>3 × 10–12</strong></td>
+              <td><span class="tempo-cell">2-1-1-0</span></td>
+              <td>90s</td>
+              <td class="weight-cell">10 kg</td>
+              <td class="progression-cell">3×12 → +2.5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">6</div></td>
+              <td>
+                <span class="ex-name">Unoszenie ramion bokiem (laterals)</span>
+                <span class="ex-muscle">Delty środkowe</span>
+              </td>
+              <td>Barki boczne</td>
+              <td><strong>3 × 12–15</strong></td>
+              <td><span class="tempo-cell">2-1-3-0</span></td>
+              <td>75s</td>
+              <td class="weight-cell">6 kg</td>
+              <td class="progression-cell">3×15 → +1kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">7</div></td>
+              <td>
+                <span class="ex-name">Face pulls na wyciągu</span>
+                <span class="ex-muscle">Tylne delty, rotatory</span>
+              </td>
+              <td>Barki tylne</td>
+              <td><strong>3 × 15–20</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>60s</td>
+              <td class="weight-cell">15 kg</td>
+              <td class="progression-cell">3×20 → +2.5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🔗 BLOK 4 – RAMIONA SUPERSERIA SS1</td></tr>
+            <tr>
+              <td><div class="ex-num">8</div></td>
+              <td>
+                <span class="ex-name">Uginanie ramion z hantlami / wyciąg <span class="badge-ss">SS1</span></span>
+                <span class="ex-muscle">Biceps</span>
+              </td>
+              <td>Biceps</td>
+              <td><strong>3 × 10–12</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>–</td>
+              <td class="weight-cell">8 kg</td>
+              <td class="progression-cell">3×12 → +2.5kg</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">9</div></td>
+              <td>
+                <span class="ex-name">Prostowanie triceps na wyciągu <span class="badge-ss">SS1</span></span>
+                <span class="ex-muscle">Triceps</span>
+              </td>
+              <td>Triceps</td>
+              <td><strong>3 × 12–15</strong></td>
+              <td><span class="tempo-cell">2-0-2-0</span></td>
+              <td>75s</td>
+              <td class="weight-cell">20 kg</td>
+              <td class="progression-cell">3×15 → +2.5kg</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="8">🧘 BLOK 5 – BRZUCH (opcjonalnie)</td></tr>
+            <tr>
+              <td><div class="ex-num">10</div></td>
+              <td>
+                <span class="ex-name">Deska <span class="badge-ss">SS2</span></span>
+                <span class="ex-muscle">Core stabilizacja</span>
+              </td>
+              <td>Core</td>
+              <td><strong>3 × 30–60s</strong></td>
+              <td>–</td>
+              <td>–</td>
+              <td class="weight-cell">BW</td>
+              <td class="progression-cell">+5s/tydzień</td>
+            </tr>
+            <tr>
+              <td><div class="ex-num">11</div></td>
+              <td>
+                <span class="ex-name">Crunch z talerzem <span class="badge-ss">SS2</span></span>
+                <span class="ex-muscle">Brzuch górny</span>
+              </td>
+              <td>Brzuch</td>
+              <td><strong>3 × 15–20</strong></td>
+              <td><span class="tempo-cell">2-1-2-0</span></td>
+              <td>60s</td>
+              <td class="weight-cell">5 kg</td>
+              <td class="progression-cell">3×20 → +2.5kg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <h3>💡 Wskazówki do Upper</h3>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <span class="tip-icon">🏋️</span>
+          <strong>Ławka</strong>
+          Łopatki ściągnięte i "wbite" w ławkę przez całą serię. Kontrolowane opuszczanie 3 sekundy.
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">📐</span>
+          <strong>Wiosłowanie</strong>
+          Lokieć blisko ciała, ściągasz łopatkę — nie tylko rękę. Klatka do przodu, plecy neutralne.
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">🎯</span>
+          <strong>Laterals</strong>
+          Lekkie wagi — technika ważniejsza od ciężaru. Unoszenie do linii barku, małe pochylenie w łokciu.
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">🔗</span>
+          <strong>Superseria ramiona</strong>
+          Biceps → od razu triceps (bez pauzy) → 75s przerwa. Efektywne i daje pompę ramion 💪
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TIMER ==================== -->
+  <div id="timer" class="tab-content">
+    <div class="section-header">
+      <div class="section-icon">⏱️</div>
+      <div class="section-title">
+        <h2>Timer Przerw</h2>
+        <p>Ustaw czas odpoczynku między seriami</p>
+      </div>
+    </div>
+
+    <div class="timer-widget">
+      <div class="timer-title">CZAS PRZERWY</div>
+      <div class="timer-display" id="timerDisplay">3:00</div>
+      <div class="timer-presets">
+        <button class="preset-btn" onclick="setTimer(45)">45s</button>
+        <button class="preset-btn" onclick="setTimer(60)">60s</button>
+        <button class="preset-btn" onclick="setTimer(75)">75s</button>
+        <button class="preset-btn" onclick="setTimer(90)">90s</button>
+        <button class="preset-btn" onclick="setTimer(120)">2 min</button>
+        <button class="preset-btn active" onclick="setTimer(180)">3 min</button>
+        <button class="preset-btn" onclick="setTimer(240)">4 min 🦵</button>
+      </div>
+      <div class="timer-controls">
+        <button class="timer-btn start" id="startBtn" onclick="toggleTimer()">▶ START</button>
+        <button class="timer-btn reset" onclick="resetTimer()">↺ Reset</button>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <h3>📋 Przerwy – ściągawka</h3>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <span class="tip-icon">🔥</span>
+          <strong>Hip thrust / Przysiad / RDL (główne)</strong>
+          Hip thrust: 180s · Przysiad: 240s! · RDL: 180s
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">🦵</span>
+          <strong>Pomocnicze nogi</strong>
+          Wykroki bułgarskie: 90s · Step-ups: 90s · Suwnica: 90s
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">🔗</span>
+          <strong>Superserie</strong>
+          Między ćwiczeniami w SS: 0s · Po całej superserii: 60–75s
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">💪</span>
+          <strong>Góra ciała</strong>
+          Ławka / Wiosłowanie: 120s · Izolacje: 60–90s · Ramiona SS: 75s
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DIETA ==================== -->
+  <div id="diet" class="tab-content">
+    <div class="section-header">
+      <div class="section-icon">🥗</div>
+      <div class="section-title">
+        <h2>Plan Żywieniowy</h2>
+        <p>1700–1750 kcal (trening) · 1550–1600 kcal (odpoczynek) · Białko: 100–130g</p>
+      </div>
+    </div>
+
+    <!-- Macro overview -->
+    <div class="profile-card" style="margin-bottom:20px;">
+      <div class="profile-stat"><span class="val">1750</span><span class="lbl">kcal trening</span></div>
+      <div class="profile-stat"><span class="val">1600</span><span class="lbl">kcal odpoczynek</span></div>
+      <div class="profile-stat"><span class="val">100–130g</span><span class="lbl">Białko / dzień</span></div>
+      <div class="profile-stat"><span class="val">–300</span><span class="lbl">Deficyt kcal</span></div>
+      <div class="profile-stat"><span class="val">Wt / B</span><span class="lbl">Rotacja wersji</span></div>
+    </div>
+
+    <!-- Day selector -->
+    <div class="tabs" style="margin-bottom:16px;">
+      <button class="tab-btn active" onclick="showDiet('d-pon')" id="dbtn-pon">Pon 🏋️</button>
+      <button class="tab-btn" onclick="showDiet('d-wt')" id="dbtn-wt">Wt</button>
+      <button class="tab-btn" onclick="showDiet('d-sr')" id="dbtn-sr">Śr 🏋️</button>
+      <button class="tab-btn" onclick="showDiet('d-czw')" id="dbtn-czw">Czw</button>
+      <button class="tab-btn" onclick="showDiet('d-pt')" id="dbtn-pt">Pt</button>
+      <button class="tab-btn" onclick="showDiet('d-sob')" id="dbtn-sob">Sob 🏋️</button>
+      <button class="tab-btn" onclick="showDiet('d-nd')" id="dbtn-nd">Nd</button>
+    </div>
+
+    <!-- ---- PONIEDZIAŁEK ---- -->
+    <div id="d-pon" class="diet-day">
+      <div class="info-row">
+        <span class="info-badge"><span class="dot"></span>TRENING</span>
+        <span class="info-badge"><span class="dot"></span>Cel: ~1750 kcal</span>
+        <span class="info-badge"><span class="dot"></span>Białko: ~129g</span>
+      </div>
+      <div class="exercise-table"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka na zimno: 50g płatki błyskawiczne + mleko owsiane 200ml + WPC 10g + siemię lniane 10g + skyr malinowy Pilos 150g + maliny/borówki 50g</td><td class="weight-cell">530</td><td>34g</td></tr>
+            <tr><td><strong>🍎 II śniadanie</strong></td><td>Jabłko 150g + orzechy 15g</td><td class="weight-cell">165</td><td>4g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Kurczak 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżka</td><td class="weight-cell">425</td><td>42g</td></tr>
+            <tr><td><strong>⚡ Pre-workout</strong></td><td>Banan 100g + orzechy 15g</td><td class="weight-cell">180</td><td>4g</td></tr>
+            <tr><td><strong>💪 Post-workout</strong></td><td>Zott Drink Protein</td><td class="weight-cell">168</td><td>25g</td></tr>
+            <tr><td><strong>🌙 Kolacja</strong></td><td>Sardynki Ramirez w kremie pomidorowym 100g <em>lub</em> Szproty GRAAL 160g + grahamka 35g + warzywa 150g</td><td class="weight-cell">~270–330</td><td>21–26g</td></tr>
+            <tr><td><strong>☕ Inne</strong></td><td>2x cappuccino</td><td class="weight-cell">80</td><td>2g</td></tr>
+            <tr style="background:rgba(232,86,106,0.06)"><td colspan="2"><strong>SUMA (sardynki / szproty)</strong></td><td class="weight-cell">~1728 / ~1788</td><td><strong>~127 / ~132g</strong></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- ---- WTOREK ---- -->
+    <div id="d-wt" class="diet-day" style="display:none;">
+      <div class="info-row">
+        <span class="info-badge"><span class="dot"></span>ODPOCZYNEK</span>
+        <span class="info-badge"><span class="dot"></span>Cel: ~1600 kcal</span>
+        <span class="info-badge"><span class="dot"></span>Białko: ~127g</span>
+      </div>
+      <div class="exercise-table"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka pieczona: 1 marchewka + 0,5 jabłka + 30g płatki owsiane + 15g orkiszowe + 15g otręby owsiane + 180ml mleko owsiane + wiórki kokosowe 10g + cynamon + WPC 10g</td><td class="weight-cell">380</td><td>18g</td></tr>
+            <tr><td><strong>🍎 II śniadanie</strong></td><td>Jabłko 150g + orzechy 15g</td><td class="weight-cell">165</td><td>4g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Kurczak 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżka</td><td class="weight-cell">425</td><td>42g</td></tr>
+            <tr><td><strong>🥤 Przekąska</strong></td><td>Zott Drink + banan 100g</td><td class="weight-cell">258</td><td>26g</td></tr>
+            <tr><td><strong>🌙 Kolacja</strong></td><td>Twaróg chudy 150g + skyr malinowy Pilos 150g + grahamka 35g</td><td class="weight-cell">310</td><td>35g</td></tr>
+            <tr><td><strong>☕ Inne</strong></td><td>2x cappuccino</td><td class="weight-cell">80</td><td>2g</td></tr>
+            <tr style="background:rgba(232,86,106,0.06)"><td colspan="2"><strong>SUMA</strong></td><td class="weight-cell">~1618</td><td><strong>~127g</strong></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- ---- ŚRODA ---- -->
+    <div id="d-sr" class="diet-day" style="display:none;">
+      <div class="info-row">
+        <span class="info-badge"><span class="dot"></span>TRENING</span>
+        <span class="info-badge"><span class="dot"></span>Cel: ~1750 kcal</span>
+        <span class="info-badge"><span class="dot"></span>Białko: ~117g</span>
+      </div>
+      <div class="warmup-box" style="margin-bottom:16px;"><strong>Wersja A i B są takie same dla środy.</strong></div>
+      <div class="exercise-table"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka na zimno: 50g płatki błyskawiczne + mleko owsiane 200ml + WPC 10g + siemię lniane 10g + skyr malinowy Pilos 150g + maliny/borówki 50g</td><td class="weight-cell">530</td><td>34g</td></tr>
+            <tr><td><strong>🍎 II śniadanie</strong></td><td>Jabłko 150g</td><td class="weight-cell">75</td><td>0g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Dorsz 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżeczka</td><td class="weight-cell">330</td><td>34g</td></tr>
+            <tr><td><strong>⚡ Pre-workout</strong></td><td>Banan 100g + orzechy 15g</td><td class="weight-cell">180</td><td>4g</td></tr>
+            <tr><td><strong>💪 Post-workout</strong></td><td>Zott Drink Protein</td><td class="weight-cell">168</td><td>25g</td></tr>
+            <tr><td><strong>🌙 Kolacja</strong></td><td>Serek wiejski bez laktozy 200g + ogórek 150g + rzodkiewki 50g + grahamka 35g</td><td class="weight-cell">280</td><td>22g</td></tr>
+            <tr><td><strong>☕ Inne</strong></td><td>2x cappuccino</td><td class="weight-cell">80</td><td>2g</td></tr>
+            <tr style="background:rgba(232,86,106,0.06)"><td colspan="2"><strong>SUMA</strong></td><td class="weight-cell">~1643</td><td><strong>~121g</strong></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- ---- CZWARTEK ---- -->
+    <div id="d-czw" class="diet-day" style="display:none;">
+      <div class="info-row">
+        <span class="info-badge"><span class="dot"></span>ODPOCZYNEK</span>
+        <span class="info-badge"><span class="dot"></span>Cel: ~1600 kcal</span>
+        <span class="info-badge"><span class="dot"></span>Wersja A / B</span>
+      </div>
+      <div class="warmup-box" style="margin-bottom:16px;">Masz dwie wersje czwartku — rotuj lub wybierz wg dostępności składników.</div>
+
+      <p style="font-weight:700;color:var(--rose-dark);margin-bottom:10px;">🅰️ Wersja A (~1583 kcal · ~121g białka)</p>
+      <div class="exercise-table" style="margin-bottom:16px;"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka na zimno: 50g płatki błyskawiczne + mleko owsiane 200ml + WPC 10g + siemię lniane 10g + skyr malinowy Pilos 150g + maliny/borówki 50g</td><td class="weight-cell">530</td><td>34g</td></tr>
+            <tr><td><strong>🍎 II śniadanie</strong></td><td>Jabłko 150g</td><td class="weight-cell">75</td><td>0g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Kurczak 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżka</td><td class="weight-cell">425</td><td>42g</td></tr>
+            <tr><td><strong>🥤 Przekąska</strong></td><td>Zott Drink</td><td class="weight-cell">168</td><td>25g</td></tr>
+            <tr><td><strong>🌙 Kolacja</strong></td><td>Serek wiejski bez laktozy 200g + ogórek 150g + rzodkiewki 50g + grahamka 35g</td><td class="weight-cell">305</td><td>22g</td></tr>
+            <tr><td><strong>☕ Inne</strong></td><td>2x cappuccino</td><td class="weight-cell">80</td><td>2g</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+
+      <p style="font-weight:700;color:var(--rose-dark);margin-bottom:10px;">🅱️ Wersja B (~1463 kcal · ~112g białka)</p>
+      <div class="exercise-table"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka pieczona: 1 marchewka + 0,5 jabłka + 30g płatki owsiane + 15g orkiszowe + 15g otręby owsiane + 180ml mleko owsiane + wiórki kokosowe 10g + cynamon + WPC 10g</td><td class="weight-cell">380</td><td>18g</td></tr>
+            <tr><td><strong>🍎 II śniadanie</strong></td><td>Jabłko 150g</td><td class="weight-cell">75</td><td>0g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Dorsz 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżeczka</td><td class="weight-cell">330</td><td>34g</td></tr>
+            <tr><td><strong>🥤 Przekąska</strong></td><td>Zott Drink</td><td class="weight-cell">168</td><td>25g</td></tr>
+            <tr><td><strong>🌙 Kolacja</strong></td><td>Pancake proteinowy: WPC 20g + 2 jaja + mąka owsiana 40g + jogurt naturalny 100g + owoce 80g</td><td class="weight-cell">430</td><td>33g</td></tr>
+            <tr><td><strong>☕ Inne</strong></td><td>2x cappuccino</td><td class="weight-cell">80</td><td>2g</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- ---- PIĄTEK ---- -->
+    <div id="d-pt" class="diet-day" style="display:none;">
+      <div class="info-row">
+        <span class="info-badge"><span class="dot"></span>ODPOCZYNEK</span>
+        <span class="info-badge"><span class="dot"></span>Cel: ~1600 kcal</span>
+        <span class="info-badge"><span class="dot"></span>Wersja A / B</span>
+      </div>
+
+      <p style="font-weight:700;color:var(--rose-dark);margin-bottom:10px;">🅰️ Wersja A (~1518 kcal · ~107g białka)</p>
+      <div class="exercise-table" style="margin-bottom:16px;"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka pieczona: 1 marchewka + 0,5 jabłka + 30g płatki owsiane + 15g orkiszowe + 15g otręby owsiane + 180ml mleko owsiane + wiórki kokosowe 10g + cynamon + WPC 10g</td><td class="weight-cell">380</td><td>18g</td></tr>
+            <tr><td><strong>🍎 II śniadanie</strong></td><td>Jabłko 150g</td><td class="weight-cell">75</td><td>0g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Kurczak 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżka</td><td class="weight-cell">425</td><td>42g</td></tr>
+            <tr><td><strong>🥤 Przekąska</strong></td><td>Zott Drink</td><td class="weight-cell">168</td><td>25g</td></tr>
+            <tr><td><strong>🌙 Kolacja</strong></td><td>Jajecznica: 2 jaja + mozzarella 30g + grahamka 35g + warzywa 200g + oliwa 1 łyżeczka</td><td class="weight-cell">365</td><td>19g</td></tr>
+            <tr><td><strong>☕ Inne</strong></td><td>2x cappuccino</td><td class="weight-cell">80</td><td>2g</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+
+      <p style="font-weight:700;color:var(--rose-dark);margin-bottom:10px;">🅱️ Wersja B (~1648 kcal · ~101g białka)</p>
+      <div class="exercise-table"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka pieczona: 1 marchewka + 0,5 jabłka + 30g płatki owsiane + 15g orkiszowe + 15g otręby owsiane + 180ml mleko owsiane + wiórki kokosowe 10g + cynamon + WPC 10g</td><td class="weight-cell">380</td><td>18g</td></tr>
+            <tr><td><strong>🍎 II śniadanie</strong></td><td>Jabłko 150g</td><td class="weight-cell">75</td><td>0g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Makaron razowy 70g + pesto bazyliowe 35g + pomidorki 150g + parmezan 20g</td><td class="weight-cell">440</td><td>15g</td></tr>
+            <tr><td><strong>🥤 Przekąska</strong></td><td>Zott Drink + serek wiejski bez laktozy 200g</td><td class="weight-cell">308</td><td>47g</td></tr>
+            <tr><td><strong>🌙 Kolacja</strong></td><td>Jajecznica: 2 jaja + mozzarella 30g + grahamka 35g + warzywa 200g + oliwa 1 łyżeczka</td><td class="weight-cell">365</td><td>19g</td></tr>
+            <tr><td><strong>☕ Inne</strong></td><td>2x cappuccino</td><td class="weight-cell">80</td><td>2g</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- ---- SOBOTA ---- -->
+    <div id="d-sob" class="diet-day" style="display:none;">
+      <div class="info-row">
+        <span class="info-badge"><span class="dot"></span>TRENING</span>
+        <span class="info-badge"><span class="dot"></span>Cel: ~1750 kcal + Aperol 🍹</span>
+        <span class="info-badge"><span class="dot"></span>Białko: ~124g</span>
+      </div>
+      <div class="warmup-box" style="margin-bottom:16px;"><strong>🍹 Aperol Spritz 2x świadomie!</strong> Pre-workout banan zmniejszony do 70g żeby zrobić miejsce.</div>
+      <div class="exercise-table"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka na zimno: 50g płatki błyskawiczne + mleko owsiane 200ml + WPC 10g + siemię lniane 10g + skyr malinowy Pilos 150g + maliny/borówki 50g</td><td class="weight-cell">530</td><td>34g</td></tr>
+            <tr><td><strong>🍚 II śniadanie</strong></td><td>Ryż biały 50g (suchy) + WPC 20g + jogurt naturalny 50g + miód 5g</td><td class="weight-cell">355</td><td>21g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Kurczak 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżka</td><td class="weight-cell">425</td><td>42g</td></tr>
+            <tr><td><strong>⚡ Pre-workout</strong></td><td>Banan 70g (zmniejszony!)</td><td class="weight-cell">65</td><td>1g</td></tr>
+            <tr><td><strong>💪 Post-workout</strong></td><td>Zott Drink Protein</td><td class="weight-cell">168</td><td>25g</td></tr>
+            <tr><td><strong>🌙 Kolacja</strong></td><td>Twaróg chudy 100g + skyr malinowy Pilos 150g + grahamka 35g</td><td class="weight-cell">275</td><td>30g</td></tr>
+            <tr><td><strong>🍹 Wieczór</strong></td><td>Aperol Spritz 2x</td><td class="weight-cell">~260</td><td>0g</td></tr>
+            <tr style="background:rgba(232,86,106,0.06)"><td colspan="2"><strong>SUMA (z Aperolem)</strong></td><td class="weight-cell">~2078</td><td><strong>~153g</strong></td></tr>
+            <tr style="background:rgba(232,86,106,0.06)"><td colspan="2"><strong>SUMA (bez Aperola)</strong></td><td class="weight-cell">~1818</td><td><strong>~153g</strong></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- ---- NIEDZIELA ---- -->
+    <div id="d-nd" class="diet-day" style="display:none;">
+      <div class="info-row">
+        <span class="info-badge"><span class="dot"></span>ODPOCZYNEK</span>
+        <span class="info-badge"><span class="dot"></span>Cel: ~1700 kcal</span>
+        <span class="info-badge"><span class="dot"></span>🎉 Cheat meal</span>
+      </div>
+      <div class="warmup-box" style="margin-bottom:16px;"><strong>🎉 Niedziela = cheat meal!</strong> Zachowaj strukturę dnia, dodatkowe kalorie w cheat mealu. Nie przesadzaj — cel to uczucie przyjemności, nie dyskomfortu.</div>
+      <div class="exercise-table"><div class="table-wrap">
+        <table>
+          <thead><tr><th>Posiłek</th><th>Opis</th><th>kcal</th><th>Białko</th></tr></thead>
+          <tbody>
+            <tr><td><strong>🌅 Śniadanie</strong></td><td>Owsianka pieczona: 1 marchewka + 0,5 jabłka + 30g płatki owsiane + 15g orkiszowe + 15g otręby owsiane + 180ml mleko owsiane + wiórki kokosowe 10g + cynamon + WPC 10g</td><td class="weight-cell">380</td><td>18g</td></tr>
+            <tr><td><strong>🍎 II śniadanie</strong></td><td>Jabłko 150g</td><td class="weight-cell">75</td><td>0g</td></tr>
+            <tr><td><strong>🍽️ Obiad</strong></td><td>Serek wiejski bez laktozy 200g + ogórek 150g + rzodkiewki 50g + grahamka 35g</td><td class="weight-cell">280</td><td>22g</td></tr>
+            <tr><td><strong>🥤 Przekąska</strong></td><td>Zott Drink</td><td class="weight-cell">168</td><td>25g</td></tr>
+            <tr><td><strong>🎉 Kolacja / Cheat meal</strong></td><td>Ulubione jedzenie — bez liczenia! Ciesz się.</td><td class="weight-cell">~700–900</td><td>zmienna</td></tr>
+            <tr><td><strong>☕ Inne</strong></td><td>2x cappuccino</td><td class="weight-cell">80</td><td>2g</td></tr>
+            <tr style="background:rgba(232,86,106,0.06)"><td colspan="2"><strong>SUMA (bez cheat mealu)</strong></td><td class="weight-cell">~983</td><td><strong>~67g+</strong></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- Summary table -->
+    <div class="tips-box" style="margin-top:20px;">
+      <h3>📊 Podsumowanie tygodnia</h3>
+      <div class="table-wrap">
+        <table style="width:100%;font-size:13px;border-collapse:collapse;">
+          <thead><tr style="background:linear-gradient(135deg,var(--rose),var(--rose-dark));color:white;">
+            <th style="padding:10px 14px;text-align:left;font-size:11px;letter-spacing:.8px;text-transform:uppercase;">Dzień</th>
+            <th style="padding:10px 14px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;">Typ</th>
+            <th style="padding:10px 14px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;">Suma kcal</th>
+            <th style="padding:10px 14px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;">Cel</th>
+            <th style="padding:10px 14px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;">Białko</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);background:rgba(232,86,106,0.04)"><td style="padding:10px 14px;font-weight:600">Poniedziałek</td><td style="padding:10px 14px">🏋️ Trening</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1728–1788</td><td style="padding:10px 14px">1750</td><td style="padding:10px 14px">~127–132g ✓</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 14px;font-weight:600">Wtorek</td><td style="padding:10px 14px">😴 Odpoczynek</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1618</td><td style="padding:10px 14px">1600</td><td style="padding:10px 14px">~127g ✓</td></tr>
+            <tr style="border-bottom:1px solid var(--border);background:rgba(232,86,106,0.04)"><td style="padding:10px 14px;font-weight:600">Środa</td><td style="padding:10px 14px">🏋️ Trening</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1643</td><td style="padding:10px 14px">1750</td><td style="padding:10px 14px">~121g ✓</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 14px;font-weight:600">Czwartek A</td><td style="padding:10px 14px">😴 Odpoczynek</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1583</td><td style="padding:10px 14px">1600</td><td style="padding:10px 14px">~121g ✓</td></tr>
+            <tr style="border-bottom:1px solid var(--border);background:rgba(232,86,106,0.04)"><td style="padding:10px 14px;font-weight:600">Czwartek B</td><td style="padding:10px 14px">😴 Odpoczynek</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1463</td><td style="padding:10px 14px">1600</td><td style="padding:10px 14px">~112g ✓</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 14px;font-weight:600">Piątek A</td><td style="padding:10px 14px">😴 Odpoczynek</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1518</td><td style="padding:10px 14px">1600</td><td style="padding:10px 14px">~107g ✓</td></tr>
+            <tr style="border-bottom:1px solid var(--border);background:rgba(232,86,106,0.04)"><td style="padding:10px 14px;font-weight:600">Piątek B</td><td style="padding:10px 14px">😴 Odpoczynek</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1648</td><td style="padding:10px 14px">1600</td><td style="padding:10px 14px">~101g ✓</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 14px;font-weight:600">Sobota</td><td style="padding:10px 14px">🏋️ Trening + 🍹</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1818 (+Aperol)</td><td style="padding:10px 14px">1750+</td><td style="padding:10px 14px">~153g ✓</td></tr>
+            <tr><td style="padding:10px 14px;font-weight:600">Niedziela</td><td style="padding:10px 14px">😴 + 🎉 Cheat</td><td style="padding:10px 14px;font-family:'Playfair Display',serif;font-weight:700;color:var(--rose)">~1700+</td><td style="padding:10px 14px">1700</td><td style="padding:10px 14px">~67g+ ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <h3>💡 Zasady diety</h3>
+      <div class="tips-grid">
+        <div class="tip-item"><span class="tip-icon">🥩</span><strong>Białko priorytet</strong>Cel: 100–130g dziennie. Przy redukcji to fundament utrzymania mięśni. Bez białka → tracisz mięśnie, nie tłuszcz.</div>
+        <div class="tip-item"><span class="tip-icon">📉</span><strong>Deficyt 300 kcal</strong>Mały deficyt = wolno, ale bezpiecznie. Nie głoduj — nie ma efektu i tracisz siłę na treningach.</div>
+        <div class="tip-item"><span class="tip-icon">⚖️</span><strong>Waga ≠ postęp</strong>Kreatyna zatrzymuje wodę (+0.5–1kg). Mierz obwody (talia, biodra) i rób zdjęcia co 2 tygodnie.</div>
+        <div class="tip-item"><span class="tip-icon">🚶</span><strong>NEAT</strong>Spacery 20–30 min dziennie to dodatkowe 100–150 kcal spalenia. Najłatwiejszy boost redukcji.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SUPPS ==================== -->
+  <div id="supps" class="tab-content">
+    <div class="section-header">
+      <div class="section-icon">💊</div>
+      <div class="section-title">
+        <h2>Suplementacja</h2>
+        <p>Sprawdzone suplementy wspierające cel redukcja + budowa pośladków</p>
+      </div>
+    </div>
+
+    <div class="supp-grid">
+      <div class="supp-card">
+        <span class="emoji">🐟</span>
+        <h4>Omega-3</h4>
+        <div class="dose">2–3g EPA+DHA / dzień</div>
+        <p>Redukcja stanów zapalnych, wsparcie stawów, lepsza regeneracja. Bierz do posiłku z tłuszczem.</p>
+      </div>
+      <div class="supp-card">
+        <span class="emoji">☀️</span>
+        <h4>Witamina D3+K2</h4>
+        <div class="dose">2000–4000 IU D3 / dzień</div>
+        <p>Kości, odporność, hormony. K2 MK-7 wspomaga dystrybucję wapnia. Polacy często mają niedobory.</p>
+      </div>
+      <div class="supp-card">
+        <span class="emoji">🔮</span>
+        <h4>Magnez</h4>
+        <div class="dose">300–400mg / wieczorem</div>
+        <p>Forma: glicynian lub jabłczan. Jakość snu, regeneracja mięśni, redukcja skurczów. Nie tlenek!</p>
+      </div>
+      <div class="supp-card">
+        <span class="emoji">⚡</span>
+        <h4>Kreatyna</h4>
+        <div class="dose">3–5g / dzień (stale)</div>
+        <p>Siła, regeneracja, objętość mięśni. Bez "ładowania". Monohydrat = najtańsza, najlepiej zbadana forma.</p>
+      </div>
+      <div class="supp-card">
+        <span class="emoji">🌸</span>
+        <h4>Kolagen</h4>
+        <div class="dose">10–15g / dzień</div>
+        <p>Stawy, ścięgna, skóra. Bierz z wit. C dla lepszej przyswajalności. Typ I+III lub peptydowy hydrolizat.</p>
+      </div>
+      <div class="supp-card">
+        <span class="emoji">🥤</span>
+        <h4>Białko WPC/WPI</h4>
+        <div class="dose">opcjonalnie ~20–30g</div>
+        <p>Uzupełnienie białka jeśli trudno osiągnąć 1.8–2g/kg z jedzenia. Nie konieczne jeśli dieta jest OK.</p>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <h3>🍽️ Dieta i cel</h3>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <span class="tip-icon">🥩</span>
+          <strong>Białko</strong>
+          1.8–2g/kg masy ciała = 110–125g dziennie. To fundament — bez tego nie ma efektów.
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">📉</span>
+          <strong>Deficyt</strong>
+          300–400 kcal poniżej TDEE. Większy deficyt = spalasz mięśnie, mniejszy = za wolno.
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">⚖️</span>
+          <strong>Progres</strong>
+          Waga może nie spadać przy rekompozycji — to normalne! Mierz obwody i rób zdjęcia co 4 tygodnie.
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">💧</span>
+          <strong>Nawodnienie</strong>
+          Min. 2–2.5 litra wody dziennie. 300–500ml przed treningiem. Odwodnienie = -10% siły.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  // TABS
+  function showTab(name) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(name).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // DIET DAYS
+  function showDiet(id) {
+    document.querySelectorAll('.diet-day').forEach(el => el.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+    // update day tab buttons
+    const map = {'d-pon':'dbtn-pon','d-wt':'dbtn-wt','d-sr':'dbtn-sr','d-czw':'dbtn-czw','d-pt':'dbtn-pt','d-sob':'dbtn-sob','d-nd':'dbtn-nd'};
+    Object.values(map).forEach(b => { const el = document.getElementById(b); if(el) el.classList.remove('active'); });
+    const btn = document.getElementById(map[id]);
+    if(btn) btn.classList.add('active');
+  }
+
+  // TIMER
+  let timerInterval = null;
+  let timerSeconds = 180;
+  let totalSeconds = 180;
+  let running = false;
+
+  function updateDisplay() {
+    const m = Math.floor(timerSeconds / 60);
+    const s = timerSeconds % 60;
+    document.getElementById('timerDisplay').textContent =
+      m + ':' + String(s).padStart(2, '0');
+  }
+
+  function setTimer(sec) {
+    resetTimer();
+    timerSeconds = sec;
+    totalSeconds = sec;
+    updateDisplay();
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  function toggleTimer() {
+    if (running) {
+      clearInterval(timerInterval);
+      running = false;
+      document.getElementById('startBtn').textContent = '▶ START';
+    } else {
+      if (timerSeconds === 0) { timerSeconds = totalSeconds; }
+      running = true;
+      document.getElementById('startBtn').textContent = '⏸ PAUSE';
+      timerInterval = setInterval(() => {
+        if (timerSeconds <= 0) {
+          clearInterval(timerInterval);
+          running = false;
+          document.getElementById('startBtn').textContent = '▶ START';
+          document.getElementById('timerDisplay').textContent = 'GOTOWE! 💪';
+          // Beep
+          try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain); gain.connect(ctx.destination);
+            osc.frequency.value = 880; gain.gain.value = 0.3;
+            osc.start(); osc.stop(ctx.currentTime + 0.5);
+          } catch(e) {}
+          return;
+        }
+        timerSeconds--;
+        updateDisplay();
+      }, 1000);
+    }
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    running = false;
+    timerSeconds = totalSeconds;
+    updateDisplay();
+    document.getElementById('startBtn').textContent = '▶ START';
+  }
+
+  updateDisplay();
+</script>
+</body>
+</html>
