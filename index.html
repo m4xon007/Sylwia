@@ -118,6 +118,7 @@
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   @media(max-width:700px){.sched-grid{grid-template-columns:60px 32px 110px repeat(3,1fr);}.two-col{grid-template-columns:1fr;}}
 </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 </head>
 <body>
 <div class="editor-chrome">
@@ -153,7 +154,7 @@
             <tr><th>Parametr</th><th>Wartość</th></tr>
             <tr><td class="muted-text">Imię</td><td>Sylwia</td></tr>
             <tr><td class="muted-text">Wiek</td><td>37 lat</td></tr>
-            <tr><td class="muted-text">Wzrost</td><td>164 cm</td></tr>
+            <tr><td class="muted-text">Wzrost</td><td>165 cm</td></tr>
             <tr><td class="muted-text">Waga</td><td>60–62 kg</td></tr>
             <tr><td class="muted-text">Tkanka tłuszczowa</td><td>~33% <span class="comment">// waga łazienkowa, ±3–5%</span></td></tr>
             <tr><td class="muted-text">Staż</td><td>6+ miesięcy</td></tr>
@@ -336,8 +337,8 @@
                 <div class="plan-ex-cell">3</div><div class="plan-ex-cell">15–20</div>
                 <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
                 <div class="plan-ex-cell">→ SS</div>
-                <div class="plan-ex-cell"><strong>20 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 20 kg 3×20 → przy 3×20 czysto → +2,5 kg</div>
+                <div class="plan-ex-cell"><strong>25 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 20 kg 3×20 ✓ → +5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Prostowanie nóg na maszynie <span class="ss-badge">SS1</span></div>
@@ -384,38 +385,6 @@
                 <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 8 kg 3×12 ✓ → +1 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
-                <div class="plan-ex-name"><strong>Wiosłowanie sztangą / hantlami</strong> <span class="badge badge-blue" style="font-size:9px">główne</span></div>
-                <div class="plan-ex-cell">4</div><div class="plan-ex-cell">8–10</div>
-                <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
-                <div class="plan-ex-cell">120s</div>
-                <div class="plan-ex-cell"><strong>30 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 25 kg 4×10 ✓ → +5 kg</div>
-              </div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
-                <div class="plan-ex-name">Przyciąganie linki z góry (szeroki chwyt)</div>
-                <div class="plan-ex-cell">3</div><div class="plan-ex-cell">10–12</div>
-                <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
-                <div class="plan-ex-cell">90s</div>
-                <div class="plan-ex-cell"><strong>30 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 25 kg 3×12 → +5 kg</div>
-              </div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
-                <div class="plan-ex-name">Przyciąganie linki wyciąg dolny</div>
-                <div class="plan-ex-cell">3</div><div class="plan-ex-cell">10–12</div>
-                <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
-                <div class="plan-ex-cell">90s</div>
-                <div class="plan-ex-cell"><strong>20 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 15 kg 3×12 → +5 kg</div>
-              </div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
-                <div class="plan-ex-name">Ściąganie linki wyciąg górny</div>
-                <div class="plan-ex-cell">3</div><div class="plan-ex-cell">10–12</div>
-                <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
-                <div class="plan-ex-cell">90s</div>
-                <div class="plan-ex-cell"><strong>20 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 15 kg 3×12 → +5 kg</div>
-              </div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Wyciskanie hantli nad głowę (siedząc)</div>
                 <div class="plan-ex-cell">3</div><div class="plan-ex-cell">10–12</div>
                 <div class="plan-ex-cell"><span class="tempo">2-1-1-0</span></div>
@@ -430,6 +399,22 @@
                 <div class="plan-ex-cell">75s</div>
                 <div class="plan-ex-cell"><strong>6 kg</strong></div>
                 <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 5 kg 3×15 ✓ → +1 kg</div>
+              </div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
+                <div class="plan-ex-name"><strong>Wiosłowanie sztangą / hantlami</strong> <span class="badge badge-blue" style="font-size:9px">główne</span></div>
+                <div class="plan-ex-cell">4</div><div class="plan-ex-cell">8–10</div>
+                <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
+                <div class="plan-ex-cell">120s</div>
+                <div class="plan-ex-cell"><strong>30 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 25 kg 4×10 ✓ → +5 kg</div>
+              </div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
+                <div class="plan-ex-name">Przyciąganie linki z góry — nachwytem (szeroki)</div>
+                <div class="plan-ex-cell">3</div><div class="plan-ex-cell">10–12</div>
+                <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
+                <div class="plan-ex-cell">90s</div>
+                <div class="plan-ex-cell"><strong>30 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 25 kg 3×12 → +5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Face pulls</div>
@@ -610,7 +595,7 @@
 
         <div class="section">
           <div class="section-header"><span class="section-icon">▶</span><span class="section-title">Lower 1 — Sob 21.02.2026</span><span class="section-comment"># trening 4 z 8+ (tydzień 1)</span></div>
-          <div class="alert alert-warn"><span class="alert-icon">💡</span><div>Przysiad 6–8 powt. — przerwa <strong>240s!</strong> Chodź aktywnie 60s między seriami. Wydech na górze co 1–2 przysiady.</div></div>
+          <div class="alert alert-green"><span class="alert-icon">🍑</span><div>Hip thrust: <strong>pauza 1s na górze</strong> każdego powt. Chodź 60s aktywnie w przerwach 180s. SS1: odwodzenie → kickbacki bez pauzy. SS2: przywodzenie → odwodzenie bez pauzy.</div></div>
           <div class="alert alert-info" style="margin-bottom:20px"><span class="alert-icon">💡</span><div>Sumo: <strong>1 hantel 22,5 kg</strong> pionowo, obiema rękami. Hip thrust lżejszy = ~55% ciężkiego (jeśli L1 = 50 kg → tu 27–28 kg).</div></div>
           <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px">
             <div class="sg-head">Ćwiczenie</div><div class="sg-head">Ciężar</div><div class="sg-head">Tempo</div><div class="sg-head">Cel</div>
@@ -1292,16 +1277,119 @@ Samopoczucie: __/10 | Uwagi:</div>
         </div>
 
         <div class="section">
-          <div class="section-header"><span class="section-icon">📸</span><span class="section-title">Zdjęcia postępu</span><span class="section-comment"># co 2 tygodnie | zawsze o tej samej porze</span></div>
-          <table>
-            <tr><th>Data</th><th>Zestaw</th><th>Uwagi / zmiany</th></tr>
-            <tr><td class="muted-text">14.02</td><td><span class="badge badge-muted">Start</span></td><td>Zdjęcia startowe — przód, bok, tył</td></tr>
-            <tr><td class="muted-text">28.02</td><td><span class="badge badge-blue">2 tyg.</span></td><td>—</td></tr>
-            <tr><td class="muted-text">14.03</td><td><span class="badge badge-blue">4 tyg.</span></td><td>—</td></tr>
-            <tr><td class="muted-text">28.03</td><td><span class="badge badge-orange">6 tyg.</span></td><td>—</td></tr>
-            <tr><td><strong>01.04 🎯</strong></td><td><span class="badge badge-green">Ewaluacja</span></td><td>Porównanie start vs 7 tygodni</td></tr>
-          </table>
-          <div class="alert alert-warn" style="margin-top:12px"><span class="alert-icon">⚠</span><div>Waga może nie spadać przez kreatynę (+0,5–1 kg retencji wody). <strong>Obwody i zdjęcia to prawdziwy wskaźnik postępu</strong> — waga łazienkowa kłamie!</div></div>
+          <div class="section-header"><span class="section-icon">📈</span><span class="section-title">Waga — wykres 2026</span><span class="section-comment"># dane od 07.01 · ewaluacja 01.04</span></div>
+          <div class="alert alert-info" style="margin-bottom:12px"><span class="alert-icon">💡</span><div>Wahania 1–2 kg dziennie są normalne (woda, glikogen, hormony, sól). Obserwuj <strong>trend tygodniowy</strong>, nie pojedyncze dni. Pionowa linia = punkt ewaluacji diety i treningu (01.04).</div></div>
+          <div style="width:100%;overflow-x:auto;padding-bottom:8px;">
+            <canvas id="weightChart" style="width:100%;min-width:500px;height:260px;display:block;"></canvas>
+          </div>
+          <script>
+          (function() {
+            const labels = ["07.01","08.01","09.01","10.01","11.01","12.01","13.01","14.01","15.01","16.01","17.01","18.01","19.01","20.01","21.01","22.01","23.01","24.01","25.01","01.02","02.02","03.02","04.02","05.02","06.02","07.02","08.02","09.02","15.02","16.02","17.02","18.02","19.02","20.02"];
+            const weights = [62.55,61.7,61.5,61.6,61.85,62.1,61.7,61.75,61.5,61.45,61.2,61.35,62.15,61.75,61.9,61.5,61.7,61.85,62.2,62.5,62.55,62.4,62.55,62.45,62.15,62.2,63.0,63.1,61.65,62.6,61.8,61.5,61.85,61.9];
+            const evalIndex = labels.length; // after last data point = future
+            // Moving average (7-day window)
+            const avg = weights.map((_, i) => {
+              const w = i < 6 ? weights.slice(0, i+1) : weights.slice(i-6, i+1);
+              return +(w.reduce((a,b) => a+b,0) / w.length).toFixed(3);
+            });
+            const min = Math.min(...weights) - 0.3;
+            const max = Math.max(...weights) + 0.3;
+            function waitForChart() {
+              if (typeof Chart === 'undefined') { setTimeout(waitForChart, 200); return; }
+              const ctx = document.getElementById('weightChart').getContext('2d');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels,
+                  datasets: [
+                    {
+                      label: 'Waga (kg)',
+                      data: weights,
+                      borderColor: '#d63f72',
+                      backgroundColor: 'rgba(214,63,114,0.08)',
+                      pointBackgroundColor: '#d63f72',
+                      pointRadius: 4,
+                      pointHoverRadius: 6,
+                      tension: 0.3,
+                      fill: true,
+                      order: 2
+                    },
+                    {
+                      label: 'Średnia krocząca (7 dni)',
+                      data: avg,
+                      borderColor: '#9b59b6',
+                      borderWidth: 2,
+                      borderDash: [6,3],
+                      pointRadius: 0,
+                      tension: 0.4,
+                      fill: false,
+                      order: 1
+                    }
+                  ]
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      labels: { color: '#3d2535', font: { family: 'DM Sans', size: 11 } }
+                    },
+                    tooltip: {
+                      callbacks: {
+                        label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(2) + ' kg'
+                      }
+                    },
+                    annotation: {
+                      annotations: {
+                        evalLine: {
+                          type: 'line',
+                          xMin: '01.04',
+                          xMax: '01.04',
+                          borderColor: '#2eaa6e',
+                          borderWidth: 2,
+                          borderDash: [8,4],
+                          label: {
+                            content: '🎯 Ewaluacja 01.04',
+                            display: true,
+                            position: 'start',
+                            color: '#2eaa6e',
+                            font: { size: 10 }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  scales: {
+                    x: {
+                      ticks: { color: '#9a6a7e', font: { size: 10 }, maxRotation: 45 },
+                      grid: { color: 'rgba(214,63,114,0.07)' }
+                    },
+                    y: {
+                      min, max,
+                      ticks: {
+                        color: '#9a6a7e',
+                        font: { size: 10 },
+                        callback: v => v.toFixed(1) + ' kg'
+                      },
+                      grid: { color: 'rgba(214,63,114,0.07)' }
+                    }
+                  }
+                }
+              });
+            }
+            waitForChart();
+          })();
+          </script>
+          <div class="alert alert-green" style="margin-top:12px"><span class="alert-icon">📊</span><div>
+            <strong>Analiza 07.01 → 20.02 (6 tygodni)</strong><br>
+            <span style="font-size:12px;line-height:1.9">
+            📉 <strong>Średnia styczeń (07–25.01):</strong> ~61,8 kg &nbsp;·&nbsp; <strong>Średnia luty (poza 8–9.02):</strong> ~61,9 kg — wagi zbliżone, co przy intensywnym starcie treningu jest <em>dobrym</em> wynikiem<br>
+            ⚠️ <strong>Skok 8–9.02 (+1,3 kg):</strong> jednorazowy pik — wysokie spożycie soli lub węglowodanów albo retencja przed cyklem. Zniknął już 15.02 — potwierdza to że to była woda, nie tłuszcz<br>
+            🌸 <strong>Tydzień 15–20.02 (start treningu):</strong> zakres 61,5–62,6 kg — normalne wahania po 3 nowych sesjach (mięśnie ładują glikogen i wodę po nowym bodźcu treningowym)<br>
+            ✅ <strong>Wniosek:</strong> trend stabilny z lekką tendencją spadkową. Przy retencji z kreatyny i adaptacji mięśni to dokładnie tyle ile powinnaś widzieć na tym etapie. Prawdziwy efekt diety będzie czytelny od <strong>tygodnia 4–5</strong> (ok. 14–21 marca).
+            </span>
+          </div></div>
+          <div class="alert alert-warn" style="margin-top:8px"><span class="alert-icon">⚠</span><div>Waga może nie spadać przez kreatynę (+0,5–1 kg retencji wody). <strong>Trend 4-tygodniowy jest jedyną miarodajną metryką</strong> — wahania dzienne to woda, nie tłuszcz.</div></div>
         </div>
 
         <div class="section">
