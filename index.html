@@ -64,7 +64,7 @@
   .warn{color:var(--orange);}
   .muted-text{color:var(--text2);}
   .comment{color:#4a6080;font-style:italic;}
-  .sched-grid{display:grid;grid-template-columns:80px 36px 130px repeat(4,1fr);gap:2px;font-size:12px;}
+  .sched-grid{display:grid;grid-template-columns:80px 36px 130px repeat(5,1fr);gap:2px;font-size:12px;}
   .sg-head{background:linear-gradient(135deg,#f5d5e8,#fce8f0);color:var(--accent);padding:8px 10px;font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.1em;border:1px solid var(--border);}
   .sg-cell{padding:9px 8px;background:var(--surface2);display:flex;align-items:center;border:1px solid var(--border);font-size:11px;}
   .sg-cell.l2{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2);color:var(--orange);}
@@ -148,7 +148,7 @@
         <div class="section">
           <div class="section-header">
             <span class="section-icon">👤</span><span class="section-title">Profil</span>
-            <span class="section-comment"># aktualizacja: 21.02.2026</span>
+            <span class="section-comment"># aktualizacja: 20.02.2026</span>
           </div>
           <table>
             <tr><th>Parametr</th><th>Wartość</th></tr>
@@ -217,42 +217,42 @@
             <span class="badge badge-orange">L2 = Lower 2 (Pon)</span>
             <span class="badge badge-blue">U = Upper (Śr)</span>
             <span class="badge badge-green">L1 = Lower 1 (Sob)</span>
-            <span class="badge badge-purple">C = Core+Cardio (Nd)</span>
+            <span class="badge badge-purple">C★ = Core domowy (Pt+Nd)</span>
             <span class="badge badge-muted">✓ = wykonany</span>
           </div>
           <div class="sched-grid">
             <div class="sg-head">Faza</div><div class="sg-head">#</div><div class="sg-head">Pn–Nd</div>
-            <div class="sg-head">Poniedziałek</div><div class="sg-head">Środa</div><div class="sg-head">Sobota</div><div class="sg-head">Niedziela</div>
+            <div class="sg-head">Poniedziałek</div><div class="sg-head">Środa</div><div class="sg-head">Sobota</div><div class="sg-head" style="color:var(--accent2)">Pt Core ★</div><div class="sg-head" style="color:var(--accent2)">Nd Core ★</div>
             <!-- Prolog: sob 14.02 — kickoff -->
-            <div class="sg-row-label" style="color:var(--muted);font-style:italic">Start</div><div class="sg-row-label" style="color:var(--muted);font-style:italic">0</div><div class="sg-cell done muted-text">10–16.02</div>
-            <div class="sg-cell muted-text done">—</div><div class="sg-cell muted-text done">—</div><div class="sg-cell l1 done">✓ L1 (14 Sob)</div><div class="sg-cell nd done">✓ C (15 Nd)</div>
+            <div class="sg-row-label" class="sg-row-label">Start</div><div class="sg-row-label" class="sg-row-label">0</div><div class="sg-cell done muted-text">10–16.02</div>
+            <div class="sg-cell muted-text done">—</div><div class="sg-cell muted-text done">—</div><div class="sg-cell l1 done">✓ L1 (14 Sob)</div><div class="sg-cell muted-text done">—</div><div class="sg-cell muted-text done">—</div>
             <!-- Tydzień 1 -->
-            <div class="sg-row-label current">← teraz</div><div class="sg-row-label current">1</div><div class="sg-cell muted-text">16–22.02</div>
-            <div class="sg-cell l2 done">✓ L2 (16 Pn)</div><div class="sg-cell up done">✓ U (18 Śr)</div><div class="sg-cell l1 done">✓ L1 (21 Sob)</div><div class="sg-cell nd">C (22 Nd)</div>
+            <div class="sg-row-label" class="current">← teraz</div><div class="sg-row-label" class="current">1</div><div class="sg-cell muted-text">16–22.02</div>
+            <div class="sg-cell l2 done">✓ L2 (16 Pn)</div><div class="sg-cell up done">✓ U (18 Śr)</div><div class="sg-cell l1 done">✓ L1 (21 Sob)</div><div class="sg-cell nd done">✓ C★ (20 Pt)</div><div class="sg-cell nd">C★ (22 Nd)</div>
             <!-- Tydzień 2 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">2</div><div class="sg-cell muted-text">23.02–01.03</div>
-            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C (01 Nd)</div>
+            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C★ (27 Pt)</div><div class="sg-cell nd">C★ (01 Nd)</div>
             <!-- Tydzień 3 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">3</div><div class="sg-cell muted-text">02–08.03</div>
-            <div class="sg-cell l2">L2 (02 Pn)</div><div class="sg-cell up">U (04 Śr)</div><div class="sg-cell l1">L1 (07 Sob)</div><div class="sg-cell nd">C (08 Nd)</div>
+            <div class="sg-cell l2">L2 (02 Pn)</div><div class="sg-cell up">U (04 Śr)</div><div class="sg-cell l1">L1 (07 Sob)</div><div class="sg-cell nd">C★ (06 Pt)</div><div class="sg-cell nd">C★ (08 Nd)</div>
             <!-- Tydzień 4 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">4</div><div class="sg-cell muted-text">09–15.03</div>
-            <div class="sg-cell l2">L2 (09 Pn)</div><div class="sg-cell up">U (11 Śr)</div><div class="sg-cell l1">L1 (14 Sob)</div><div class="sg-cell nd">C (15 Nd)</div>
+            <div class="sg-cell l2">L2 (09 Pn)</div><div class="sg-cell up">U (11 Śr)</div><div class="sg-cell l1">L1 (14 Sob)</div><div class="sg-cell nd">C★ (13 Pt)</div><div class="sg-cell nd">C★ (15 Nd)</div>
             <!-- Tydzień 5 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">5</div><div class="sg-cell muted-text">16–22.03</div>
-            <div class="sg-cell l2">L2 (16 Pn)</div><div class="sg-cell up">U (18 Śr)</div><div class="sg-cell l1 done">✓ L1 (21 Sob)</div><div class="sg-cell nd">C (22 Nd)</div>
+            <div class="sg-cell l2">L2 (16 Pn)</div><div class="sg-cell up">U (18 Śr)</div><div class="sg-cell l1">L1 (21 Sob)</div><div class="sg-cell nd">C★ (20 Pt)</div><div class="sg-cell nd">C★ (22 Nd)</div>
             <!-- Tydzień 6 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">6</div><div class="sg-cell muted-text">23–29.03</div>
-            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C (29 Nd)</div>
+            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C★ (27 Pt)</div><div class="sg-cell nd">C★ (29 Nd)</div>
             <!-- Tydzień 7 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">7</div><div class="sg-cell muted-text">30.03–05.04</div>
-            <div class="sg-cell l2">L2 (30 Pn)</div><div class="sg-cell up">U (01 Śr)</div><div class="sg-cell l1">L1 (04 Sob)</div><div class="sg-cell nd">C (05 Nd)</div>
+            <div class="sg-cell l2">L2 (30 Pn)</div><div class="sg-cell up">U (01 Śr)</div><div class="sg-cell l1">L1 (04 Sob)</div><div class="sg-cell nd">C★ (03 Pt)</div><div class="sg-cell nd">C★ (05 Nd)</div>
             <!-- Tydzień 8 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">8</div><div class="sg-cell muted-text">06–12.04</div>
-            <div class="sg-cell l2">L2 (06 Pn)</div><div class="sg-cell up">U (08 Śr)</div><div class="sg-cell l1">L1 (11 Sob)</div><div class="sg-cell nd">C (12 Nd)</div>
+            <div class="sg-cell l2">L2 (06 Pn)</div><div class="sg-cell up">U (08 Śr)</div><div class="sg-cell l1">L1 (11 Sob)</div><div class="sg-cell nd">C★ (10 Pt)</div><div class="sg-cell nd">C★ (12 Nd)</div>
             <!-- Deload -->
             <div class="sg-row-label deload">Deload</div><div class="sg-row-label deload">—</div><div class="sg-cell deload">13–19.04</div>
-            <div class="sg-cell deload">L2 (13 Pn)</div><div class="sg-cell deload">U (15 Śr)</div><div class="sg-cell deload">L1 (18 Sob)</div><div class="sg-cell deload">C (19 Nd)</div>
+            <div class="sg-cell deload">L2 (13 Pn)</div><div class="sg-cell deload">U (15 Śr)</div><div class="sg-cell deload">L1 (18 Sob)</div><div class="sg-cell deload">C★ (17 Pt)</div><div class="sg-cell deload">C★ (19 Nd)</div>
           </div>
         </div>
 
@@ -261,8 +261,8 @@
           <div class="stat-row" style="grid-template-columns:repeat(4,1fr);">
             <div class="stat-card"><div class="stat-val" style="color:var(--orange)">1</div><div class="stat-label">Lower 2</div></div>
             <div class="stat-card"><div class="stat-val" style="color:var(--accent)">1</div><div class="stat-label">Upper</div></div>
-            <div class="stat-card"><div class="stat-val" style="color:var(--green)">1</div><div class="stat-label">Lower 1</div></div>
-            <div class="stat-card"><div class="stat-val" style="color:var(--accent2)">0</div><div class="stat-label">Core &amp; Cardio</div></div>
+            <div class="stat-card"><div class="stat-val" style="color:var(--green)">2</div><div class="stat-label">Lower 1</div></div>
+            <div class="stat-card"><div class="stat-val" style="color:var(--accent2)">1</div><div class="stat-label">Core ★ domowy</div></div>
           </div>
           <div class="alert alert-info"><span class="alert-icon">📌</span><div>Ewaluacja: <strong>1 kwietnia 2026</strong> — sprawdzamy wagę, obwody, zdjęcia, siłę na treningach.</div></div>
         </div>
@@ -465,39 +465,39 @@
                 <div class="plan-ex-cell">4</div><div class="plan-ex-cell">8–10</div>
                 <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
                 <div class="plan-ex-cell">180s</div>
-                <div class="plan-ex-cell"><strong>57,5 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 55 kg 4×10 (RPE 10) → +2,5 kg</div>
+                <div class="plan-ex-cell"><strong>55 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 50 kg 4×10 ✓ → +5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name"><strong>Martwy ciąg rumuński — RDL ze sztangą</strong> <span class="badge badge-green" style="font-size:9px">główne</span></div>
                 <div class="plan-ex-cell">4</div><div class="plan-ex-cell">8–10</div>
                 <div class="plan-ex-cell"><span class="tempo">3-1-2-0</span></div>
                 <div class="plan-ex-cell">180s</div>
-                <div class="plan-ex-cell"><strong>32,5 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 30 kg 4×10 (RPE 10) → +2,5 kg</div>
+                <div class="plan-ex-cell"><strong>30 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 25 kg 4×10 → +5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Wykroki bułgarskie z hantlami</div>
                 <div class="plan-ex-cell">3</div><div class="plan-ex-cell">10–12/n</div>
                 <div class="plan-ex-cell"><span class="tempo">3-1-1-0</span></div>
                 <div class="plan-ex-cell">90s</div>
-                <div class="plan-ex-cell"><strong>10 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 8 kg 3×10 → +2 kg</div>
+                <div class="plan-ex-cell"><strong>8 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 7 kg 3×12 → +1 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Odwodzenie nogi na wyciągu (L+P) <span class="ss-badge">SS1</span></div>
                 <div class="plan-ex-cell">2</div><div class="plan-ex-cell">12–15/n</div>
                 <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
                 <div class="plan-ex-cell">→ SS</div>
-                <div class="plan-ex-cell"><strong>12 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 10 kg 3×15 czysto → +2 kg</div>
+                <div class="plan-ex-cell"><strong>10 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 15 kg → redukcja, przy 2×15 czysto → +2,5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Kickbacki na wyciągu (L+P) <span class="ss-badge">SS1</span></div>
                 <div class="plan-ex-cell">2</div><div class="plan-ex-cell">12–15/n</div>
                 <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
                 <div class="plan-ex-cell">75s</div>
-                <div class="plan-ex-cell"><strong>22,5 kg</strong></div>
+                <div class="plan-ex-cell"><strong>20 kg</strong></div>
                 <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 30 kg → redukcja na technikę, przy 2×15 → +2,5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
@@ -594,18 +594,19 @@
       <div class="code-body">
 
         <div class="section">
-          <div class="section-header"><span class="section-icon">▶</span><span class="section-title">Core+Cardio — Nd 22.02.2026</span><span class="section-comment"># trening 5 z 8+ (tydzień 1)</span></div>
-          <div class="alert alert-green"><span class="alert-icon">💪</span><div>Core + Cardio — aktywna regeneracja po L1. Cel: stabilizacja core + 20–30 min lekkie kardio. Tętno max 130–140.</div></div>
-          <div class="alert alert-info" style="margin-bottom:20px"><span class="alert-icon">💡</span><div>Po wczorajszym L1 (RPE 10/10) mięśnie są maksymalnie zużyte. Priorytet: rozciąganie pośladków + stabilizacja core. Pomiar obwodów dziś rano — już zrobiony ✓</div></div>
+          <div class="section-header"><span class="section-icon">▶</span><span class="section-title">Lower 1 — Sob 21.02.2026</span><span class="section-comment"># trening 4 z 8+ (tydzień 1)</span></div>
+          <div class="alert alert-green"><span class="alert-icon">🍑</span><div>Hip thrust: <strong>pauza 1s na górze</strong> każdego powt. Chodź 60s aktywnie w przerwach 180s. SS1: odwodzenie → kickbacki bez pauzy. SS2: przywodzenie → odwodzenie bez pauzy.</div></div>
+          <div class="alert alert-info" style="margin-bottom:20px"><span class="alert-icon">💡</span><div>Sumo: <strong>1 hantel 22,5 kg</strong> pionowo, obiema rękami. Hip thrust lżejszy = ~55% ciężkiego (jeśli L1 = 50 kg → tu 27–28 kg).</div></div>
           <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px">
-            <div class="sg-head">Ćwiczenie</div><div class="sg-head">Ciężar</div><div class="sg-head">Czas/Powt.</div><div class="sg-head">Cel</div>
+            <div class="sg-head">Ćwiczenie</div><div class="sg-head">Ciężar</div><div class="sg-head">Tempo</div><div class="sg-head">Cel</div>
           </div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--green);font-weight:600">1. Deska (plank)</div><div class="wr-cell" style="text-align:center"><code>BW</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3×45s</span></div><div class="wr-cell">stabilizacja · przerwa 45s</div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="font-weight:600">2. Dead bug</div><div class="wr-cell" style="text-align:center"><code>BW</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3×10</span></div><div class="wr-cell">powoli, kontrola oddechu</div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell">3. Unoszenie nóg w leżeniu</div><div class="wr-cell" style="text-align:center"><code>BW</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3×12</span></div><div class="wr-cell">nie odrywaj dółu pleców</div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell">4. Russian Twist</div><div class="wr-cell" style="text-align:center"><code>5 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3×15</span></div><div class="wr-cell">kontrolowany ruch bioder</div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">5. Kardio lekkie</div><div class="wr-cell" style="text-align:center"><code>—</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">20–30 min</span></div><div class="wr-cell">rower/orbitrek/spacer · tętno max 135</div></div>
-          <div style="margin-top:10px;color:var(--text2)">Rozciąganie pośladków: __/10 &nbsp;|  Uwagi: _______________________</div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--green);font-weight:600">1. Hip thrust ciężki</div><div class="wr-cell" style="text-align:center"><code>55 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">4 × 8–10 | <span class="warn">180s</span></div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="font-weight:600">2. RDL ze sztangą</div><div class="wr-cell" style="text-align:center"><code>30 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3-1-2-0</span></div><div class="wr-cell">4 × 8–10 | <span class="warn">180s</span></div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell">3. Wykroki bułgarskie</div><div class="wr-cell" style="text-align:center"><code>8 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3-1-1-0</span></div><div class="wr-cell">3 × 10–12/nogę | 90s</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">4. Odwodzenie wyciąg <span class="ss-badge">SS1</span></div><div class="wr-cell" style="text-align:center"><code>10 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">2 × 12–15/nogę | → SS</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">5. Kickbacki wyciąg <span class="ss-badge">SS1</span></div><div class="wr-cell" style="text-align:center"><code>20 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">2 × 12–15/nogę | 75s</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">6. Przywodzenie maszyna <span class="ss-badge">SS2</span></div><div class="wr-cell" style="text-align:center"><code>25 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">3 × 15–20 | → SS</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">7. Odwodzenie maszyna <span class="ss-badge">SS2</span></div><div class="wr-cell" style="text-align:center"><code>60 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">3 × 15–20 | 60s</div></div>
         </div>
 
         <div class="section">
@@ -686,6 +687,9 @@ Do aktualizacji:
 4. Suwnica (leg curl):       __ kg × __-__-__
 5. Hip thrust lżejszy SS1:   __ kg × __-__-__
 6. Leg extension SS1:        __ kg × __-__-__
+7. Unoszenie nóg/Dead Bug:   BW × __-__-__
+8. Russian Twist:            __ kg × __-__-__
+
 Pompka quad: __/10 | Pompka pośladki: __/10 | Uwagi:</div>
         </div>
 
@@ -718,6 +722,9 @@ Pompka quad: __/10 | Pompka pośladki: __/10 | Uwagi:</div>
 7. Face pulls:                   __ kg × __-__-__
 8. Uginanie biceps SS1:          __ kg × __-__-__
 9. Prostowanie triceps SS1:      __ kg × __-__-__
+10. Deska SS2:                   BW × __s-__s-__s
+11. Crunch z talerzem SS2:       __ kg × __-__-__
+
 Pompka klatka: __/10 | Pompka plecy: __/10 | Uwagi:</div>
         </div>
 
@@ -747,6 +754,10 @@ Pompka klatka: __/10 | Pompka plecy: __/10 | Uwagi:</div>
 5. Kickbacki wyciąg SS1:         __ kg × __-__ (L/P)
 6. Przywodzenie maszyna SS2:     __ kg × __-__-__
 7. Odwodzenie maszyna SS2:       __ kg × __-__-__
+8. Unoszenie nóg / Dead Bug:     BW × __-__-__
+9. Brzuszki z talerzem:          __ kg × __-__-__
+10. Russian Twist:               __ kg × __-__-__
+
 Pompka pośladki: __/10 | Pompka tyłuda: __/10 | Uwagi:</div>
         </div>
 
@@ -754,7 +765,6 @@ Pompka pośladki: __/10 | Pompka tyłuda: __/10 | Uwagi:</div>
           <div class="section-header"><span class="section-icon">📜</span><span class="section-title">Historia treningów</span></div>
           <table>
             <tr><th>Data</th><th>Trening</th><th>Pompka</th><th>Uwagi</th></tr>
-            <tr style="background:rgba(46,170,110,.05)"><td><strong>21.02 Sob</strong></td><td><span class="badge badge-green">Lower 1</span></td><td><span class="badge badge-green">💯 10/10</span></td><td class="muted-text">825 kcal · 1:34h · tętno 145 · hip thrust 55 kg</td></tr>
             <tr><td class="muted-text">18.02 Śr</td><td><span class="badge badge-blue">Upper</span></td><td><span class="badge badge-green">9/10</span></td><td class="muted-text">666 kcal · 1:35h · tętno 127 · ławka 20 kg</td></tr>
             <tr><td class="muted-text">17.02 Pn</td><td><span class="badge badge-orange">Lower 2</span></td><td><span class="badge badge-orange">8/10</span></td><td class="muted-text">738 kcal · 84 min · tętno 145 · przysiad 35 kg</td></tr>
             <tr><td class="muted-text">14.02 Sob</td><td><span class="badge badge-green">Lower 1</span></td><td class="muted-text">—</td><td class="muted-text">804 kcal · 97 min · tętno 141 · hip thrust 50 kg</td></tr>
@@ -831,31 +841,6 @@ Pompka pośladki: __/10 | Pompka tyłuda: __/10 | Uwagi:</div>
     <div class="code-view">
       <div class="line-nums" id="ln-poprzedni"></div>
       <div class="code-body">
-
-        <!-- ── Lower 1 21.02 ── -->
-        <div class="section">
-          <div class="section-header">
-            <span class="section-icon">🍑</span>
-            <span class="section-title">Lower 1 — Sob 21.02.2026</span>
-            <span class="section-comment"># trening 4 · tydzień 1</span>
-          </div>
-          <div class="alert alert-green" style="margin-bottom:14px"><span class="alert-icon">🌸</span><div><span style="font-size:15px;letter-spacing:1px;color:#d63f72">★★★★★★★★★★</span> <strong>10/10</strong> &nbsp;·&nbsp; Pomp. pośladki 10/10 · 1:34 h · 825 kcal · tętno śr 145<br><span style="font-size:11px;color:var(--text2)">Absolutne maksimum — RPE 10/10 na każdym głównym. Hip thrust 55 kg × 4×10. Sen 8/10, energia i motywacja 10/10. Odwodzenie maszyna — 2/3 serii (brak czasu). Core → niedziela ✓</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px">
-            <div class="sg-head">Ćwiczenie</div><div class="sg-head">Ciężar</div><div class="sg-head">Serie × Powt.</div><div class="sg-head">Ocena</div><div class="sg-head">Progresja → plan</div>
-          </div>
-          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--green);font-weight:600">1. Hip thrust ciężki</div><div class="wr-cell" style="text-align:center"><code>55 kg</code></div><div class="wr-cell">4×10</div><div class="wr-cell"><span class="badge badge-green">RPE 10/10</span></div><div class="wr-cell wr-prog"><strong>→ 57,5 kg</strong> <span class="muted-text">(+2,5)</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="font-weight:600">2. RDL ze sztangą</div><div class="wr-cell" style="text-align:center"><code>30 kg</code></div><div class="wr-cell">4×10</div><div class="wr-cell"><span class="badge badge-green">RPE 10/10</span></div><div class="wr-cell wr-prog"><strong>→ 32,5 kg</strong> <span class="muted-text">(+2,5)</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell">3. Wykroki bułgarskie</div><div class="wr-cell" style="text-align:center"><code>8 kg</code></div><div class="wr-cell">3×10 L/P</div><div class="wr-cell muted-text">stabilnie</div><div class="wr-cell wr-prog"><strong>→ 10 kg</strong> <span class="muted-text">(+2)</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">4. Odwodzenie wyciąg SS1</div><div class="wr-cell" style="text-align:center"><code>10 kg</code></div><div class="wr-cell">3×15 L/P</div><div class="wr-cell muted-text">czysto</div><div class="wr-cell wr-prog"><strong>→ 12 kg</strong> <span class="muted-text">(+2)</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">5. Kickbacki wyciąg SS1</div><div class="wr-cell" style="text-align:center"><code>20 kg</code></div><div class="wr-cell">3×15 L/P</div><div class="wr-cell muted-text">czysto</div><div class="wr-cell wr-prog"><strong>→ 22,5 kg</strong> <span class="muted-text">(+2,5)</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent3)">6. Przywodzenie maszyna SS2</div><div class="wr-cell" style="text-align:center"><code>25 kg</code></div><div class="wr-cell">20-20-15</div><div class="wr-cell"><span class="badge badge-orange">drop s.3</span></div><div class="wr-cell wr-prog"><strong>→ 25 kg</strong> <span class="muted-text">(powtórz)</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent3)">7. Odwodzenie maszyna SS2</div><div class="wr-cell" style="text-align:center"><code>60 kg</code></div><div class="wr-cell">10-10 (2/3)</div><div class="wr-cell"><span class="badge badge-orange">brak czasu</span></div><div class="wr-cell wr-prog"><strong>→ 60 kg</strong> <span class="muted-text">(dokończ)</span></div></div>
-          <div style="margin-top:8px;border-top:1px solid var(--border);padding-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px">
-            <div><span style="font-size:10px;color:var(--muted);text-transform:uppercase">Sen</span><br>jakość 8/10 · 7 godz.</div>
-            <div><span style="font-size:10px;color:var(--muted);text-transform:uppercase">RPE główne</span><br>Hip thrust 10/10 · RDL 10/10</div>
-            <div><span style="font-size:10px;color:var(--muted);text-transform:uppercase">Subiektywnie</span><br>energia 10/10 · motywacja 10/10</div>
-          </div>
-        </div>
 
         <!-- ── Upper 18.02 ── -->
         <div class="section">
@@ -1249,49 +1234,79 @@ Samopoczucie: __/10 | Uwagi:</div>
           <table>
             <tr>
               <th>Data</th><th>Waga (kg)</th><th>Talia (cm)</th><th>Biodra (cm)</th>
-              <th>Udo L (cm)</th><th>Łydka (cm)</th><th>Klatka (cm)</th><th>Biceps (cm)</th><th>Uwagi</th>
-            </tr>
-            <tr style="background:rgba(155,89,182,.06)">
-              <td class="muted-text">13.09.2025</td>
-              <td class="muted-text">—</td>
-              <td>83</td><td>92</td><td>56</td><td>36</td><td>91</td><td>29</td>
-              <td class="muted-text"><span class="badge badge-muted">Pomiar bazowy</span></td>
+              <th>Udo L (cm)</th><th>BF% (waga)</th><th>Uwagi</th>
             </tr>
             <tr>
-              <td class="muted-text">11.10.2025</td>
-              <td class="muted-text">—</td>
-              <td><span class="warn">85</span></td><td>92</td><td>56</td><td>36</td><td>90</td><td>29</td>
-              <td class="muted-text">Pik talii — retencja</td>
+              <td class="muted-text">14.02 (start)</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td class="muted-text">~33%</td>
+              <td class="muted-text">Start cyklu</td>
             </tr>
-            <tr style="background:rgba(46,170,110,.07)">
-              <td><strong>21.02.2026</strong></td>
-              <td class="muted-text">—</td>
-              <td><strong class="highlight">77</strong></td><td><strong>93</strong></td><td>56</td><td>36</td><td><strong class="highlight">86</strong></td><td>28</td>
-              <td><span class="badge badge-green">Aktualny ✓</span></td>
+            <tr>
+              <td class="muted-text">22.02</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
             </tr>
             <tr>
               <td class="muted-text">01.03</td>
-              <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
             </tr>
             <tr>
               <td class="muted-text">08.03</td>
-              <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
             </tr>
             <tr>
               <td class="muted-text">15.03</td>
-              <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
             </tr>
             <tr>
               <td class="muted-text">22.03</td>
-              <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
             </tr>
             <tr>
               <td class="muted-text">29.03</td>
-              <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
             </tr>
             <tr style="background:rgba(214,63,114,.05)">
               <td><strong>01.04 🎯 ewaluacja</strong></td>
-              <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
             </tr>
           </table>
         </div>
@@ -1306,26 +1321,102 @@ Samopoczucie: __/10 | Uwagi:</div>
           (function() {
             const labels = ["07.01","08.01","09.01","10.01","11.01","12.01","13.01","14.01","15.01","16.01","17.01","18.01","19.01","20.01","21.01","22.01","23.01","24.01","25.01","01.02","02.02","03.02","04.02","05.02","06.02","07.02","08.02","09.02","15.02","16.02","17.02","18.02","19.02","20.02"];
             const weights = [62.55,61.7,61.5,61.6,61.85,62.1,61.7,61.75,61.5,61.45,61.2,61.35,62.15,61.75,61.9,61.5,61.7,61.85,62.2,62.5,62.55,62.4,62.55,62.45,62.15,62.2,63.0,63.1,61.65,62.6,61.8,61.5,61.85,61.9];
-            const cycleDays = [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,28,1,2,3,4,5,6,7,8,14,15,16,17,18,19];
-            const phaseColors = labels.map((_,i)=>{const d=cycleDays[i];return d>=22?'rgba(224,85,85,0.85)':d<=7?'rgba(214,63,114,0.85)':d<=14?'rgba(155,89,182,0.85)':'rgba(224,123,57,0.85)';});
-            const avg = weights.map((_,i)=>{const w=i<6?weights.slice(0,i+1):weights.slice(i-6,i+1);return +(w.reduce((a,b)=>a+b,0)/w.length).toFixed(3);});
-            const mn=Math.min(...weights)-0.3,mx=Math.max(...weights)+0.3;
-            function waitForChart(){
-              if(typeof Chart==='undefined'){setTimeout(waitForChart,200);return;}
-              const ctx=document.getElementById('weightChart').getContext('2d');
-              new Chart(ctx,{type:'line',data:{labels,datasets:[
-                {label:'Waga (kg)',data:weights,borderColor:'#d63f72',backgroundColor:'rgba(214,63,114,0.08)',pointBackgroundColor:phaseColors,pointBorderColor:phaseColors,pointRadius:5,pointHoverRadius:7,tension:0.3,fill:true,order:2},
-                {label:'Średnia krocząca (7 dni)',data:avg,borderColor:'#9b59b6',borderWidth:2,borderDash:[6,3],pointRadius:0,tension:0.4,fill:false,order:1}
-              ]},options:{responsive:true,maintainAspectRatio:false,
-                plugins:{legend:{labels:{color:'#3d2535',font:{family:'DM Sans',size:11}}},tooltip:{callbacks:{label:c=>{if(c.datasetIndex===0){const d=cycleDays[c.dataIndex];let p=d>=22?'przerwa':d<=7?'folik. wczesna':d<=14?'folik. późna':'lutealna';return `Waga: ${c.parsed.y.toFixed(2)} kg | D${d} (${p})`;}return 'Śr: '+c.parsed.y.toFixed(2)+' kg';}}},
-                scales:{x:{ticks:{color:'#9a6a7e',font:{size:10},maxRotation:45},grid:{color:'rgba(214,63,114,0.07)'}},y:{min:mn,max:mx,ticks:{color:'#9a6a7e',font:{size:10},callback:v=>v.toFixed(1)+' kg'},grid:{color:'rgba(214,63,114,0.07)'}}}
-              }});
+            const evalIndex = labels.length; // after last data point = future
+            // Moving average (7-day window)
+            const avg = weights.map((_, i) => {
+              const w = i < 6 ? weights.slice(0, i+1) : weights.slice(i-6, i+1);
+              return +(w.reduce((a,b) => a+b,0) / w.length).toFixed(3);
+            });
+            const min = Math.min(...weights) - 0.3;
+            const max = Math.max(...weights) + 0.3;
+            function waitForChart() {
+              if (typeof Chart === 'undefined') { setTimeout(waitForChart, 200); return; }
+              const ctx = document.getElementById('weightChart').getContext('2d');
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels,
+                  datasets: [
+                    {
+                      label: 'Waga (kg)',
+                      data: weights,
+                      borderColor: '#d63f72',
+                      backgroundColor: 'rgba(214,63,114,0.08)',
+                      pointBackgroundColor: '#d63f72',
+                      pointRadius: 4,
+                      pointHoverRadius: 6,
+                      tension: 0.3,
+                      fill: true,
+                      order: 2
+                    },
+                    {
+                      label: 'Średnia krocząca (7 dni)',
+                      data: avg,
+                      borderColor: '#9b59b6',
+                      borderWidth: 2,
+                      borderDash: [6,3],
+                      pointRadius: 0,
+                      tension: 0.4,
+                      fill: false,
+                      order: 1
+                    }
+                  ]
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      labels: { color: '#3d2535', font: { family: 'DM Sans', size: 11 } }
+                    },
+                    tooltip: {
+                      callbacks: {
+                        label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(2) + ' kg'
+                      }
+                    },
+                    annotation: {
+                      annotations: {
+                        evalLine: {
+                          type: 'line',
+                          xMin: '01.04',
+                          xMax: '01.04',
+                          borderColor: '#2eaa6e',
+                          borderWidth: 2,
+                          borderDash: [8,4],
+                          label: {
+                            content: '🎯 Ewaluacja 01.04',
+                            display: true,
+                            position: 'start',
+                            color: '#2eaa6e',
+                            font: { size: 10 }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  scales: {
+                    x: {
+                      ticks: { color: '#9a6a7e', font: { size: 10 }, maxRotation: 45 },
+                      grid: { color: 'rgba(214,63,114,0.07)' }
+                    },
+                    y: {
+                      min, max,
+                      ticks: {
+                        color: '#9a6a7e',
+                        font: { size: 10 },
+                        callback: v => v.toFixed(1) + ' kg'
+                      },
+                      grid: { color: 'rgba(214,63,114,0.07)' }
+                    }
+                  }
+                }
+              });
             }
             waitForChart();
           })();
           </script>
           <div class="alert alert-green" style="margin-top:12px"><span class="alert-icon">📊</span><div>
-            <strong>Analiza 07.01 → 20.02 · z uwzględnieniem cyklu (piguła 21-dniowa · D1 = 2.02)</strong><br>
+            <strong>Analiza 07.01 → 20.02 (6 tygodni)</strong><br>
             <span style="font-size:12px;line-height:1.9">
             📉 <strong>Średnia styczeń (07–25.01):</strong> ~61,8 kg &nbsp;·&nbsp; <strong>Średnia luty (poza 8–9.02):</strong> ~61,9 kg — wagi zbliżone, co przy intensywnym starcie treningu jest <em>dobrym</em> wynikiem<br>
             ⚠️ <strong>Skok 8–9.02 (+1,3 kg):</strong> jednorazowy pik — wysokie spożycie soli lub węglowodanów albo retencja przed cyklem. Zniknął już 15.02 — potwierdza to że to była woda, nie tłuszcz<br>
@@ -1337,24 +1428,12 @@ Samopoczucie: __/10 | Uwagi:</div>
         </div>
 
         <div class="section">
-          <div class="section-header"><span class="section-icon">📈</span><span class="section-title">Analiza zmian — IX.2025 → II.2026</span><span class="section-comment"># 5 miesięcy</span></div>
-          <div class="alert alert-green"><span class="alert-icon">🎯</span><div><strong>Talia: 83 → 77 cm = −6 cm</strong> w 5 mies. · tempo ~1,2 cm/mies. (norma 0,5–1) → powyżej normy ✓</div></div>
-          <div class="alert alert-info"><span class="alert-icon">🍑</span><div><strong>Biodra: 92 → 93 cm = +1 cm</strong> · pośladki rosną (ULL!) · WHR: 0,90 → 0,83</div></div>
-          <div class="alert alert-info"><span class="alert-icon">📊</span><div><strong>Klatka: 91 → 86 cm = −5 cm</strong> · potwierdza redukcję tłuszczu górnej partii</div></div>
-          <div style="width:100%;overflow-x:auto;margin-top:12px;"><canvas id="circumChart" style="width:100%;min-width:400px;height:200px;display:block;"></canvas></div>
-          <script>(function(){function w(){if(typeof Chart==='undefined'){setTimeout(w,200);return;}new Chart(document.getElementById('circumChart').getContext('2d'),{type:'bar',data:{labels:['Talia','Biodra','Udo L','Łydka','Klatka','Biceps'],datasets:[{label:'IX.2025',data:[83,92,56,36,91,29],backgroundColor:'rgba(155,89,182,0.3)',borderColor:'rgba(155,89,182,0.8)',borderWidth:2},{label:'II.2026',data:[77,93,56,36,86,28],backgroundColor:'rgba(214,63,114,0.3)',borderColor:'rgba(214,63,114,0.8)',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#3d2535',font:{family:'DM Sans',size:11}}}},scales:{x:{ticks:{color:'#9a6a7e'},grid:{color:'rgba(214,63,114,0.07)'}},y:{min:20,ticks:{color:'#9a6a7e',callback:v=>v+' cm'},grid:{color:'rgba(214,63,114,0.07)'}}}}});}w();})();</script>
-        </div>
-
-        <div class="section">
           <div class="section-header"><span class="section-icon">💡</span><span class="section-title">Jak mierzyć obwody</span></div>
           <table>
             <tr><th>Miejsce</th><th>Gdzie dokładnie</th><th>Tip</th></tr>
             <tr><td><strong>Talia</strong></td><td>Najwęższe miejsce tułowia (zwykle 2–3 cm powyżej pępka)</td><td class="muted-text">Lekki wydech, nie wciągaj brzucha</td></tr>
             <tr><td><strong>Biodra</strong></td><td>Najszersze miejsce bioder/pośladków</td><td class="muted-text">Stopy razem, miarka poziomo</td></tr>
             <tr><td><strong>Udo</strong></td><td>Połowa odległości między kolanem a biodrem (lewe)</td><td class="muted-text">Zawsze to samo miejsce</td></tr>
-            <tr><td><strong>Łydka</strong></td><td>Najszersza część łydki (lewa)</td><td class="muted-text">Stój na płasko</td></tr>
-            <tr><td><strong>Klatka</strong></td><td>Na wysokości brodawek, poziomo</td><td class="muted-text">Normalny wdech</td></tr>
-            <tr><td><strong>Biceps</strong></td><td>Najszersza część ramienia (prawy), lekko napięty</td><td class="muted-text">Ten sam stopień napięcia</td></tr>
           </table>
         </div>
 
