@@ -64,7 +64,7 @@
   .warn{color:var(--orange);}
   .muted-text{color:var(--text2);}
   .comment{color:#4a6080;font-style:italic;}
-  .sched-grid{display:grid;grid-template-columns:80px 36px 130px repeat(5,1fr);gap:2px;font-size:12px;}
+  .sched-grid{display:grid;grid-template-columns:80px 36px 130px repeat(4,1fr);gap:2px;font-size:12px;}
   .sg-head{background:linear-gradient(135deg,#f5d5e8,#fce8f0);color:var(--accent);padding:8px 10px;font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.1em;border:1px solid var(--border);}
   .sg-cell{padding:9px 8px;background:var(--surface2);display:flex;align-items:center;border:1px solid var(--border);font-size:11px;}
   .sg-cell.l2{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2);color:var(--orange);}
@@ -130,7 +130,6 @@
       <div class="tab" onclick="showTab('plan',this)">🏋️ plan.md</div>
       <div class="tab" onclick="showTab('nastepny',this)">▶ następny.md</div>
       <div class="tab" onclick="showTab('poprzedni',this)">◀ poprzedni.md</div>
-      <div class="tab" onclick="showTab('core',this)">🧘 core&amp;cardio.md</div>
       <div class="tab" onclick="showTab('dieta',this)">🥗 dieta.md</div>
       <div class="tab" onclick="showTab('obwody',this)">📏 obwody.md</div>
       <div class="tab" onclick="showTab('raport',this)">📝 raport.md</div>
@@ -211,48 +210,48 @@
         <div class="section">
           <div class="section-header">
             <span class="section-icon">📅</span><span class="section-title">Harmonogram</span>
-            <span class="section-comment"># tydzień 1 / 8 · trening 4 wykonane · dziś: Sob 21.02.2026</span>
+            <span class="section-comment"># tydzień 1 / 8 · trening 3 wykonane · dziś: Czw 20.02.2026</span>
           </div>
           <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
             <span class="badge badge-orange">L2 = Lower 2 (Pon)</span>
             <span class="badge badge-blue">U = Upper (Śr)</span>
             <span class="badge badge-green">L1 = Lower 1 (Sob)</span>
-            <span class="badge badge-purple">C★ = Core domowy (Pt+Nd)</span>
+            <span class="badge badge-purple">C = Core+Cardio (Nd)</span>
             <span class="badge badge-muted">✓ = wykonany</span>
           </div>
           <div class="sched-grid">
             <div class="sg-head">Faza</div><div class="sg-head">#</div><div class="sg-head">Pn–Nd</div>
-            <div class="sg-head">Poniedziałek</div><div class="sg-head">Środa</div><div class="sg-head">Sobota</div><div class="sg-head" style="color:var(--accent2)">Pt Core ★</div><div class="sg-head" style="color:var(--accent2)">Nd Core ★</div>
+            <div class="sg-head">Poniedziałek</div><div class="sg-head">Środa</div><div class="sg-head">Sobota</div><div class="sg-head">Niedziela</div>
             <!-- Prolog: sob 14.02 — kickoff -->
-            <div class="sg-row-label" class="sg-row-label">Start</div><div class="sg-row-label" class="sg-row-label">0</div><div class="sg-cell done muted-text">10–16.02</div>
-            <div class="sg-cell muted-text done">—</div><div class="sg-cell muted-text done">—</div><div class="sg-cell l1 done">✓ L1 (14 Sob)</div><div class="sg-cell muted-text done">—</div><div class="sg-cell muted-text done">—</div>
+            <div class="sg-row-label" style="color:var(--muted);font-style:italic">Start</div><div class="sg-row-label" style="color:var(--muted);font-style:italic">0</div><div class="sg-cell done muted-text">10–16.02</div>
+            <div class="sg-cell muted-text done">—</div><div class="sg-cell muted-text done">—</div><div class="sg-cell l1 done">✓ L1 (14 Sob)</div><div class="sg-cell nd done">✓ C (15 Nd)</div>
             <!-- Tydzień 1 -->
-            <div class="sg-row-label" class="current">← teraz</div><div class="sg-row-label" class="current">1</div><div class="sg-cell muted-text">16–22.02</div>
-            <div class="sg-cell l2 done">✓ L2 (16 Pn)</div><div class="sg-cell up done">✓ U (18 Śr)</div><div class="sg-cell l1 done">✓ L1 (21 Sob)</div><div class="sg-cell nd done">✓ C★ (20 Pt)</div><div class="sg-cell nd">C★ (22 Nd)</div>
+            <div class="sg-row-label current">← teraz</div><div class="sg-row-label current">1</div><div class="sg-cell muted-text">16–22.02</div>
+            <div class="sg-cell l2 done">✓ L2 (16 Pn)</div><div class="sg-cell up done">✓ U (18 Śr)</div><div class="sg-cell l1">L1 (21 Sob)</div><div class="sg-cell nd">C (22 Nd)</div>
             <!-- Tydzień 2 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">2</div><div class="sg-cell muted-text">23.02–01.03</div>
-            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C★ (27 Pt)</div><div class="sg-cell nd">C★ (01 Nd)</div>
+            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C (01 Nd)</div>
             <!-- Tydzień 3 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">3</div><div class="sg-cell muted-text">02–08.03</div>
-            <div class="sg-cell l2">L2 (02 Pn)</div><div class="sg-cell up">U (04 Śr)</div><div class="sg-cell l1">L1 (07 Sob)</div><div class="sg-cell nd">C★ (06 Pt)</div><div class="sg-cell nd">C★ (08 Nd)</div>
+            <div class="sg-cell l2">L2 (02 Pn)</div><div class="sg-cell up">U (04 Śr)</div><div class="sg-cell l1">L1 (07 Sob)</div><div class="sg-cell nd">C (08 Nd)</div>
             <!-- Tydzień 4 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">4</div><div class="sg-cell muted-text">09–15.03</div>
-            <div class="sg-cell l2">L2 (09 Pn)</div><div class="sg-cell up">U (11 Śr)</div><div class="sg-cell l1">L1 (14 Sob)</div><div class="sg-cell nd">C★ (13 Pt)</div><div class="sg-cell nd">C★ (15 Nd)</div>
+            <div class="sg-cell l2">L2 (09 Pn)</div><div class="sg-cell up">U (11 Śr)</div><div class="sg-cell l1">L1 (14 Sob)</div><div class="sg-cell nd">C (15 Nd)</div>
             <!-- Tydzień 5 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">5</div><div class="sg-cell muted-text">16–22.03</div>
-            <div class="sg-cell l2">L2 (16 Pn)</div><div class="sg-cell up">U (18 Śr)</div><div class="sg-cell l1">L1 (21 Sob)</div><div class="sg-cell nd">C★ (20 Pt)</div><div class="sg-cell nd">C★ (22 Nd)</div>
+            <div class="sg-cell l2">L2 (16 Pn)</div><div class="sg-cell up">U (18 Śr)</div><div class="sg-cell l1">L1 (21 Sob)</div><div class="sg-cell nd">C (22 Nd)</div>
             <!-- Tydzień 6 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">6</div><div class="sg-cell muted-text">23–29.03</div>
-            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C★ (27 Pt)</div><div class="sg-cell nd">C★ (29 Nd)</div>
+            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C (29 Nd)</div>
             <!-- Tydzień 7 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">7</div><div class="sg-cell muted-text">30.03–05.04</div>
-            <div class="sg-cell l2">L2 (30 Pn)</div><div class="sg-cell up">U (01 Śr)</div><div class="sg-cell l1">L1 (04 Sob)</div><div class="sg-cell nd">C★ (03 Pt)</div><div class="sg-cell nd">C★ (05 Nd)</div>
+            <div class="sg-cell l2">L2 (30 Pn)</div><div class="sg-cell up">U (01 Śr)</div><div class="sg-cell l1">L1 (04 Sob)</div><div class="sg-cell nd">C (05 Nd)</div>
             <!-- Tydzień 8 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">8</div><div class="sg-cell muted-text">06–12.04</div>
-            <div class="sg-cell l2">L2 (06 Pn)</div><div class="sg-cell up">U (08 Śr)</div><div class="sg-cell l1">L1 (11 Sob)</div><div class="sg-cell nd">C★ (10 Pt)</div><div class="sg-cell nd">C★ (12 Nd)</div>
+            <div class="sg-cell l2">L2 (06 Pn)</div><div class="sg-cell up">U (08 Śr)</div><div class="sg-cell l1">L1 (11 Sob)</div><div class="sg-cell nd">C (12 Nd)</div>
             <!-- Deload -->
             <div class="sg-row-label deload">Deload</div><div class="sg-row-label deload">—</div><div class="sg-cell deload">13–19.04</div>
-            <div class="sg-cell deload">L2 (13 Pn)</div><div class="sg-cell deload">U (15 Śr)</div><div class="sg-cell deload">L1 (18 Sob)</div><div class="sg-cell deload">C★ (17 Pt)</div><div class="sg-cell deload">C★ (19 Nd)</div>
+            <div class="sg-cell deload">L2 (13 Pn)</div><div class="sg-cell deload">U (15 Śr)</div><div class="sg-cell deload">L1 (18 Sob)</div><div class="sg-cell deload">C (19 Nd)</div>
           </div>
         </div>
 
@@ -261,8 +260,8 @@
           <div class="stat-row" style="grid-template-columns:repeat(4,1fr);">
             <div class="stat-card"><div class="stat-val" style="color:var(--orange)">1</div><div class="stat-label">Lower 2</div></div>
             <div class="stat-card"><div class="stat-val" style="color:var(--accent)">1</div><div class="stat-label">Upper</div></div>
-            <div class="stat-card"><div class="stat-val" style="color:var(--green)">2</div><div class="stat-label">Lower 1</div></div>
-            <div class="stat-card"><div class="stat-val" style="color:var(--accent2)">1</div><div class="stat-label">Core ★ domowy</div></div>
+            <div class="stat-card"><div class="stat-val" style="color:var(--green)">1</div><div class="stat-label">Lower 1</div></div>
+            <div class="stat-card"><div class="stat-val" style="color:var(--accent2)">0</div><div class="stat-label">Core &amp; Cardio</div></div>
           </div>
           <div class="alert alert-info"><span class="alert-icon">📌</span><div>Ewaluacja: <strong>1 kwietnia 2026</strong> — sprawdzamy wagę, obwody, zdjęcia, siłę na treningach.</div></div>
         </div>
