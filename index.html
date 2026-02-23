@@ -125,15 +125,15 @@
   <div class="titlebar">
     <div style="display:flex;align-items:center;gap:8px;"><div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><span style="font-size:16px;line-height:1;">🌸</span><span style="font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.05em;">Sylwia</span></div>
     <div class="tabs">
-      <div class="tab active" onclick="showTab('profil',this)">👤 profil.md</div>
-      <div class="tab" onclick="showTab('harmonogram',this)">📅 harmonogram.md</div>
-      <div class="tab" onclick="showTab('plan',this)">🏋️ plan.md</div>
-      <div class="tab" onclick="showTab('nastepny',this)">▶ następny.md</div>
-      <div class="tab" onclick="showTab('poprzedni',this)">◀ poprzedni.md</div>
-      <div class="tab" onclick="showTab('dieta',this)">🥗 dieta.md</div>
-      <div class="tab" onclick="showTab('obwody',this)">📏 obwody.md</div>
-      <div class="tab" onclick="showTab('raport',this)">📝 raport.md</div>
-      <div class="tab" onclick="showTab('summary',this)">📊 podsumowanie.md</div>
+      <div class="tab active" onclick="showTab('profil',this)">👤 Profil</div>
+      <div class="tab" onclick="showTab('harmonogram',this)">📅 Harmonogram</div>
+      <div class="tab" onclick="showTab('plan',this)">🏋️ Plan</div>
+      <div class="tab" onclick="showTab('nastepny',this)">▶ Następny</div>
+      <div class="tab" onclick="showTab('poprzedni',this)">◀ Poprzedni</div>
+      <div class="tab" onclick="showTab('dieta',this)">🥗 Dieta</div>
+      <div class="tab" onclick="showTab('obwody',this)">📏 Obwody</div>
+      <div class="tab" onclick="showTab('raport',this)">📝 Raport</div>
+      <div class="tab" onclick="showTab('summary',this)">📊 Podsumowanie</div>
     </div>
   </div>
 
@@ -149,7 +149,7 @@
         <div class="section">
           <div class="section-header">
             <span class="section-icon">👤</span><span class="section-title">Profil</span>
-            <span class="section-comment"># aktualizacja: 20.02.2026</span>
+            <span class="section-comment"># aktualizacja: 21.02.2026</span>
           </div>
           <table>
             <tr><th>Parametr</th><th>Wartość</th></tr>
@@ -159,7 +159,7 @@
             <tr><td class="muted-text">Waga</td><td>60–62 kg</td></tr>
             <tr><td class="muted-text">Tkanka tłuszczowa</td><td>~33% <span class="comment">// waga łazienkowa, ±3–5%</span></td></tr>
             <tr><td class="muted-text">Staż</td><td>6+ miesięcy</td></tr>
-            <tr><td class="muted-text">System</td><td>Upper / Lower × 3/tydzień · Core+Cardio 1/tydzień &nbsp;<span class="badge badge-orange">Pon · Śr · Sob</span> <span class="badge badge-purple">Nd</span></td></tr>
+            <tr><td class="muted-text">System</td><td>Upper / Lower × 3/tydzień · Core domowy 2/tydzień &nbsp;<span class="badge badge-orange">Pon · Śr · Sob</span> <span class="badge badge-purple">Pt · Nd</span></td></tr>
             <tr><td class="muted-text">Cykl</td><td>8 tygodni + deload <span class="comment">// do 18.04.2026</span></td></tr>
           </table>
         </div>
@@ -211,48 +211,48 @@
         <div class="section">
           <div class="section-header">
             <span class="section-icon">📅</span><span class="section-title">Harmonogram</span>
-            <span class="section-comment"># tydzień 1 / 8 · trening 3 wykonane · dziś: Czw 20.02.2026</span>
+            <span class="section-comment"># tydzień 1 / 8 · trening 4 wykonane · dziś: Sob 21.02.2026</span>
           </div>
           <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
             <span class="badge badge-orange">L2 = Lower 2 (Pon)</span>
             <span class="badge badge-blue">U = Upper (Śr)</span>
             <span class="badge badge-green">L1 = Lower 1 (Sob)</span>
-            <span class="badge badge-purple">C = Core+Cardio (Nd)</span>
+            <span class="badge badge-purple">C★ = Core domowy (Pt+Nd)</span>
             <span class="badge badge-muted">✓ = wykonany</span>
           </div>
-          <div class="sched-grid">
+          <div class="sched-grid" style="grid-template-columns:80px 36px 130px repeat(5,1fr)!important">
             <div class="sg-head">Faza</div><div class="sg-head">#</div><div class="sg-head">Pn–Nd</div>
-            <div class="sg-head">Poniedziałek</div><div class="sg-head">Środa</div><div class="sg-head">Sobota</div><div class="sg-head">Niedziela</div>
+            <div class="sg-head">Poniedziałek</div><div class="sg-head">Środa</div><div class="sg-head">Sobota</div><div class="sg-head" style="color:var(--accent2);font-size:9px">Pt Core★</div><div class="sg-head" style="color:var(--accent2);font-size:9px">Nd Core★</div>
             <!-- Prolog: sob 14.02 — kickoff -->
             <div class="sg-row-label" style="color:var(--muted);font-style:italic">Start</div><div class="sg-row-label" style="color:var(--muted);font-style:italic">0</div><div class="sg-cell done muted-text">10–16.02</div>
-            <div class="sg-cell muted-text done">—</div><div class="sg-cell muted-text done">—</div><div class="sg-cell l1 done">✓ L1 (14 Sob)</div><div class="sg-cell nd done">✓ C (15 Nd)</div>
+            <div class="sg-cell muted-text done">—</div><div class="sg-cell muted-text done">—</div><div class="sg-cell l1 done">✓ L1 (14 Sob)</div><div class="sg-cell muted-text done">—</div><div class="sg-cell nd done">✓ C★ (15 Nd)</div>
             <!-- Tydzień 1 -->
             <div class="sg-row-label current">← teraz</div><div class="sg-row-label current">1</div><div class="sg-cell muted-text">16–22.02</div>
-            <div class="sg-cell l2 done">✓ L2 (16 Pn)</div><div class="sg-cell up done">✓ U (18 Śr)</div><div class="sg-cell l1">L1 (21 Sob)</div><div class="sg-cell nd">C (22 Nd)</div>
+            <div class="sg-cell l2 done">✓ L2 (16 Pn)</div><div class="sg-cell up done">✓ U (18 Śr)</div><div class="sg-cell l1 done">✓ L1 (21 Sob)</div><div class="sg-cell nd done">✓ C★ (20 Pt)</div><div class="sg-cell nd">C★ (22 Nd)</div>
             <!-- Tydzień 2 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">2</div><div class="sg-cell muted-text">23.02–01.03</div>
-            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C (01 Nd)</div>
+            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C★ (27 Pt)</div><div class="sg-cell nd">C★ (01 Nd)</div>
             <!-- Tydzień 3 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">3</div><div class="sg-cell muted-text">02–08.03</div>
-            <div class="sg-cell l2">L2 (02 Pn)</div><div class="sg-cell up">U (04 Śr)</div><div class="sg-cell l1">L1 (07 Sob)</div><div class="sg-cell nd">C (08 Nd)</div>
+            <div class="sg-cell l2">L2 (02 Pn)</div><div class="sg-cell up">U (04 Śr)</div><div class="sg-cell l1">L1 (07 Sob)</div><div class="sg-cell nd">C★ (06 Pt)</div><div class="sg-cell nd">C★ (08 Nd)</div>
             <!-- Tydzień 4 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">4</div><div class="sg-cell muted-text">09–15.03</div>
-            <div class="sg-cell l2">L2 (09 Pn)</div><div class="sg-cell up">U (11 Śr)</div><div class="sg-cell l1">L1 (14 Sob)</div><div class="sg-cell nd">C (15 Nd)</div>
+            <div class="sg-cell l2">L2 (09 Pn)</div><div class="sg-cell up">U (11 Śr)</div><div class="sg-cell l1">L1 (14 Sob)</div><div class="sg-cell nd">C★ (13 Pt)</div><div class="sg-cell nd">C★ (15 Nd)</div>
             <!-- Tydzień 5 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">5</div><div class="sg-cell muted-text">16–22.03</div>
-            <div class="sg-cell l2">L2 (16 Pn)</div><div class="sg-cell up">U (18 Śr)</div><div class="sg-cell l1">L1 (21 Sob)</div><div class="sg-cell nd">C (22 Nd)</div>
+            <div class="sg-cell l2">L2 (16 Pn)</div><div class="sg-cell up">U (18 Śr)</div><div class="sg-cell l1">L1 (21 Sob)</div><div class="sg-cell nd">C★ (20 Pt)</div><div class="sg-cell nd">C★ (22 Nd)</div>
             <!-- Tydzień 6 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">6</div><div class="sg-cell muted-text">23–29.03</div>
-            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C (29 Nd)</div>
+            <div class="sg-cell l2">L2 (23 Pn)</div><div class="sg-cell up">U (25 Śr)</div><div class="sg-cell l1">L1 (28 Sob)</div><div class="sg-cell nd">C★ (27 Pt)</div><div class="sg-cell nd">C★ (29 Nd)</div>
             <!-- Tydzień 7 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">7</div><div class="sg-cell muted-text">30.03–05.04</div>
-            <div class="sg-cell l2">L2 (30 Pn)</div><div class="sg-cell up">U (01 Śr)</div><div class="sg-cell l1">L1 (04 Sob)</div><div class="sg-cell nd">C (05 Nd)</div>
+            <div class="sg-cell l2">L2 (30 Pn)</div><div class="sg-cell up">U (01 Śr)</div><div class="sg-cell l1">L1 (04 Sob)</div><div class="sg-cell nd">C★ (03 Pt)</div><div class="sg-cell nd">C★ (05 Nd)</div>
             <!-- Tydzień 8 -->
             <div class="sg-row-label">Budowa</div><div class="sg-row-label">8</div><div class="sg-cell muted-text">06–12.04</div>
-            <div class="sg-cell l2">L2 (06 Pn)</div><div class="sg-cell up">U (08 Śr)</div><div class="sg-cell l1">L1 (11 Sob)</div><div class="sg-cell nd">C (12 Nd)</div>
+            <div class="sg-cell l2">L2 (06 Pn)</div><div class="sg-cell up">U (08 Śr)</div><div class="sg-cell l1">L1 (11 Sob)</div><div class="sg-cell nd">C★ (10 Pt)</div><div class="sg-cell nd">C★ (12 Nd)</div>
             <!-- Deload -->
             <div class="sg-row-label deload">Deload</div><div class="sg-row-label deload">—</div><div class="sg-cell deload">13–19.04</div>
-            <div class="sg-cell deload">L2 (13 Pn)</div><div class="sg-cell deload">U (15 Śr)</div><div class="sg-cell deload">L1 (18 Sob)</div><div class="sg-cell deload">C (19 Nd)</div>
+            <div class="sg-cell deload">L2 (13 Pn)</div><div class="sg-cell deload">U (15 Śr)</div><div class="sg-cell deload">L1 (18 Sob)</div><div class="sg-cell deload">C★ (17 Pt)</div><div class="sg-cell deload">C★ (19 Nd)</div>
           </div>
         </div>
 
@@ -261,8 +261,8 @@
           <div class="stat-row" style="grid-template-columns:repeat(4,1fr);">
             <div class="stat-card"><div class="stat-val" style="color:var(--orange)">1</div><div class="stat-label">Lower 2</div></div>
             <div class="stat-card"><div class="stat-val" style="color:var(--accent)">1</div><div class="stat-label">Upper</div></div>
-            <div class="stat-card"><div class="stat-val" style="color:var(--green)">1</div><div class="stat-label">Lower 1</div></div>
-            <div class="stat-card"><div class="stat-val" style="color:var(--accent2)">0</div><div class="stat-label">Core &amp; Cardio</div></div>
+            <div class="stat-card"><div class="stat-val" style="color:var(--green)">2</div><div class="stat-label">Lower 1</div></div>
+            <div class="stat-card"><div class="stat-val" style="color:var(--accent2)">1</div><div class="stat-label">Core★ domowy</div></div>
           </div>
           <div class="alert alert-info"><span class="alert-icon">📌</span><div>Ewaluacja: <strong>1 kwietnia 2026</strong> — sprawdzamy wagę, obwody, zdjęcia, siłę na treningach.</div></div>
         </div>
@@ -464,40 +464,40 @@
                 <div class="plan-ex-cell">4</div><div class="plan-ex-cell">8–10</div>
                 <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
                 <div class="plan-ex-cell">180s</div>
-                <div class="plan-ex-cell"><strong>55 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 50 kg 4×10 ✓ → +5 kg</div>
+                <div class="plan-ex-cell"><strong>57,5 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 55 kg 4×10 RPE 10 → +2,5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name"><strong>Martwy ciąg rumuński — RDL ze sztangą</strong> <span class="badge badge-green" style="font-size:9px">główne</span></div>
                 <div class="plan-ex-cell">4</div><div class="plan-ex-cell">8–10</div>
                 <div class="plan-ex-cell"><span class="tempo">3-1-2-0</span></div>
                 <div class="plan-ex-cell">180s</div>
-                <div class="plan-ex-cell"><strong>30 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 25 kg 4×10 → +5 kg</div>
+                <div class="plan-ex-cell"><strong>32,5 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 30 kg 4×10 RPE 10 → +2,5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Wykroki bułgarskie z hantlami</div>
                 <div class="plan-ex-cell">3</div><div class="plan-ex-cell">10–12/n</div>
                 <div class="plan-ex-cell"><span class="tempo">3-1-1-0</span></div>
                 <div class="plan-ex-cell">90s</div>
-                <div class="plan-ex-cell"><strong>8 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 7 kg 3×12 → +1 kg</div>
+                <div class="plan-ex-cell"><strong>10 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 8 kg 3×10 → +2 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Odwodzenie nogi na wyciągu (L+P) <span class="ss-badge">SS1</span></div>
                 <div class="plan-ex-cell">2</div><div class="plan-ex-cell">12–15/n</div>
                 <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
                 <div class="plan-ex-cell">→ SS</div>
-                <div class="plan-ex-cell"><strong>10 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 15 kg → redukcja, przy 2×15 czysto → +2,5 kg</div>
+                <div class="plan-ex-cell"><strong>12 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 10 kg 3×15 czysto → +2 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Kickbacki na wyciągu (L+P) <span class="ss-badge">SS1</span></div>
                 <div class="plan-ex-cell">2</div><div class="plan-ex-cell">12–15/n</div>
                 <div class="plan-ex-cell"><span class="tempo">2-1-2-0</span></div>
                 <div class="plan-ex-cell">75s</div>
-                <div class="plan-ex-cell"><strong>20 kg</strong></div>
-                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 30 kg → redukcja na technikę, przy 2×15 → +2,5 kg</div>
+                <div class="plan-ex-cell"><strong>22,5 kg</strong></div>
+                <div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">było 20 kg 3×15 czysto → +2,5 kg</div>
               </div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 90px 70px 80px 1fr">
                 <div class="plan-ex-name">Przywodzenie na maszynie <span class="ss-badge">SS2</span></div>
@@ -523,79 +523,78 @@
 
         <!-- CORE & CARDIO -->
                 <div class="section">
-          <div class="section-header"><span class="section-icon">🏠</span><span class="section-title">Core domowy — Piątek &amp; Niedziela</span><span class="section-comment"># 3 etapy · guma 15→25→35 kg + BW + AB wheel · ~25 min</span></div>
-          <div class="alert alert-green"><span class="alert-icon">🎯</span><div><strong>Strategia: guma zamiast kettlebell.</strong> Trzy etapy progresji — każdy odblokowany konkretnym wynikiem, nie datą. Guma 15 kg masz → Sesja A od razu. Guma 25 kg → gdy glute bridge 15 kg × 3×20 za lekka (Sesja B). Guma 35 kg → gdy single-leg bridge 25 kg × 3×10 za lekka (Sesja C). KB rozważasz dopiero po opanowaniu Sesji C.</div></div>
+          <div class="section-header"><span class="section-icon">🏠</span><span class="section-title">Core domowy — Piątek &amp; Niedziela</span><span class="section-comment"># 3 etapy · guma 15→25→35 kg · BW · AB wheel · ~25 min</span></div>
+          <div class="alert alert-green"><span class="alert-icon">🎯</span><div><strong>Strategia: guma zamiast KB.</strong> Sesja A aktywna teraz — BW + guma 15 kg + ab wheel od ściany. B i C odblokowują się po wyrobieniu nawyku 2–3 tyg. Pt+Nd. KB rozważasz dopiero po opanowaniu Sesji C.</div></div>
           <div class="section" style="margin-bottom:16px">
-          <div class="section-header"><span class="section-icon">🔄</span><span class="section-title">Progresja gum — kiedy kupować</span><span class="section-comment"># logika przejść między sesjami</span></div>
+          <div class="section-header"><span class="section-icon">🔄</span><span class="section-title">Progresja gum — kiedy kupować</span></div>
           <table>
-            <tr><th>Guma</th><th>Kiedy wchodzi</th><th>Ćwiczenia</th><th>Kiedy za lekka</th></tr>
-            <tr><td><strong style="color:var(--green)">15 kg</strong><br><span class="badge badge-purple">masz ją</span></td><td>Sesja A — od razu</td><td>Dead Bug (stopy), Glute bridge, Pallof press (start)</td><td>Glute bridge 3×20 bez wysiłku → kup 25 kg</td></tr>
-            <tr><td><strong style="color:var(--accent2)">25 kg</strong><br><span class="badge badge-muted">następna</span></td><td>Sesja B — gdy 15 kg za lekka na glute bridge</td><td>Glute bridge ciężki, Pallof 3s hold, Wykroki, Dead Bug mocniejszy</td><td>Single-leg bridge 3×10 bez wysiłku → kup 35 kg</td></tr>
-            <tr style="opacity:0.6"><td><strong style="color:var(--accent3)">35 kg</strong><br><span class="badge badge-muted">przyszłość</span></td><td>Sesja C — zaawansowana</td><td>Dead Bug 5s, Single-leg bridge, Pallof 3s hold zaawansowany</td><td>Na tym poziomie rozważ KB — guma 35 kg to już granica użyteczności</td></tr>
-          </table>
+<tr><th>Guma</th><th>Kiedy</th><th>Ćwiczenia</th><th>Trigger do kolejnej</th></tr>
+<tr><td><strong style="color:var(--green)">15 kg</strong> <span class="badge badge-purple">masz</span></td><td>Sesja A — teraz</td><td>Dead Bug, Glute bridge, Pallof start</td><td>Glute bridge 3×20 za lekka → kup 25 kg</td></tr>
+<tr><td><strong style="color:var(--accent2)">25 kg</strong></td><td>Sesja B</td><td>Glute bridge ciężki, Pallof 3s, Wykroki</td><td>Single-leg 3×10 → kup 35 kg</td></tr>
+<tr style="opacity:.6"><td><strong style="color:var(--accent3)">35 kg</strong></td><td>Sesja C</td><td>Dead Bug 5s, Single-leg, Pallof adv.</td><td>35 kg opanowana → rozważ KB</td></tr>
+</table>
           </div>
 
           <div class="section" style="margin-bottom:16px">
-          <div class="section-header"><span class="section-icon">📖</span><span class="section-title">Jak wykonać — technika krok po kroku</span><span class="section-comment"># kluczowe ćwiczenia z gumą i ab wheel</span></div>
+          <div class="section-header"><span class="section-icon">📖</span><span class="section-title">Jak wykonać — technika</span></div>
           <table>
-            <tr><th>Ćwiczenie</th><th>Technika</th><th>Typowy błąd</th></tr>
-            <tr><td><strong>Ab wheel od ściany</strong></td><td>Klęcz, koło przed kolanami. Ściana 35 cm od kolan (mierz stopą). Toczysz prosto do przodu aż koło uderzy w ścianę. Powrót 2s kontrolowany. Co sesję +3 cm. Przy 80 cm — przechodzisz bez ściany.</td><td class="muted-text">Lędźwie opadają przy wyjeździe = przeprost = ból pleców następnego dnia</td></tr>
-            <tr><td><strong>Dead Bug (BW i z gumą)</strong></td><td>Leżysz. Ręce w górę, kolana 90°. Opuszczasz jedną nogę + przeciwne ramię do tuż nad matą. Lędźwie CAŁY CZAS przy macie. Z gumą: pętla na stopie daje opór przy wyproście. Powrót powolny.</td><td class="muted-text">Lędźwi unosi się od maty = zegnij nogę lub skróć zakres ruchu</td></tr>
-            <tr><td><strong>Glute bridge z gumą</strong></td><td>Leżysz na plecach, stopy płasko, kolana zgięte. Gumę kładziesz na biodrach (nie udach), trzymasz końce przy macie. Unosisz biodra — 2s pauza na górze, ściskasz pośladki — opuszczasz kontrolowanie.</td><td class="muted-text">Guma ześlizguje się na uda = brak oporu w właściwym miejscu. Guma musi leżeć na kości biodrowej.</td></tr>
-            <tr><td><strong>Pallof press</strong></td><td>Guma na klamce drzwi, wys. pępka. Stajesz bokiem ~60 cm. Trzymasz oburącz przy mostku. Wypychasz prosto — 2s (potem 3s) — wracasz. Core napięty jak przed uderzeniem w brzuch.</td><td class="muted-text">Rotacja tułowia przy wyproście. Biodra muszą być prostopadłe do drzwi przez cały czas.</td></tr>
-            <tr><td><strong>Wykroki z gumą pod stopą</strong></td><td>Guma pod przednią stopą, stoisz na niej. Końce gumy trzymasz w rękach po bokach ciała lub na ramionach. Krok w przód, kolano tylnej nogi prawie dotyka maty. Tułów wyprostowany przez cały czas.</td><td class="muted-text">Pochylanie tułowia do przodu przy wykroku = kompensacja słabości pośladków</td></tr>
-          </table>
+<tr><th>Ćwiczenie</th><th>Technika</th><th>Błąd</th></tr>
+<tr><td><strong>Ab wheel od ściany</strong></td><td>Klęcz, koło przed kolanami. Ściana 35cm (mierz stopą). Toczysz do ściany, powrót 2s. Co sesję +3cm. Przy 80cm: bez ściany.</td><td class="muted-text">Lędźwie opadają = przeprost = ból pleców</td></tr>
+<tr><td><strong>Dead Bug</strong></td><td>Leżysz. Ręce w górę, kolana 90°. Jedna noga + przeciwne ramię do tuż nad matą. Lędźwie CAŁY CZAS przy macie.</td><td class="muted-text">Unoszący lędźwi = zegnij nogę lub skróć zakres</td></tr>
+<tr><td><strong>Glute bridge z gumą</strong></td><td>Leżysz, stopy płasko. Guma NA kości biodrowej. 2s pauza na górze, ściskasz pośladki, powolne opuszczanie.</td><td class="muted-text">Guma na udach = zły opór</td></tr>
+<tr><td><strong>Pallof press</strong></td><td>Guma na klamce wys. pępka. Bokiem 60cm. Oburącz → wypchnij 2–3s → wróć. Core napięty jak przed uderzeniem.</td><td class="muted-text">Rotacja tułowia — biodra prostopadłe do drzwi</td></tr>
+</table>
           </div>
 
           <div class="plan-card" style="margin-top:16px">
             <div class="plan-card-header" style="background:rgba(155,89,182,.06)"><span class="badge badge-purple">SESJA A</span><span style="font-size:11px;color:var(--text2);margin-left:12px">aktywna teraz ✓ · guma 15 kg + BW + AB wheel od ściany</span></div>
             <div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name plan-ex-head" style="font-size:10px;color:var(--text2);padding:6px 12px">Ćwiczenie</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Serie</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Powt./czas</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Przerwa</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Guma</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Progresja</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 1 — Stabilizacja głęboka (fundament)</div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 1 — Stabilizacja głęboka</div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--green)"">Dead Bug <span class="ss-badge">A1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">6/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">3s pauza · +1 powt./sesję → max 10</div></div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Hollow body hold <span class="ss-badge">A1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">20s</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">lędźwie przy macie · +5s/tydz. → 40s</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 2 — Anti-lateral flexion</div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 2 — Anti-lateral flexion</div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Deska boczna <span class="ss-badge">A2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">20s/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">+5s/tydz. → 40s · potem +uniesienie biodra</div></div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Plank przodem <span class="ss-badge">A2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">25s</div><div class="plan-ex-cell">60s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">+5s/tydz. → 45s · potem na uchwyty pompek</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 3 — Ab wheel (nauka) + pierwsze ćw. z gumą</div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent2)"">Ab wheel — do ściany <span class="ss-badge">A3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">5</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">ściana 35 cm · +3 cm/sesję · cel: 80 cm</div></div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent3)"">Glute bridge z gumą <span class="ss-badge">A3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">15</div><div class="plan-ex-cell">60s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">15 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">guma na biodrach · 2s pauza na górze · → 20 powt.</div></div>
-            <div class="plan-note">DEAD BUG: lędźwi unosi się = zegnij nogę lub skróć zakres. Warunek bezwzględny. AB WHEEL DO ŚCIANY: ściana = stop-klatka. Mierzysz odległość stopą przed każdą sesją. GLUTE BRIDGE z gumą 15 kg: guma na biodrach (nie na udach). Pierwsze ćwiczenie z gumą — uczymy się dopiero pozycji.</div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Plank przodem <span class="ss-badge">A2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">25s</div><div class="plan-ex-cell">60s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">+5s/tydz. → 45s</div></div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 3 — Ab wheel od ściany + glute bridge z gumą</div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent2)"">Ab wheel — do ściany <span class="ss-badge">A3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">5</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">35 cm start · +3 cm/sesję · cel: 80 cm</div></div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent3)"">Glute bridge z gumą <span class="ss-badge">A3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">15</div><div class="plan-ex-cell">60s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">15 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">2s pauza na górze · →20 powt.</div></div>
+            <div class="plan-note">Dead Bug: lędźwi unosi się = zegnij nogę/skróć zakres. Ab wheel: ściana=stop-klatka, mierzysz odl. stopą każdą sesję. Glute bridge: guma NA kości biodrowej, nie na udach.</div>
             </div>
           </div>
           <div class="plan-card" style="margin-top:16px;opacity:0.65">
             <div class="plan-card-header" style="background:rgba(155,89,182,.06)"><span class="badge badge-green">SESJA B</span><span style="font-size:11px;color:var(--text2);margin-left:12px">🔒 guma 25 kg · AB wheel od kolan · wykroki z gumą</span></div>
             <div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name plan-ex-head" style="font-size:10px;color:var(--text2);padding:6px 12px">Ćwiczenie</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Serie</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Powt./czas</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Przerwa</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Guma</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Progresja</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 1 — Stabilizacja z oporem gumy</div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--green)"">Dead Bug z gumą <span class="ss-badge">B1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">8/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">15 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">guma na stopach · opór przy wyproście · → 10/str.</div></div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Hollow body rock <span class="ss-badge">B1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">8</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">progresja z hold · +2 powt./tydz. → 12</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 2 — Anti-rotation + siła pośladków</div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Pallof press (guma w drzwiach) <span class="ss-badge">B2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">10/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">15 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">klamka wys. pępka · 2s trzymaj · → 3s · → 25 kg</div></div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent3)"">Glute bridge z gumą — cięższy <span class="ss-badge">B2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">12</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">25 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">2s pauza · kontroluj opuszczanie 2s · → 15 powt.</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 3 — Ab wheel od kolan + wykroki z gumą</div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent2)"">Ab wheel — od kolan <span class="ss-badge">B3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">6–8</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">bez ściany · zatrzymaj 5 cm nad matą · +1 powt./sesję</div></div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Wykroki z gumą (pod stopami) <span class="ss-badge">B3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">10/str.</div><div class="plan-ex-cell">60s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">15 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">guma pod stopą · krok w przód · tułów wyprostowany · → 25 kg</div></div>
-            <div class="plan-note">PALLOF PRESS: guma na klamce drzwi, wys. pępka, bokiem ~60 cm. Biodra prostopadłe do drzwi cały czas — to jest właśnie anti-rotation. GLUTE BRIDGE 25 kg: gdy 15 kg jest za lekka na 3×15. WYKROKI z gumą: guma pod przednią stopą, trzymasz końce. Prosta alternatywa do wykroków z hantlami.</div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 1 — Stabilizacja z oporem gumy</div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--green)"">Dead Bug z gumą <span class="ss-badge">B1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">8/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">15 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">guma na stopach · +1/sesję → 10</div></div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Hollow body rock <span class="ss-badge">B1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">8</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">progresja z hold · +2/tydz.</div></div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 2 — Anti-rotation + siła pośladków</div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Pallof press (guma w drzwiach) <span class="ss-badge">B2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">10/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">15 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">2s trzymaj · →3s · →25 kg</div></div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent3)"">Glute bridge — cięższy <span class="ss-badge">B2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">12</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">25 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">2s pauza · 2s opuszczanie · →15</div></div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 3 — Ab wheel od kolan + wykroki</div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent2)"">Ab wheel — od kolan <span class="ss-badge">B3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">6–8</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">bez ściany · stop 5cm nad matą · +1/sesję</div></div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Wykroki z gumą (pod stopą) <span class="ss-badge">B3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">10/str.</div><div class="plan-ex-cell">60s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">15 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">guma pod przednią stopą · →25 kg</div></div>
+            <div class="plan-note">Pallof: guma na klamce drzwi wys. pępka, bokiem 60cm, biodra prostopadłe. Ab wheel od kolan: plecy proste > zakres. Ból pleców = regresja do A.</div>
             </div>
           </div>
           <div class="plan-card" style="margin-top:16px;opacity:0.45">
-            <div class="plan-card-header" style="background:rgba(155,89,182,.06)"><span class="badge badge-blue">SESJA C</span><span style="font-size:11px;color:var(--text2);margin-left:12px">🔒 guma 35 kg · AB wheel z nóg · Copenhagen · potem KB</span></div>
+            <div class="plan-card-header" style="background:rgba(155,89,182,.06)"><span class="badge badge-blue">SESJA C</span><span style="font-size:11px;color:var(--text2);margin-left:12px">🔒 guma 35 kg · AB wheel z nóg · Copenhagen · archer</span></div>
             <div>
               <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name plan-ex-head" style="font-size:10px;color:var(--text2);padding:6px 12px">Ćwiczenie</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Serie</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Powt./czas</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Przerwa</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Guma</div><div class="plan-ex-cell plan-ex-head" style="font-size:10px">Progresja</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 1 — Ab wheel z nóg + siła anty-wyprostu</div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent2)"">Ab wheel — z nóg <span class="ss-badge">C1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">4–6</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">tylko gdy od kolan 3×8 czysto · +1 powt./tydz.</div></div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--green)"">Dead Bug z gumą — tempo 5s <span class="ss-badge">C1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">8/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">25 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">5s opuszczanie nogi · max kontroli · → 35 kg</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 2 — Siła + anti-rotation zaawansowane</div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Pallof press — 3s hold <span class="ss-badge">C2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">8/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">25 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">3s trzymaj · → dłuższy moment ramienia · → 35 kg</div></div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Copenhagen plank <span class="ss-badge">C2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">15s/str.</div><div class="plan-ex-cell">60s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW + krzesło</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">noga na krześle · najtrudniejsza deska · → 20s</div></div>
-            <div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 3 — Siła pośladków + core zintegrowane</div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent3)"">Single-leg glute bridge z gumą <span class="ss-badge">C3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">10/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">25 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">jedna noga · stabilizacja miednicy · → 35 kg</div></div>
-              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent2)"">Ab wheel — archer rollout <span class="ss-badge">C3</span></div><div class="plan-ex-cell">2</div><div class="plan-ex-cell">4/str.</div><div class="plan-ex-cell">90s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">pod kątem 45° · asymetryczne obciążenie · bardzo zaawansowane</div></div>
-            <div class="plan-note">COPENHAGEN PLANK: angażuje przywodziciele — bezpośrednia synergia z L1/L2 na siłowni. SINGLE-LEG GLUTE BRIDGE: najtrudniejsza wersja BW zanim wejdziesz z KB. Przy 35 kg gumie i 3×10 jednostronnie — jesteś gotowa na KB. ARCHER ROLLOUT: toczysz pod kątem 45° — asymetryczne obciążenie core, bardzo zaawansowane.</div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 1 — Ab wheel z nóg + max kontrola</div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent2)"">Ab wheel — z nóg <span class="ss-badge">C1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">4–6</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">tylko gdy od kolan 3×8 czysto 2 tyg.</div></div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--green)"">Dead Bug z gumą — 5s <span class="ss-badge">C1</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">8/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">25 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">5s opuszczanie · →35 kg</div></div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 2 — Anti-rotation zaawansowane</div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Pallof press — 3s hold <span class="ss-badge">C2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">8/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">25 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">→dłuższy moment ramienia · →35 kg</div></div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name">Copenhagen plank <span class="ss-badge">C2</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">15s/str.</div><div class="plan-ex-cell">60s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">krzesło</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">noga na krześle · →20s</div></div>
+<div style="color:var(--text2);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px;padding-left:4px">Blok 3 — Siła zintegrowana</div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent3)"">Single-leg glute bridge <span class="ss-badge">C3</span></div><div class="plan-ex-cell">3</div><div class="plan-ex-cell">10/str.</div><div class="plan-ex-cell">→ SS</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">25 kg</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">jedna noga · →35 kg</div></div>
+              <div class="plan-ex" style="grid-template-columns:2fr 50px 80px 60px 80px 1fr"><div class="plan-ex-name style="color:var(--accent2)"">Ab wheel — archer rollout <span class="ss-badge">C3</span></div><div class="plan-ex-cell">2</div><div class="plan-ex-cell">4/str.</div><div class="plan-ex-cell">90s</div><div class="plan-ex-cell" style="font-size:11px;font-weight:600;color:var(--accent2)">BW</div><div class="plan-ex-cell" style="font-size:11px;color:var(--text2)">45° w bok · zaawansowane</div></div>
+            <div class="plan-note">Copenhagen: angażuje przywodziciele — synergia z L1/L2. Single-leg bridge: najtrudniejsza wersja przed KB. 35 kg + 3×10 → rozważ KB.</div>
             </div>
           </div>
-          <div class="alert alert-info" style="margin-top:14px"><span class="alert-icon">📈</span><div><strong>Kiedy przechodzić do kolejnej sesji?</strong><br><span style="font-size:12px;color:var(--text2)"><strong>A→B:</strong> min. 3 tygodnie Pt+Nd regularnie + ab wheel 80 cm od ściany bez bólu + glute bridge 15 kg × 3×20 bez wysiłku → kup gumę 25 kg.<br><strong>B→C:</strong> ab wheel od kolan 3×8 czysto przez 2 tyg. + Pallof 3s hold bez rotacji + single-leg bridge 25 kg × 3×10 → kup gumę 35 kg lub rozważ KB.<br><strong>Regresja:</strong> jakikolwiek ból dolnych pleców = cofasz się do poprzedniej sesji na 2 tygodnie.</span></div></div>
+                    <div class="alert alert-info"><span class="alert-icon">📈</span><div><strong>Kiedy przechodzić?</strong> <span style="font-size:12px;color:var(--text2)">A→B: 3 tyg. Pt+Nd + ab wheel 80cm bez bólu + glute bridge 15 kg 3×20 za lekka. B→C: ab wheel od kolan 3×8 czysto 2 tyg. + single-leg 25 kg 3×10. Regresja: ból pleców = wróć do poprzedniej sesji.</span></div></div>
         </div>
 
 
@@ -609,19 +608,18 @@
       <div class="code-body">
 
         <div class="section">
-          <div class="section-header"><span class="section-icon">▶</span><span class="section-title">Lower 1 — Sob 21.02.2026</span><span class="section-comment"># trening 4 z 8+ (tydzień 1)</span></div>
-          <div class="alert alert-green"><span class="alert-icon">🍑</span><div>Hip thrust: <strong>pauza 1s na górze</strong> każdego powt. Chodź 60s aktywnie w przerwach 180s. SS1: odwodzenie → kickbacki bez pauzy. SS2: przywodzenie → odwodzenie bez pauzy.</div></div>
-          <div class="alert alert-info" style="margin-bottom:20px"><span class="alert-icon">💡</span><div>Sumo: <strong>1 hantel 22,5 kg</strong> pionowo, obiema rękami. Hip thrust lżejszy = ~55% ciężkiego (jeśli L1 = 50 kg → tu 27–28 kg).</div></div>
+          <div class="section-header"><span class="section-icon">▶</span><span class="section-title">Lower 2 — Pn 23.02.2026</span><span class="section-comment"># trening 5 · tydzień 2</span></div>
+          <div class="alert alert-green"><span class="alert-icon">🦵</span><div>Przysiad: zejście 3s, kolana nad palcami. Sumo: szeroki chwyt, biodra nad kolanami. SS: Przywodzenie+Odwodzenie bez przerwy.</div></div>
           <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px">
-            <div class="sg-head">Ćwiczenie</div><div class="sg-head">Ciężar</div><div class="sg-head">Tempo</div><div class="sg-head">Cel</div>
+            <div class="sg-head">Ćwiczenie</div><div class="sg-head">Ciężar</div><div class="sg-head">Tempo</div><div class="sg-head">Serie × Powt. | Przerwa</div>
           </div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--green);font-weight:600">1. Hip thrust ciężki</div><div class="wr-cell" style="text-align:center"><code>55 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">4 × 8–10 | <span class="warn">180s</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="font-weight:600">2. RDL ze sztangą</div><div class="wr-cell" style="text-align:center"><code>30 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3-1-2-0</span></div><div class="wr-cell">4 × 8–10 | <span class="warn">180s</span></div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell">3. Wykroki bułgarskie</div><div class="wr-cell" style="text-align:center"><code>8 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3-1-1-0</span></div><div class="wr-cell">3 × 10–12/nogę | 90s</div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">4. Odwodzenie wyciąg <span class="ss-badge">SS1</span></div><div class="wr-cell" style="text-align:center"><code>10 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">2 × 12–15/nogę | → SS</div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">5. Kickbacki wyciąg <span class="ss-badge">SS1</span></div><div class="wr-cell" style="text-align:center"><code>20 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">2 × 12–15/nogę | 75s</div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">6. Przywodzenie maszyna <span class="ss-badge">SS2</span></div><div class="wr-cell" style="text-align:center"><code>25 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">3 × 15–20 | → SS</div></div>
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">7. Odwodzenie maszyna <span class="ss-badge">SS2</span></div><div class="wr-cell" style="text-align:center"><code>60 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">3 × 15–20 | 60s</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--green);font-weight:600">1. Przysiad ze sztangą</div><div class="wr-cell" style="text-align:center"><code>37,5 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3-1-1-0</span></div><div class="wr-cell">4 × 8 | 180s</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell">2. Sumo martwy ciąg</div><div class="wr-cell" style="text-align:center"><code>22,5 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">4 × 10 | 180s</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell">3. Step-ups z hantlami</div><div class="wr-cell" style="text-align:center"><code>8 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-0-1-0</span></div><div class="wr-cell">3 × 12 L/P | 90s</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell">4. Suwnica 45°</div><div class="wr-cell" style="text-align:center"><code>75 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">3-1-1-0</span></div><div class="wr-cell">3 × 12 | 90s</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent3);font-weight:600">5. Przywodzenie maszyna <span class="ss-badge">SS1</span></div><div class="wr-cell" style="text-align:center"><code>25 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">3 × 15–20 | → SS</div></div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent3);font-weight:600">6. Odwodzenie maszyna <span class="ss-badge">SS1</span></div><div class="wr-cell" style="text-align:center"><code>60 kg</code></div><div class="wr-cell" style="text-align:center"><span class="tempo">2-1-2-0</span></div><div class="wr-cell">3 × 15–20 | 60s</div></div>
+          <div style="margin-top:10px;color:var(--text2)">Pompka quad: __/10 &nbsp;|&nbsp; Pompka pośladki: __/10 &nbsp;|&nbsp; Uwagi: ___</div>
         </div>
 
         <div class="section">
@@ -629,9 +627,12 @@
           <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px">
             <div class="sg-head">Trening</div><div class="sg-head">Data</div><div class="sg-head">Typ</div><div class="sg-head">Główne ćwiczenia</div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell next-l1" style="font-weight:600">▶ Lower 1 (sobota)</div><div class="wr-cell" style="text-align:center">Sob 21.02</div><div class="wr-cell" style="text-align:center"><span class="badge badge-green">L1</span></div><div class="wr-cell">Hip thrust 55 kg · RDL 30 kg · Wykroki 8 kg · SS wyciąg · SS maszyny</div></div>
-          <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell next-nd">Core &amp; Cardio</div><div class="wr-cell" style="text-align:center">Nd 22.02</div><div class="wr-cell" style="text-align:center"><span class="badge badge-purple">C</span></div><div class="wr-cell">SS-A (Dead Bug, Deska, Deska boczna) + SS-B (Unoszenie, Crunch, Twist) + 30 min cardio</div></div>
-          <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell next-l2">Lower 2</div><div class="wr-cell" style="text-align:center">Pn 23.02</div><div class="wr-cell" style="text-align:center"><span class="badge badge-orange">L2</span></div><div class="wr-cell">Przysiad 47,5 kg · Sumo 22,5 kg · Step-ups · Suwnica 75 kg</div></div>
+          <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell next-nd">✓ Core domowy (Nd)</div><div class="wr-cell" style="text-align:center">Nd 22.02</div><div class="wr-cell" style="text-align:center"><span class="badge badge-purple">C★</span></div><div class="wr-cell">Dead Bug · Hollow hold · Deska · Ab wheel od ściany · Glute bridge 15 kg</div></div>
+          <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell next-l2" style="font-weight:600">▶ Lower 2 (Pn)</div><div class="wr-cell" style="text-align:center">Pn 23.02</div><div class="wr-cell" style="text-align:center"><span class="badge badge-orange">L2</span></div><div class="wr-cell">Przysiad 37,5 kg · Sumo 22,5 kg · Step-ups · Suwnica 75 kg</div></div>
+          <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell next-up">Upper (Śr)</div><div class="wr-cell" style="text-align:center">Śr 25.02</div><div class="wr-cell" style="text-align:center"><span class="badge badge-blue">U</span></div><div class="wr-cell">Wyciskanie ławka · Przyciąganie · SS klatka/plecy</div></div>
+          <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell next-nd">Core domowy (Pt)</div><div class="wr-cell" style="text-align:center">Pt 27.02</div><div class="wr-cell" style="text-align:center"><span class="badge badge-purple">C★</span></div><div class="wr-cell">Dead Bug · Hollow hold · Deska · Ab wheel od ściany · Glute bridge 15 kg</div></div>
+          <div style="display:grid;grid-template-columns:1fr 100px 80px 2fr;gap:2px;margin-bottom:2px"><div class="wr-cell next-l1">Lower 1 (Sob)</div><div class="wr-cell" style="text-align:center">Sob 28.02</div><div class="wr-cell" style="text-align:center"><span class="badge badge-green">L1</span></div><div class="wr-cell">Hip thrust 57,5 kg · RDL 32,5 kg · Wykroki 10 kg · SS wyciąg · SS maszyny</div></div>
+
         </div>
 
       </div>
@@ -644,7 +645,31 @@
       <div class="code-body">
 
         <!-- ── Upper 18.02 ── -->
-        <div class="section">
+                <div class="section">
+          <div class="section-header">
+            <span class="section-icon">🍑</span>
+            <span class="section-title">Lower 1 — Sob 21.02.2026</span>
+            <span class="section-comment"># trening 4 · tydzień 1</span>
+          </div>
+          <div class="alert alert-green" style="margin-bottom:14px"><span class="alert-icon">🌸</span><div><span style="font-size:15px;letter-spacing:2px;color:#d63f72">★★★★★★★★★★</span> <strong>10/10</strong> &nbsp;·&nbsp; Pomp. pośladki 10/10 · Pomp. tyłuda 10/10 · 1:34h · 825 kcal · tętno 145<br><span style="font-size:11px;color:var(--text2)">RPE 10/10 HT+RDL. Sen 8/10·7h. Energia 10/10·motywacja 10/10. Odwodzenie masz. 2/3 — brak czasu.</span></div></div>
+          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px">
+            <div class="sg-head">Ćwiczenie</div><div class="sg-head">Ciężar</div><div class="sg-head">Serie × Powt.</div><div class="sg-head">RPE/Info</div><div class="sg-head">Progresja →</div>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--green)">1. Hip thrust ciężki</div><div class="wr-cell" style="text-align:center"><code>55 kg</code></div><div class="wr-cell">4×10</div><div class="wr-cell"><span class="badge badge-green">RPE 10/10</span></div><div class="wr-cell wr-prog"><strong>→ 57,5 kg</strong></div></div>
+          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell">2. RDL ze sztangą</div><div class="wr-cell" style="text-align:center"><code>30 kg</code></div><div class="wr-cell">4×10</div><div class="wr-cell"><span class="badge badge-green">RPE 10/10</span></div><div class="wr-cell wr-prog"><strong>→ 32,5 kg</strong></div></div>
+          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell">3. Wykroki bułgarskie</div><div class="wr-cell" style="text-align:center"><code>8 kg</code></div><div class="wr-cell">3×10 L/P</div><div class="wr-cell"><span class="muted-text">stabilnie</span></div><div class="wr-cell wr-prog"><strong>→ 10 kg</strong></div></div>
+          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">4. Odwodzenie wyciąg SS1</div><div class="wr-cell" style="text-align:center"><code>10 kg</code></div><div class="wr-cell">3×15 L/P</div><div class="wr-cell"><span class="muted-text">czysto</span></div><div class="wr-cell wr-prog"><strong>→ 12 kg</strong></div></div>
+          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent2)">5. Kickbacki wyciąg SS1</div><div class="wr-cell" style="text-align:center"><code>20 kg</code></div><div class="wr-cell">3×15 L/P</div><div class="wr-cell"><span class="muted-text">czysto</span></div><div class="wr-cell wr-prog"><strong>→ 22,5 kg</strong></div></div>
+          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent3)">6. Przywodzenie maszyna SS2</div><div class="wr-cell" style="text-align:center"><code>25 kg</code></div><div class="wr-cell">20-20-15</div><div class="wr-cell"><span class="badge badge-orange">drop s.3</span></div><div class="wr-cell wr-prog"><strong>→ 25 kg (powtórz)</strong></div></div>
+          <div style="display:grid;grid-template-columns:2fr 80px 1fr 1fr 1fr;gap:2px;margin-bottom:2px"><div class="wr-cell" style="color:var(--accent3)">7. Odwodzenie maszyna SS2</div><div class="wr-cell" style="text-align:center"><code>60 kg</code></div><div class="wr-cell">10-10 (2/3)</div><div class="wr-cell"><span class="badge badge-orange">brak czasu</span></div><div class="wr-cell wr-prog"><strong>→ 60 kg (dok.)</strong></div></div>
+          <div style="margin-top:8px;border-top:1px solid var(--border);padding-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px">
+            <div><span style="font-size:10px;color:var(--muted);text-transform:uppercase">Sen</span><br>8/10 · 7 godz.</div>
+            <div><span style="font-size:10px;color:var(--muted);text-transform:uppercase">RPE</span><br>HT 10/10 · RDL 10/10</div>
+            <div><span style="font-size:10px;color:var(--muted);text-transform:uppercase">Subiektywnie</span><br>energia 10/10 · motywacja 10/10</div>
+          </div>
+        </div>
+
+<div class="section">
           <div class="section-header">
             <span class="section-icon">💪</span>
             <span class="section-title">Upper — Śr 18.02.2026</span>
@@ -904,7 +929,7 @@ Samopoczucie: __/10 | Uwagi:</div>
             <tr><td>🍽️ Obiad</td><td>Kurczak 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżka</td><td>425</td><td>42g</td></tr>
             <tr><td>⚡ Pre-workout</td><td>Banan 100g + orzechy 15g</td><td>180</td><td>4g</td></tr>
             <tr><td>💪 Post-workout</td><td>Zott Drink Protein</td><td>168</td><td>25g</td></tr>
-            <tr><td>🌙 Kolacja</td><td><strong>Wersja A:</strong> Sardynki Ramirez 100g + grahamka 35g + warzywa 150g &nbsp;|&nbsp; <strong>Wersja B:</strong> Szproty GRAAL 160g + grahamka 35g + warzywa</td><td>270–330</td><td>21–26g</td></tr>
+            <tr><td>🌙 Kolacja</td><td>Twaróg chudy 150g + skyr malinowy Pilos 150g + grahamka 35g</td><td>310</td><td>35g</td><td>21–26g</td></tr>
             <tr><td>☕ Inne</td><td>2× cappuccino</td><td>80</td><td>2g</td></tr>
           </table>
 
@@ -919,7 +944,7 @@ Samopoczucie: __/10 | Uwagi:</div>
             <tr><td>🍎 II śniadanie</td><td>Jabłko 150g + orzechy 15g</td><td>165</td><td>4g</td></tr>
             <tr><td>🍽️ Obiad</td><td>Kurczak 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżka</td><td>425</td><td>42g</td></tr>
             <tr><td>🥤 Przekąska</td><td>Zott Drink + banan 100g</td><td>258</td><td>26g</td></tr>
-            <tr><td>🌙 Kolacja</td><td>Twaróg chudy 150g + skyr Pilos 150g + grahamka 35g</td><td>310</td><td>35g</td></tr>
+            <tr><td>🌙 Kolacja</td><td>Sardynki w sosie pomidorowym 100g + grahamka 35g + warzywa 150g</td><td>270</td><td>21g</td></tr>
             <tr><td>☕ Inne</td><td>2× cappuccino</td><td>80</td><td>2g</td></tr>
           </table>
 
@@ -935,7 +960,7 @@ Samopoczucie: __/10 | Uwagi:</div>
             <tr><td>🍽️ Obiad</td><td>Dorsz 150g + ryż 40g (suchy) + warzywa 200g + oliwa 1 łyżeczka</td><td>330</td><td>34g</td></tr>
             <tr><td>⚡ Pre-workout</td><td>Banan 100g + orzechy 15g</td><td>180</td><td>4g</td></tr>
             <tr><td>💪 Post-workout</td><td>Zott Drink Protein</td><td>168</td><td>25g</td></tr>
-            <tr><td>🌙 Kolacja</td><td>Serek wiejski bez laktozy 200g + ogórek 150g + rzodkiewki 50g + grahamka 35g</td><td>280</td><td>22g</td></tr>
+            <tr><td>🌙 Kolacja</td><td>Szakszuka: 2 jaja + pomidory 200g + cebula 30g + papryka 50g + oliwa 1 łyżka + grahamka 35g</td><td>370</td><td>16g</td></tr>
             <tr><td>☕ Inne</td><td>2× cappuccino</td><td>80</td><td>2g</td></tr>
           </table>
 
@@ -949,7 +974,7 @@ Samopoczucie: __/10 | Uwagi:</div>
             <tr><td>🌅 Śniadanie</td><td>Owsianka na zimno (530 kcal)</td><td>Owsianka pieczona (380 kcal)</td></tr>
             <tr><td>🍽️ Obiad</td><td>Kurczak 150g + ryż 40g (425 kcal)</td><td>Dorsz 150g + ryż 40g (330 kcal)</td></tr>
             <tr><td>🥤 Przekąska</td><td colspan="2" style="text-align:center">Zott Drink (168 kcal)</td></tr>
-            <tr><td>🌙 Kolacja A</td><td>Serek wiejski 200g + ogórek + grahamka (305 kcal)</td><td>Pancake proteinowy: WPC 20g + 2 jaja + mąka owsiana 40g + jogurt 100g + owoce (430 kcal)</td></tr>
+            <tr><td>🌙 Kolacja</td><td>Pancake proteinowy: WPC 20g + 2 jaja + mąka owsiana 40g + jogurt 100g + owoce 80g</td><td>460</td><td>37g</td></tr>
             <tr><td>☕ Inne</td><td colspan="2" style="text-align:center">2× cappuccino (80 kcal)</td></tr>
           </table>
 
@@ -963,7 +988,7 @@ Samopoczucie: __/10 | Uwagi:</div>
             <tr><td>🌅 Śniadanie</td><td colspan="2" style="text-align:center">Owsianka pieczona (380 kcal)</td></tr>
             <tr><td>🍽️ Obiad A</td><td>Kurczak + ryż 40g (425 kcal)</td><td>Makaron razowy 70g + pesto 35g + pomidorki 150g + parmezan 20g (~440 kcal)</td></tr>
             <tr><td>🥤 Przekąska</td><td>Zott Drink (168 kcal)</td><td>Zott Drink + serek wiejski 200g (308 kcal)</td></tr>
-            <tr><td>🌙 Kolacja</td><td colspan="2" style="text-align:center">Jajecznica: 2 jaja + mozzarella 30g + grahamka 35g + warzywa + oliwa (365 kcal)</td></tr>
+            <tr><td>🌙 Kolacja</td><td>Jajecznica z mozzarellą: 2 jaja + grahamka 35g + warzywa 200g + mozzarella 30g + oliwa 1 łyżeczka</td><td>365</td><td>19g</td></tr>
             <tr><td>☕ Inne</td><td colspan="2" style="text-align:center">2× cappuccino (80 kcal)</td></tr>
           </table>
 
@@ -985,16 +1010,16 @@ Samopoczucie: __/10 | Uwagi:</div>
 
           <!-- NIEDZIELA - core + cardio -->
           <div style="margin-bottom:4px;padding:6px 12px;background:linear-gradient(135deg,rgba(155,89,182,.08),rgba(155,89,182,.04));border-radius:8px;border-left:3px solid var(--accent2);display:flex;justify-content:space-between;align-items:center;">
-            <strong style="color:var(--accent2)">Niedziela 🧘 Core &amp; Cardio + 🎉 Cheat meal</strong>
+            <strong style="color:var(--accent2)">Niedziela 🏠 Core domowy + 🎉 Cheat meal</strong>
             <span class="badge badge-purple">~1700+ kcal</span>
           </div>
           <table style="margin-bottom:8px;">
             <tr><th>Posiłek</th><th>Opis</th><th>kcal</th></tr>
             <tr><td>🌅 Śniadanie</td><td>Owsianka pieczona</td><td>380</td></tr>
             <tr><td>🍎 II śniadanie</td><td>Jabłko 150g</td><td>75</td></tr>
-            <tr><td>🍽️ Obiad</td><td>Serek wiejski 200g + ogórek + grahamka</td><td>280</td></tr>
+            <tr><td>🍽️ Obiad</td><td>🎉 Cheat meal — ciesz się!</td><td>700–900</td></tr>
             <tr><td>🥤 Przekąska</td><td>Zott Drink</td><td>168</td></tr>
-            <tr><td>🎉 Kolacja</td><td>Cheat meal — bez liczenia, ciesz się!</td><td>700–900</td></tr>
+            <tr><td>🌙 Kolacja</td><td>Szproty w sosie pomidorowym 160g + grahamka 35g + warzywa 150g</td><td>330</td><td>26g</td></tr>
           </table>
           <div class="alert alert-warn"><span class="alert-icon">⚠</span><div>Niedziela to cheat meal + lekki trening (Core+Cardio). Jedz z przyjemnością, ale nie do dyskomfortu. Poniedziałek wraca do planu.</div></div>
         </div>
@@ -1380,6 +1405,7 @@ Pompka pośladki: __/10 | Pompka tyłuda: __/10 | Uwagi:</div>
           <div class="section-header"><span class="section-icon">📜</span><span class="section-title">Historia treningów</span></div>
           <table>
             <tr><th>Data</th><th>Trening</th><th>Pompka</th><th>Uwagi</th></tr>
+            <tr style="background:rgba(46,170,110,.06)"><td><strong>21.02 Sob</strong></td><td><span class="badge badge-green">Lower 1</span></td><td><span class="badge badge-green">💯 10/10</span></td><td class="muted-text">825 kcal · 1:34h · tętno 145 · hip thrust 55 kg</td></tr>
             <tr><td class="muted-text">18.02 Śr</td><td><span class="badge badge-blue">Upper</span></td><td><span class="badge badge-green">9/10</span></td><td class="muted-text">666 kcal · 1:35h · tętno 127 · ławka 20 kg</td></tr>
             <tr><td class="muted-text">17.02 Pn</td><td><span class="badge badge-orange">Lower 2</span></td><td><span class="badge badge-orange">8/10</span></td><td class="muted-text">738 kcal · 84 min · tętno 145 · przysiad 35 kg</td></tr>
             <tr><td class="muted-text">14.02 Sob</td><td><span class="badge badge-green">Lower 1</span></td><td class="muted-text">—</td><td class="muted-text">804 kcal · 97 min · tętno 141 · hip thrust 50 kg</td></tr>
