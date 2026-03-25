@@ -1,0 +1,26 @@
+{
+  "name": "Sylwia — Trening & Dieta",
+  "short_name": "Sylwia",
+  "description": "Dashboard treningowo-dietetyczny",
+  "start_url": "/Sylwia/",
+  "scope": "/Sylwia/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fdf6f9",
+  "theme_color": "#d63f72",
+  "lang": "pl",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
