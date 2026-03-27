@@ -678,6 +678,27 @@
       body { background: #f5e6ec; }
       #app { margin-top: 20px; margin-bottom: 20px; height: calc(100dvh - 40px); border-radius: 24px; overflow: hidden; }
     }
+  
+    /* ── Live tracking ── */
+    .ex-card-log { display:none; border-top:1px solid var(--border); padding:10px 12px; background:#fdfafe; flex-wrap:wrap; align-items:center; gap:8px; }
+    .ex-card-log.open { display:flex; }
+    .log-field { display:flex; flex-direction:column; gap:3px; flex:1; min-width:80px; }
+    .log-field label { font-family:var(--mono); font-size:9px; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+    .log-field input { border:1px solid var(--border2); border-radius:6px; padding:7px 10px; font-family:var(--mono); font-size:13px; font-weight:600; color:var(--text); background:var(--surface); width:100%; outline:none; }
+    .log-field input:focus { border-color:var(--rose); }
+    .log-field input.filled { background:var(--green-lt); border-color:var(--green); color:var(--green); }
+    .log-save-btn { padding:7px 14px; background:var(--rose); color:#fff; border:none; border-radius:6px; font-family:var(--mono); font-size:11px; font-weight:700; cursor:pointer; white-space:nowrap; align-self:flex-end; -webkit-tap-highlight-color:transparent; }
+    .ex-card-main { cursor:pointer; user-select:none; }
+    .log-toggle-icon { font-size:14px; color:var(--muted); margin-left:6px; flex-shrink:0; }
+    .ex-card.logged { border-color:var(--green); }
+    .ex-card.logged .log-toggle-icon { color:var(--green); }
+    .share-bar { position:sticky; bottom:0; background:var(--surface); border-top:2px solid var(--rose-lt); padding:12px 16px; margin:0 -16px -24px; display:flex; gap:8px; align-items:center; z-index:5; }
+    .share-btn { flex:1; padding:12px; background:var(--rose); color:#fff; border:none; border-radius:var(--radius-sm); font-family:var(--mono); font-size:12px; font-weight:700; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    .share-btn:disabled { background:var(--muted); opacity:.5; }
+    .reset-btn { padding:12px 14px; background:var(--surface2); color:var(--rose); border:1px solid var(--rose-lt); border-radius:var(--radius-sm); font-family:var(--mono); font-size:13px; font-weight:700; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    .log-progress { font-family:var(--mono); font-size:10px; color:var(--muted); text-align:center; margin-bottom:8px; }
+    .log-progress span { color:var(--rose); font-weight:700; }
+
   </style>
 </head>
 <body>
@@ -689,7 +710,7 @@
       <div class="app-header-title">Sylwia 🌸</div>
       <div class="app-header-sub" id="header-sub">Cykl 1 · tydzień 7</div>
     </div>
-    <div class="header-badge" id="header-badge">Pn 30.03</div>
+    <div class="header-badge" id="header-badge">Sob 28.03</div>
   </header>
 
   <!-- Content -->
@@ -707,79 +728,131 @@
       <!-- Następny -->
       <div class="subview active" id="sv-trening-nastepny">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-          <span class="training-type-badge badge-l2">🦵 Lower 2 — Pn 30.03.2026</span>
+          <span class="training-type-badge badge-l1">🍑 Lower 1 — Sob 28.03.2026</span>
           <span style="font-family:var(--mono);font-size:10px;color:var(--muted)">trening 19</span>
         </div>
-
         <div class="alert alert-info" style="margin-bottom:12px">
-          Przysiad cel 4×8 na 42,5 kg. Suwnica — potwierdzamy 80 kg. Step-ups potwierdzamy 15 kg (2/2). Prostowanie nóg potwierdzamy 35 kg (2/2).
+          Hip thrust cel 4×10 na 62,5 kg. RDL sztanga potwierdzamy 37,5 kg. Wykroki 12,5 kg. Kickbacki potwierdzamy 27,5 kg (2/2). Odwodzenie masz. — wracamy do 65 kg.
         </div>
-
-        <div class="ex-list">
-          <div class="ex-card">
-            <div class="ex-card-main">
-              <div class="ex-name highlight"><span class="ex-num">1.</span>Przysiad ze sztangą</div>
+        <div class="log-progress" id="log-progress">Dotknij ćwiczenie aby wpisać wyniki · <span id="log-count">0</span>/7 zapisanych</div>
+        <div class="ex-list" id="ex-list-main">
+          <div class="ex-card" id="ec-0">
+            <div class="ex-card-main" onclick="toggleLog(0)">
+              <div class="ex-name highlight"><span class="ex-num">1.</span>Hip thrust ze sztangą</div>
+              <span class="log-toggle-icon" id="lti-0">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">42,5 kg</span><span class="ex-stat-lbl">Ciężar</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">4 × 6–8</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">240s</span><span class="ex-stat-lbl">Przerwa</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">62,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">4 × 8–10</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">120s</span><span class="ex-stat-lbl">Przerwa</span></div>
+            </div>
+            <div class="ex-card-log" id="log-0">
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-0" placeholder="62.5" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-0" placeholder="10-10-10-10" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="saveLog(0)">✓ Zapisz</button>
             </div>
           </div>
-          <div class="ex-card">
-            <div class="ex-card-main"><div class="ex-name"><span class="ex-num">2.</span>Sumo martwy ciąg</div></div>
+          <div class="ex-card" id="ec-1">
+            <div class="ex-card-main" onclick="toggleLog(1)">
+              <div class="ex-name"><span class="ex-num">2.</span>RDL ze sztangą</div>
+              <span class="log-toggle-icon" id="lti-1">＋</span>
+            </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">25 kg</span><span class="ex-stat-lbl">Ciężar</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">37,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">4 × 8–10</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">120s</span><span class="ex-stat-lbl">Przerwa</span></div>
+            </div>
+            <div class="ex-card-log" id="log-1">
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-1" placeholder="37.5" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-1" placeholder="10-10-10-10" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="saveLog(1)">✓ Zapisz</button>
+            </div>
+          </div>
+          <div class="ex-card" id="ec-2">
+            <div class="ex-card-main" onclick="toggleLog(2)">
+              <div class="ex-name"><span class="ex-num">3.</span>Wykroki bułgarskie</div>
+              <span class="log-toggle-icon" id="lti-2">＋</span>
+            </div>
+            <div class="ex-card-stats">
+              <div class="ex-stat"><span class="ex-stat-val">12,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
               <div class="ex-stat"><span class="ex-stat-val">3 × 10–12</span><span class="ex-stat-lbl">Serie</span></div>
               <div class="ex-stat"><span class="ex-stat-val">90s</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
-          </div>
-          <div class="ex-card">
-            <div class="ex-card-main"><div class="ex-name"><span class="ex-num">3.</span>Step-ups z hantlami</div></div>
-            <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">15 kg</span><span class="ex-stat-lbl">Ciężar</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">3 × 10–12</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">90s</span><span class="ex-stat-lbl">Przerwa</span></div>
+            <div class="ex-card-log" id="log-2">
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-2" placeholder="12.5" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-2" placeholder="10-10-10" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="saveLog(2)">✓ Zapisz</button>
             </div>
           </div>
-          <div class="ex-card">
-            <div class="ex-card-main"><div class="ex-name"><span class="ex-num">4.</span>Suwnica pozioma</div></div>
-            <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">80 kg</span><span class="ex-stat-lbl">Ciężar</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">3 × 8–12</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">90s</span><span class="ex-stat-lbl">Przerwa</span></div>
-            </div>
-          </div>
-          <div class="ex-card">
-            <div class="ex-card-main"><div class="ex-name"><span class="ex-num">5.</span>Ławka rzymska</div></div>
-            <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">25 kg</span><span class="ex-stat-lbl">Ciężar</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">3 × 10–12</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">90s</span><span class="ex-stat-lbl">Przerwa</span></div>
-            </div>
-          </div>
-          <div class="ex-card ss">
-            <div class="ex-card-main">
-              <div class="ex-name ss-color"><span class="ex-num">6.</span>RDL z hantlami <span class="ss-badge">SS1</span></div>
+          <div class="ex-card ss" id="ec-3">
+            <div class="ex-card-main" onclick="toggleLog(3)">
+              <div class="ex-name ss-color"><span class="ex-num">4.</span>Odwodzenie wyciąg <span class="ss-badge">SS1</span></div>
+              <span class="log-toggle-icon" id="lti-3">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">30 kg</span><span class="ex-stat-lbl">Ciężar</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">3 × 15–20</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">15 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">3 × 12–15</span><span class="ex-stat-lbl">Serie</span></div>
               <div class="ex-stat"><span class="ex-stat-val">→ SS</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
+            <div class="ex-card-log" id="log-3">
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-3" placeholder="15" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-3" placeholder="12-12-12" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="saveLog(3)">✓ Zapisz</button>
+            </div>
           </div>
-          <div class="ex-card ss">
-            <div class="ex-card-main">
-              <div class="ex-name ss-color"><span class="ex-num">7.</span>Prostowanie nóg <span class="ss-badge">SS1</span></div>
+          <div class="ex-card ss" id="ec-4">
+            <div class="ex-card-main" onclick="toggleLog(4)">
+              <div class="ex-name ss-color"><span class="ex-num">5.</span>Kickbacki wyciąg <span class="ss-badge">SS1</span></div>
+              <span class="log-toggle-icon" id="lti-4">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">35 kg</span><span class="ex-stat-lbl">Ciężar</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">27,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
               <div class="ex-stat"><span class="ex-stat-val">3 × 12–15</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">75s</span><span class="ex-stat-lbl">Przerwa</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">60s po SS</span><span class="ex-stat-lbl">Przerwa</span></div>
+            </div>
+            <div class="ex-card-log" id="log-4">
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-4" placeholder="27.5" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-4" placeholder="12-12-12" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="saveLog(4)">✓ Zapisz</button>
+            </div>
+          </div>
+          <div class="ex-card ss" id="ec-5">
+            <div class="ex-card-main" onclick="toggleLog(5)">
+              <div class="ex-name ss-color"><span class="ex-num">6.</span>Przywodzenie masz. <span class="ss-badge">SS2</span></div>
+              <span class="log-toggle-icon" id="lti-5">＋</span>
+            </div>
+            <div class="ex-card-stats">
+              <div class="ex-stat"><span class="ex-stat-val">30 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">3 × 10–15</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">→ SS</span><span class="ex-stat-lbl">Przerwa</span></div>
+            </div>
+            <div class="ex-card-log" id="log-5">
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-5" placeholder="30" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-5" placeholder="12-12-12" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="saveLog(5)">✓ Zapisz</button>
+            </div>
+          </div>
+          <div class="ex-card ss" id="ec-6">
+            <div class="ex-card-main" onclick="toggleLog(6)">
+              <div class="ex-name ss-color"><span class="ex-num">7.</span>Odwodzenie masz. <span class="ss-badge">SS2</span></div>
+              <span class="log-toggle-icon" id="lti-6">＋</span>
+            </div>
+            <div class="ex-card-stats">
+              <div class="ex-stat"><span class="ex-stat-val">65 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">3 × 10–15</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">60s po SS</span><span class="ex-stat-lbl">Przerwa</span></div>
+            </div>
+            <div class="ex-card-log" id="log-6">
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-6" placeholder="65" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-6" placeholder="12-12-12" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="saveLog(6)">✓ Zapisz</button>
             </div>
           </div>
         </div>
-
+        <div class="share-bar">
+          <button class="reset-btn" onclick="resetLog()" title="Wyczyść">↺</button>
+          <button class="share-btn" id="share-btn" onclick="shareReport()" disabled>📤 Wyślij raport</button>
+        </div>
       </div>
 
       <!-- Poprzednie -->
@@ -790,7 +863,6 @@
           <div><span class="stars">★★★★★★★★★☆</span> <strong>9/10</strong></div>
           <div class="prev-desc">Bardzo mocny trening — Biceps+Triceps 2/2 → progresja do 22,5 kg! Skos 10 kg 3×10 (1/2). Wiosłowanie 4 serie po 10 (ekstra seria!). Przyciąganie sypało — zmęczenie po 4 seriach wiosłowania. Wyciskanie 8-7-7-7, coraz bliżej 4×8.</div>
         </div>
-
         <div class="prev-ex-card">
           <div class="prev-ex-header"><span class="prev-ex-name">1. Wyciskanie sztangi — płaska</span><span class="prev-ex-kg">25 kg</span></div>
           <div class="prev-ex-body">
@@ -2086,6 +2158,88 @@ window.addEventListener('load', () => {
     navigator.serviceWorker.register('/Sylwia/service-worker.js').catch(() => {});
   }
 });
+</script>
+
+<script>
+// ── Live Training Log ──
+const EX_COUNT = 7;
+const TRAIN_LABEL = '🍑 Lower 1 — Sob 28.03.2026';
+
+function toggleLog(i) {
+  const log = document.getElementById('log-' + i);
+  const icon = document.getElementById('lti-' + i);
+  const isOpen = log.classList.contains('open');
+  log.classList.toggle('open', !isOpen);
+  icon.textContent = isOpen ? '＋' : '－';
+}
+function markFilled(input) {
+  input.classList.toggle('filled', input.value.trim() !== '');
+}
+function saveLog(i) {
+  const w = document.getElementById('lw-' + i);
+  const r = document.getElementById('lr-' + i);
+  if (!w.value.trim() && !r.value.trim()) return;
+  document.getElementById('ec-' + i).classList.add('logged');
+  document.getElementById('lti-' + i).textContent = '✓';
+  document.getElementById('log-' + i).classList.remove('open');
+  updateProgress();
+  showToast('✓ Zapisano ćwiczenie ' + (i + 1));
+}
+function updateProgress() {
+  let done = 0;
+  for (let i = 0; i < EX_COUNT; i++) {
+    const w = document.getElementById('lw-' + i);
+    const r = document.getElementById('lr-' + i);
+    if ((w && w.value.trim()) || (r && r.value.trim())) done++;
+  }
+  const el = document.getElementById('log-count');
+  if (el) el.textContent = done;
+  const btn = document.getElementById('share-btn');
+  if (btn) btn.disabled = (done === 0);
+}
+function buildReport() {
+  const now = new Date();
+  const d = now.toLocaleDateString('pl-PL', {day:'2-digit',month:'2-digit',year:'numeric'});
+  let lines = [TRAIN_LABEL + ' | ' + d, ''];
+  document.querySelectorAll('#ex-list-main .ex-card').forEach((card, i) => {
+    const name = card.querySelector('.ex-name').textContent.replace(/^\d+\./, '').trim();
+    const plan = card.querySelector('.ex-stat-val').textContent.trim();
+    const w = document.getElementById('lw-' + i);
+    const r = document.getElementById('lr-' + i);
+    const wVal = (w && w.value.trim()) ? w.value.trim() + ' kg' : plan;
+    const rVal = (r && r.value.trim()) ? r.value.trim() : '—';
+    lines.push((i+1) + '. ' + name + ': ' + wVal + ' × ' + rVal);
+  });
+  lines.push('', 'Pompka: — | Uwagi: —');
+  return lines.join('\n');
+}
+async function shareReport() {
+  const text = buildReport();
+  if (navigator.share) {
+    try { await navigator.share({ title: TRAIN_LABEL, text }); return; }
+    catch(e) { if (e.name === 'AbortError') return; }
+  }
+  navigator.clipboard.writeText(text)
+    .then(() => showToast('📋 Skopiowano do schowka!'))
+    .catch(() => { showToast('⚠️ Skopiuj ręcznie'); });
+}
+function resetLog() {
+  if (!confirm('Wyczyścić wszystkie wpisy?')) return;
+  for (let i = 0; i < EX_COUNT; i++) {
+    const w = document.getElementById('lw-'+i), r = document.getElementById('lr-'+i);
+    if (w) { w.value=''; w.classList.remove('filled'); }
+    if (r) { r.value=''; r.classList.remove('filled'); }
+    const card = document.getElementById('ec-'+i);
+    if (card) card.classList.remove('logged');
+    const log = document.getElementById('log-'+i);
+    if (log) log.classList.remove('open');
+    const icon = document.getElementById('lti-'+i);
+    if (icon) icon.textContent = '＋';
+  }
+  const el = document.getElementById('log-count'); if (el) el.textContent='0';
+  const btn = document.getElementById('share-btn'); if (btn) btn.disabled=true;
+  showToast('↺ Wyczyszczono');
+}
 </script>
 </body>
 </html>
