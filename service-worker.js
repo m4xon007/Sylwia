@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sylwia_v4';
+const CACHE_NAME = 'sylwia_v5';
 
 // Zasoby do cache przy instalacji
 const PRECACHE = [
