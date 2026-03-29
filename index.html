@@ -251,6 +251,8 @@
       border-radius: var(--radius-sm);
       overflow: hidden;
       transition: border-color .2s;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
     .ex-card.highlight { border-color: var(--rose-lt); background: #fff9fb; }
     .ex-card.ss { border-color: var(--purple-lt); }
@@ -688,7 +690,7 @@
     .log-field input:focus { border-color:var(--rose); }
     .log-field input.filled { background:var(--green-lt); border-color:var(--green); color:var(--green); }
     .log-save-btn { padding:7px 14px; background:var(--rose); color:#fff; border:none; border-radius:6px; font-family:var(--mono); font-size:11px; font-weight:700; cursor:pointer; white-space:nowrap; align-self:flex-end; -webkit-tap-highlight-color:transparent; }
-    .ex-card-main { cursor:pointer; user-select:none; }
+    .ex-card-main { user-select:none; }
     .log-toggle-icon { font-size:14px; color:var(--muted); margin-left:6px; flex-shrink:0; }
     .ex-card.logged { border-color:var(--green); }
     .ex-card.logged .log-toggle-icon { color:var(--green); }
@@ -710,7 +712,7 @@
       <div class="app-header-title">Sylwia 🌸</div>
       <div class="app-header-sub" id="header-sub">Cykl 1 · tydzień 7</div>
     </div>
-    <div class="header-badge" id="header-badge">Sob 28.03</div>
+    <div class="header-badge" id="header-badge">Pn 30.03</div>
   </header>
 
   <!-- Content -->
@@ -728,211 +730,195 @@
       <!-- Następny -->
       <div class="subview active" id="sv-trening-nastepny">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-          <span class="training-type-badge badge-l1">🍑 Lower 1 — Sob 28.03.2026</span>
-          <span style="font-family:var(--mono);font-size:10px;color:var(--muted)">trening 19</span>
+          <span class="training-type-badge badge-l2">🦵 Lower 2 — Pn 30.03.2026</span>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted)">trening 20</span>
         </div>
         <div class="alert alert-info" style="margin-bottom:12px">
-          Hip thrust cel 4×10 na 62,5 kg. RDL sztanga potwierdzamy 37,5 kg. Wykroki 12,5 kg. Kickbacki potwierdzamy 27,5 kg (2/2). Odwodzenie masz. — wracamy do 65 kg.
+          Przysiad cel 4×8 na 42,5 kg. Suwnica potwierdzamy 80 kg. Step-ups potwierdzamy 15 kg (2/2). Prostowanie nóg potwierdzamy 35 kg (2/2). RDL hantl. → nowy ciężar 30 kg.
         </div>
         <div class="log-progress" id="log-progress">Dotknij ćwiczenie aby wpisać wyniki · <span id="log-count">0</span>/7 zapisanych</div>
         <div class="ex-list" id="ex-list-main">
-          <div class="ex-card" id="ec-0">
-            <div class="ex-card-main" onclick="toggleLog(0)">
-              <div class="ex-name highlight"><span class="ex-num">1.</span>Hip thrust ze sztangą</div>
+          <div class="ex-card" id="ec-0" onclick="toggleLog(0)">
+            <div class="ex-card-main">
+              <div class="ex-name highlight"><span class="ex-num">1.</span>Przysiad ze sztangą</div>
               <span class="log-toggle-icon" id="lti-0">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">62,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">4 × 8–10</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">120s</span><span class="ex-stat-lbl">Przerwa</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">42,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">4 × 6–8</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">240s</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
             <div class="ex-card-log" id="log-0">
-              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-0" placeholder="62.5" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
-              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-0" placeholder="10-10-10-10" oninput="markFilled(this);updateProgress()"></div>
-              <button class="log-save-btn" onclick="saveLog(0)">✓ Zapisz</button>
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-0" placeholder="42.5" inputmode="decimal" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-0" placeholder="8-8-8-8" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="event.stopPropagation();saveLog(0)">✓ Zapisz</button>
             </div>
           </div>
-          <div class="ex-card" id="ec-1">
-            <div class="ex-card-main" onclick="toggleLog(1)">
-              <div class="ex-name"><span class="ex-num">2.</span>RDL ze sztangą</div>
+          <div class="ex-card" id="ec-1" onclick="toggleLog(1)">
+            <div class="ex-card-main">
+              <div class="ex-name"><span class="ex-num">2.</span>Sumo martwy ciąg</div>
               <span class="log-toggle-icon" id="lti-1">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">37,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">4 × 8–10</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">120s</span><span class="ex-stat-lbl">Przerwa</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">25 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">3 × 10–12</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">90s</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
             <div class="ex-card-log" id="log-1">
-              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-1" placeholder="37.5" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
-              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-1" placeholder="10-10-10-10" oninput="markFilled(this);updateProgress()"></div>
-              <button class="log-save-btn" onclick="saveLog(1)">✓ Zapisz</button>
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-1" placeholder="25" inputmode="decimal" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-1" placeholder="12-12-12" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="event.stopPropagation();saveLog(1)">✓ Zapisz</button>
             </div>
           </div>
-          <div class="ex-card" id="ec-2">
-            <div class="ex-card-main" onclick="toggleLog(2)">
-              <div class="ex-name"><span class="ex-num">3.</span>Wykroki bułgarskie</div>
+          <div class="ex-card" id="ec-2" onclick="toggleLog(2)">
+            <div class="ex-card-main">
+              <div class="ex-name"><span class="ex-num">3.</span>Step-ups z hantlami</div>
               <span class="log-toggle-icon" id="lti-2">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">12,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">15 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
               <div class="ex-stat"><span class="ex-stat-val">3 × 10–12</span><span class="ex-stat-lbl">Serie</span></div>
               <div class="ex-stat"><span class="ex-stat-val">90s</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
             <div class="ex-card-log" id="log-2">
-              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-2" placeholder="12.5" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
-              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-2" placeholder="10-10-10" oninput="markFilled(this);updateProgress()"></div>
-              <button class="log-save-btn" onclick="saveLog(2)">✓ Zapisz</button>
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-2" placeholder="15" inputmode="decimal" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-2" placeholder="10-10-10" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="event.stopPropagation();saveLog(2)">✓ Zapisz</button>
             </div>
           </div>
-          <div class="ex-card ss" id="ec-3">
-            <div class="ex-card-main" onclick="toggleLog(3)">
-              <div class="ex-name ss-color"><span class="ex-num">4.</span>Odwodzenie wyciąg <span class="ss-badge">SS1</span></div>
+          <div class="ex-card" id="ec-3" onclick="toggleLog(3)">
+            <div class="ex-card-main">
+              <div class="ex-name"><span class="ex-num">4.</span>Suwnica pozioma</div>
               <span class="log-toggle-icon" id="lti-3">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">15 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">3 × 12–15</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">→ SS</span><span class="ex-stat-lbl">Przerwa</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">80 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">3 × 8–12</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">90s</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
             <div class="ex-card-log" id="log-3">
-              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-3" placeholder="15" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
-              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-3" placeholder="12-12-12" oninput="markFilled(this);updateProgress()"></div>
-              <button class="log-save-btn" onclick="saveLog(3)">✓ Zapisz</button>
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-3" placeholder="80" inputmode="decimal" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-3" placeholder="12-12-12" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="event.stopPropagation();saveLog(3)">✓ Zapisz</button>
             </div>
           </div>
-          <div class="ex-card ss" id="ec-4">
-            <div class="ex-card-main" onclick="toggleLog(4)">
-              <div class="ex-name ss-color"><span class="ex-num">5.</span>Kickbacki wyciąg <span class="ss-badge">SS1</span></div>
+          <div class="ex-card" id="ec-4" onclick="toggleLog(4)">
+            <div class="ex-card-main">
+              <div class="ex-name"><span class="ex-num">5.</span>Ławka rzymska</div>
               <span class="log-toggle-icon" id="lti-4">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">27,5 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">3 × 12–15</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">60s po SS</span><span class="ex-stat-lbl">Przerwa</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">25 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">3 × 10–12</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">90s</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
             <div class="ex-card-log" id="log-4">
-              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-4" placeholder="27.5" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
-              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-4" placeholder="12-12-12" oninput="markFilled(this);updateProgress()"></div>
-              <button class="log-save-btn" onclick="saveLog(4)">✓ Zapisz</button>
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-4" placeholder="25" inputmode="decimal" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-4" placeholder="12-12-12" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="event.stopPropagation();saveLog(4)">✓ Zapisz</button>
             </div>
           </div>
-          <div class="ex-card ss" id="ec-5">
-            <div class="ex-card-main" onclick="toggleLog(5)">
-              <div class="ex-name ss-color"><span class="ex-num">6.</span>Przywodzenie masz. <span class="ss-badge">SS2</span></div>
+          <div class="ex-card ss" id="ec-5" onclick="toggleLog(5)">
+            <div class="ex-card-main">
+              <div class="ex-name ss-color"><span class="ex-num">6.</span>RDL z hantlami <span class="ss-badge">SS1</span></div>
               <span class="log-toggle-icon" id="lti-5">＋</span>
             </div>
             <div class="ex-card-stats">
               <div class="ex-stat"><span class="ex-stat-val">30 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">3 × 10–15</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">3 × 15–20</span><span class="ex-stat-lbl">Serie</span></div>
               <div class="ex-stat"><span class="ex-stat-val">→ SS</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
             <div class="ex-card-log" id="log-5">
-              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-5" placeholder="30" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
-              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-5" placeholder="12-12-12" oninput="markFilled(this);updateProgress()"></div>
-              <button class="log-save-btn" onclick="saveLog(5)">✓ Zapisz</button>
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-5" placeholder="30" inputmode="decimal" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-5" placeholder="15-15-15" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="event.stopPropagation();saveLog(5)">✓ Zapisz</button>
             </div>
           </div>
-          <div class="ex-card ss" id="ec-6">
-            <div class="ex-card-main" onclick="toggleLog(6)">
-              <div class="ex-name ss-color"><span class="ex-num">7.</span>Odwodzenie masz. <span class="ss-badge">SS2</span></div>
+          <div class="ex-card ss" id="ec-6" onclick="toggleLog(6)">
+            <div class="ex-card-main">
+              <div class="ex-name ss-color"><span class="ex-num">7.</span>Prostowanie nóg <span class="ss-badge">SS1</span></div>
               <span class="log-toggle-icon" id="lti-6">＋</span>
             </div>
             <div class="ex-card-stats">
-              <div class="ex-stat"><span class="ex-stat-val">65 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">3 × 10–15</span><span class="ex-stat-lbl">Serie</span></div>
-              <div class="ex-stat"><span class="ex-stat-val">60s po SS</span><span class="ex-stat-lbl">Przerwa</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">35 kg</span><span class="ex-stat-lbl">Plan kg</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">3 × 12–15</span><span class="ex-stat-lbl">Serie</span></div>
+              <div class="ex-stat"><span class="ex-stat-val">75s</span><span class="ex-stat-lbl">Przerwa</span></div>
             </div>
             <div class="ex-card-log" id="log-6">
-              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-6" placeholder="65" inputmode="decimal" oninput="markFilled(this);updateProgress()"></div>
-              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-6" placeholder="12-12-12" oninput="markFilled(this);updateProgress()"></div>
-              <button class="log-save-btn" onclick="saveLog(6)">✓ Zapisz</button>
+              <div class="log-field"><label>Ciężar (kg)</label><input type="number" step="0.5" id="lw-6" placeholder="35" inputmode="decimal" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <div class="log-field"><label>Powtórzenia</label><input type="text" id="lr-6" placeholder="15-15-15" onclick="event.stopPropagation()" oninput="markFilled(this);updateProgress()"></div>
+              <button class="log-save-btn" onclick="event.stopPropagation();saveLog(6)">✓ Zapisz</button>
             </div>
           </div>
         </div>
         <div class="share-bar">
-          <button class="reset-btn" onclick="resetLog()" title="Wyczyść">↺</button>
-          <button class="share-btn" id="share-btn" onclick="shareReport()" disabled>📤 Wyślij raport</button>
+          <button class="reset-btn" onclick="event.stopPropagation();resetLog()" title="Wyczyść">↺</button>
+          <button class="share-btn" id="share-btn" onclick="event.stopPropagation();shareReport()" disabled>📤 Wyślij raport</button>
         </div>
       </div>
 
       <!-- Poprzednie -->
       <div class="subview" id="sv-trening-poprzednie">
         <div class="prev-header">
-          <div class="prev-title">💪 Upper — Czw 26.03.2026</div>
-          <div class="prev-meta">Trening 18 · Tydzień 6 · 618 kcal · 99 min · obciążenie 119</div>
+          <div class="prev-title">🍑 Lower 1 — Sob 28.03.2026</div>
+          <div class="prev-meta">Trening 19 · Tydzień 7 · 741 kcal · 92 min · tętno 138</div>
           <div><span class="stars">★★★★★★★★★☆</span> <strong>9/10</strong></div>
-          <div class="prev-desc">Bardzo mocny trening — Biceps+Triceps 2/2 → progresja do 22,5 kg! Skos 10 kg 3×10 (1/2). Wiosłowanie 4 serie po 10 (ekstra seria!). Przyciąganie sypało — zmęczenie po 4 seriach wiosłowania. Wyciskanie 8-7-7-7, coraz bliżej 4×8.</div>
+          <div class="prev-desc">Świetna sesja! Hip thrust 65 kg 4×10 🚀 (nowy rekord). RDL 37,5 kg 2/2 → progresja do 40 kg. Wykroki 12,5 kg → pierwszy raz 3×10. Odwodzenie wyciąg wzrost do 17,5 kg. Odwodzenie masz. powrót do 60 kg — kontrola ✓.</div>
         </div>
         <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name">1. Wyciskanie sztangi — płaska</span><span class="prev-ex-kg">25 kg</span></div>
-          <div class="prev-ex-body">
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">8-7-7-7</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val">cel 4×8</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 25 kg (0/2)</span></div>
-          </div>
-        </div>
-        <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name green">2. Hantle — skos dodatni</span><span class="prev-ex-kg">10 kg</span></div>
-          <div class="prev-ex-body">
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">10-10-10</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">↑ wzrost!</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 10 kg (1/2)</span></div>
-          </div>
-        </div>
-        <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name">3. Wyciskanie hantli OHP</span><span class="prev-ex-kg">8 kg</span></div>
-          <div class="prev-ex-body">
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">10-10-10</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">✓ cel</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 8 kg (1/2)</span></div>
-          </div>
-        </div>
-        <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name">4. Unoszenie bokiem (laterals)</span><span class="prev-ex-kg">7 kg</span></div>
-          <div class="prev-ex-body">
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">12-12-12</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">✓ cel</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 7 kg (1/2)</span></div>
-          </div>
-        </div>
-        <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name green">5. Wiosłowanie sztangą</span><span class="prev-ex-kg">35 kg</span></div>
+          <div class="prev-ex-header"><span class="prev-ex-name green">1. Hip thrust ze sztangą</span><span class="prev-ex-kg">65 kg</span></div>
           <div class="prev-ex-body">
             <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">10-10-10-10</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">★ 4 serie!</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 35 kg (2/2)</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">🚀 rekord!</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 65 kg (1/2)</span></div>
           </div>
         </div>
         <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name orange">6. Przyciąganie linki z góry</span><span class="prev-ex-kg">35 kg</span></div>
+          <div class="prev-ex-header"><span class="prev-ex-name green">2. RDL ze sztangą</span><span class="prev-ex-kg">37,5 kg</span></div>
           <div class="prev-ex-body">
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">10-8-7</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val">zmęczenie</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 35 kg (0/2)</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">10-10-10-10</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">✅ 2/2</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 40 kg ✅</span></div>
           </div>
         </div>
         <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name">7. Face pulls</span><span class="prev-ex-kg">20 kg</span></div>
+          <div class="prev-ex-header"><span class="prev-ex-name green">3. Wykroki bułgarskie</span><span class="prev-ex-kg">12,5 kg</span></div>
+          <div class="prev-ex-body">
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">10-10-10</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">↑ poprawa!</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 12,5 kg (1/2)</span></div>
+          </div>
+        </div>
+        <div class="prev-ex-card">
+          <div class="prev-ex-header"><span class="prev-ex-name green">4. Odwodzenie wyciąg <span class="ss-badge">SS1</span></span><span class="prev-ex-kg">17,5 kg</span></div>
+          <div class="prev-ex-body">
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">15-15</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val">↑ kg, 2/3 serii</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 17,5 kg (1/2)</span></div>
+          </div>
+        </div>
+        <div class="prev-ex-card">
+          <div class="prev-ex-header"><span class="prev-ex-name">5. Kickbacki wyciąg <span class="ss-badge">SS1</span></span><span class="prev-ex-kg">27,5 kg</span></div>
+          <div class="prev-ex-body">
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">15-15</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val">2/3 serii</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 27,5 kg (0/2)</span></div>
+          </div>
+        </div>
+        <div class="prev-ex-card">
+          <div class="prev-ex-header"><span class="prev-ex-name">6. Przywodzenie masz. <span class="ss-badge">SS2</span></span><span class="prev-ex-kg">30 kg</span></div>
           <div class="prev-ex-body">
             <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">15-15-15</span></div>
             <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">✓ komplet</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 20 kg (2/2)</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 30 kg (1/2)</span></div>
           </div>
         </div>
         <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name green">8. Uginanie biceps <span class="ss-badge">SS1</span></span><span class="prev-ex-kg">20 kg</span></div>
+          <div class="prev-ex-header"><span class="prev-ex-name">7. Odwodzenie masz. <span class="ss-badge">SS2</span></span><span class="prev-ex-kg">60 kg</span></div>
           <div class="prev-ex-body">
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">12-12-12</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">✅ 2/2</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 22,5 kg ✅</span></div>
-          </div>
-        </div>
-        <div class="prev-ex-card">
-          <div class="prev-ex-header"><span class="prev-ex-name green">9. Prostowanie triceps <span class="ss-badge">SS1</span></span><span class="prev-ex-kg">20 kg</span></div>
-          <div class="prev-ex-body">
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">12-12-12</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">✅ 2/2</span></div>
-            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 22,5 kg ✅</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Wykonano</span><span class="prev-ex-cell-val">13-13-13</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Ocena</span><span class="prev-ex-cell-val green">✓ kontrola</span></div>
+            <div class="prev-ex-cell"><span class="prev-ex-cell-lbl">Progresja</span><span class="prev-ex-cell-val prog">→ 60 kg (1/2)</span></div>
           </div>
         </div>
       </div>
@@ -984,13 +970,13 @@
             <div class="card-header"><span class="card-title">Lower 1 — Sob</span><span class="hist-badge badge-l1-sm">~65–75 min</span></div>
             <div style="overflow:hidden">
               <div class="plan-ex-row head"><div class="plan-ex-cell head-cell">Ćwiczenie</div><div class="plan-ex-cell head-cell">kg</div><div class="plan-ex-cell head-cell">Serie×Powt.</div><div class="plan-ex-cell head-cell">Przerwa</div><div class="plan-ex-cell head-cell">Status</div></div>
-              <div class="plan-ex-row"><div class="plan-ex-cell"><strong>Hip thrust</strong></div><div class="plan-ex-cell">62,5</div><div class="plan-ex-cell">4×8–10</div><div class="plan-ex-cell">120s</div><div class="plan-ex-cell" style="color:var(--yellow);text-align:center">1/2</div></div>
-              <div class="plan-ex-row"><div class="plan-ex-cell"><strong>RDL sztanga</strong></div><div class="plan-ex-cell">37,5</div><div class="plan-ex-cell">4×8–10</div><div class="plan-ex-cell">120s</div><div class="plan-ex-cell" style="color:var(--yellow);text-align:center">1/2</div></div>
+              <div class="plan-ex-row"><div class="plan-ex-cell"><strong>Hip thrust</strong></div><div class="plan-ex-cell">65</div><div class="plan-ex-cell">4×8–10</div><div class="plan-ex-cell">120s</div><div class="plan-ex-cell" style="color:var(--yellow);text-align:center">1/2</div></div>
+              <div class="plan-ex-row"><div class="plan-ex-cell"><strong>RDL sztanga</strong></div><div class="plan-ex-cell">40</div><div class="plan-ex-cell">4×8–10</div><div class="plan-ex-cell">120s</div><div class="plan-ex-cell" style="color:var(--rose);text-align:center">✅ 0/2</div></div>
               <div class="plan-ex-row"><div class="plan-ex-cell">Wykroki bułgarskie</div><div class="plan-ex-cell">12,5</div><div class="plan-ex-cell">3×10–12</div><div class="plan-ex-cell">90s</div><div class="plan-ex-cell" style="color:var(--muted);text-align:center">0/2</div></div>
-              <div class="plan-ex-row"><div class="plan-ex-cell">Odwodzenie wyciąg <span class="ss-badge">SS1</span></div><div class="plan-ex-cell">15</div><div class="plan-ex-cell">3×12–15</div><div class="plan-ex-cell">bez przerwy</div><div class="plan-ex-cell" style="color:var(--yellow);text-align:center">1/2</div></div>
+              <div class="plan-ex-row"><div class="plan-ex-cell">Odwodzenie wyciąg <span class="ss-badge">SS1</span></div><div class="plan-ex-cell">17,5</div><div class="plan-ex-cell">3×12–15</div><div class="plan-ex-cell">bez przerwy</div><div class="plan-ex-cell" style="color:var(--yellow);text-align:center">1/2</div></div>
               <div class="plan-ex-row"><div class="plan-ex-cell">Kickbacki wyciąg <span class="ss-badge">SS1</span></div><div class="plan-ex-cell">27,5</div><div class="plan-ex-cell">3×12–15</div><div class="plan-ex-cell">60s po SS</div><div class="plan-ex-cell" style="color:var(--yellow);text-align:center">1/2</div></div>
               <div class="plan-ex-row"><div class="plan-ex-cell">Przywodzenie masz. <span class="ss-badge">SS2</span></div><div class="plan-ex-cell">30</div><div class="plan-ex-cell">3×10–15</div><div class="plan-ex-cell">bez przerwy</div><div class="plan-ex-cell" style="color:var(--muted);text-align:center">0/2</div></div>
-              <div class="plan-ex-row"><div class="plan-ex-cell">Odwodzenie masz. <span class="ss-badge">SS2</span></div><div class="plan-ex-cell">60</div><div class="plan-ex-cell">3×10–15</div><div class="plan-ex-cell">60s po SS</div><div class="plan-ex-cell" style="color:var(--rose);text-align:center;text-align:center">✅ 0/2</div></div>
+              <div class="plan-ex-row"><div class="plan-ex-cell">Odwodzenie masz. <span class="ss-badge">SS2</span></div><div class="plan-ex-cell">60</div><div class="plan-ex-cell">3×10–15</div><div class="plan-ex-cell">60s po SS</div><div class="plan-ex-cell" style="color:var(--yellow);text-align:center">1/2</div></div>
             </div>
           </div>
         </div>
@@ -1215,10 +1201,11 @@ Uwagi:</textarea>
       <div class="subview active" id="sv-archiwum-historia">
         <div class="card">
           <div class="card-header">
-            <span class="card-title">Cykl 1 — 18 treningów</span>
-            <span style="font-family:var(--mono);font-size:10px;color:var(--muted)">14.02–26.03</span>
+            <span class="card-title">Cykl 1 — 19 treningów</span>
+            <span style="font-family:var(--mono);font-size:10px;color:var(--muted)">14.02–28.03</span>
           </div>
           <div class="card-body" style="padding:0 14px">
+            <div class="hist-row"><div><div class="hist-date">28.03 Sob</div></div><span class="hist-badge badge-l1-sm">L1</span><div><div class="hist-rating r9">★★★★★★★★★☆ 9/10</div><div class="hist-note">741 kcal · 92 min · HT 65 kg 4×10 🚀 · RDL 40 kg ✅</div></div></div>
             <div class="hist-row"><div><div class="hist-date">26.03 Czw</div></div><span class="hist-badge badge-upper-sm">U</span><div><div class="hist-rating r9">★★★★★★★★★☆ 9/10</div><div class="hist-note">618 kcal · 99 min · Biceps+Triceps 22,5 kg ✅ · Wiosłowanie 4×10 🚀</div></div></div>
             <div class="hist-row"><div><div class="hist-date">23.03 Pn</div></div><span class="hist-badge badge-l2-sm">L2</span><div><div class="hist-rating r9">★★★★★★★★★☆ 9/10</div><div class="hist-note">675 kcal · 93 min · 3 progresje jednocześnie · Suwnica 80 kg ✅</div></div></div>
             <div class="hist-row"><div><div class="hist-date">21.03 Sob</div></div><span class="hist-badge badge-l1-sm">L1</span><div><div class="hist-rating r9">★★★★★★★★★☆ 9/10</div><div class="hist-note">818 kcal · 93 min · HT 62,5 kg 4×10 🚀</div></div></div>
@@ -1253,12 +1240,12 @@ Uwagi:</textarea>
           <div class="prog-section-title prog-title-l1">🍑 Lower 1</div>
           <div class="prog-table-wrap">
             <table class="prog-tbl" id="prog-l1">
-              <tr><th>Ćwiczenie</th><th>Zakres</th><th>21/03</th><th>05/03</th><th>28/02</th><th>21/02</th><th>14/02</th></tr>
-              <tr><td><strong>Hip thrust</strong></td><td style="color:var(--muted)">4×8–10</td><td><span class="ico-up">↑</span> 62,5<br><span style="color:var(--muted)">10-10-10-10</span></td><td><span class="ico-up">↑</span> 60<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 57,5<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-star">★</span> 55<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-same">→</span> 50<br><span style="color:var(--muted)">10×4</span></td></tr>
-              <tr><td><strong>RDL sztanga</strong></td><td style="color:var(--muted)">4×8–10</td><td><span class="ico-up">↑</span> 37,5<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 35<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 32,5<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 30<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-same">→</span> 25<br><span style="color:var(--muted)">10×4</span></td></tr>
-              <tr><td>Wykroki bułg.</td><td style="color:var(--muted)">3×10–12</td><td><span class="ico-same">→</span> 12,5<br><span style="color:var(--muted)">8-8-8</span></td><td><span class="ico-same">→</span> 10<br><span style="color:var(--muted)">10×3</span></td><td><span class="ico-same">→</span> 10<br><span style="color:var(--muted)">10×3</span></td><td><span class="ico-same">→</span> 8<br><span style="color:var(--muted)">10×3</span></td><td><span class="ico-same">→</span> 7<br><span style="color:var(--muted)">12×3</span></td></tr>
-              <tr><td>Kickbacki</td><td style="color:var(--muted)">3×12–15</td><td><span class="ico-up">↑</span> 27,5<br><span style="color:var(--muted)">15×3</span></td><td><span class="ico-up">↑</span> 25<br><span style="color:var(--muted)">12×3</span></td><td><span class="ico-same">→</span> 20<br><span style="color:var(--muted)">15-15</span></td><td><span class="ico-same">→</span> 20<br><span style="color:var(--muted)">15×3</span></td><td><span class="ico-down">↓</span> 30<br><span style="color:var(--muted)">10-10</span></td></tr>
-              <tr><td>Odwodzenie masz.</td><td style="color:var(--muted)">3×10–15</td><td><span class="ico-down">↓</span> 70<br><span style="color:var(--muted)">8-8-8 ⚠️</span></td><td><span class="ico-up">↑</span> 65<br><span style="color:var(--muted)">12×3</span></td><td><span class="ico-same">→</span> 60<br><span style="color:var(--muted)">12×3</span></td><td><span class="ico-same">→</span> 60<br><span style="color:var(--muted)">10×3</span></td><td><span class="ico-same">→</span> 55<br><span style="color:var(--muted)">15×3</span></td></tr>
+              <tr><th>Ćwiczenie</th><th>Zakres</th><th>28/03</th><th>21/03</th><th>05/03</th><th>28/02</th><th>21/02</th></tr>
+              <tr><td><strong>Hip thrust</strong></td><td style="color:var(--muted)">4×8–10</td><td><span class="ico-star">★</span> 65<br><span style="color:var(--muted)">10×4🚀</span></td><td><span class="ico-up">↑</span> 62,5<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 60<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 57,5<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-star">★</span> 55<br><span style="color:var(--muted)">10×4</span></td></tr>
+              <tr><td><strong>RDL sztanga</strong></td><td style="color:var(--muted)">4×8–10</td><td><span class="ico-star">★✅</span> 37,5<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 37,5<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 35<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 32,5<br><span style="color:var(--muted)">10×4</span></td><td><span class="ico-up">↑</span> 30<br><span style="color:var(--muted)">10×4</span></td></tr>
+              <tr><td>Wykroki bułg.</td><td style="color:var(--muted)">3×10–12</td><td><span class="ico-up">↑</span> 12,5<br><span style="color:var(--muted)">10×3</span></td><td><span class="ico-same">→</span> 12,5<br><span style="color:var(--muted)">8-8-8</span></td><td><span class="ico-same">→</span> 10<br><span style="color:var(--muted)">10×3</span></td><td><span class="ico-same">→</span> 10<br><span style="color:var(--muted)">10×3</span></td><td><span class="ico-same">→</span> 8<br><span style="color:var(--muted)">10×3</span></td></tr>
+              <tr><td>Kickbacki</td><td style="color:var(--muted)">3×12–15</td><td><span class="ico-same">→</span> 27,5<br><span style="color:var(--muted)">15-15</span></td><td><span class="ico-up">↑</span> 27,5<br><span style="color:var(--muted)">15×3</span></td><td><span class="ico-up">↑</span> 25<br><span style="color:var(--muted)">12×3</span></td><td><span class="ico-same">→</span> 20<br><span style="color:var(--muted)">15-15</span></td><td><span class="ico-same">→</span> 20<br><span style="color:var(--muted)">15×3</span></td></tr>
+              <tr><td>Odwodzenie masz.</td><td style="color:var(--muted)">3×10–15</td><td><span class="ico-up">↑</span> 60<br><span style="color:var(--muted)">13×3✓</span></td><td><span class="ico-down">↓</span> 70<br><span style="color:var(--muted)">8-8-8 ⚠️</span></td><td><span class="ico-up">↑</span> 65<br><span style="color:var(--muted)">12×3</span></td><td><span class="ico-same">→</span> 60<br><span style="color:var(--muted)">12×3</span></td><td><span class="ico-same">→</span> 60<br><span style="color:var(--muted)">10×3</span></td></tr>
             </table>
           </div>
         </div>
@@ -1325,9 +1312,9 @@ Uwagi:</textarea>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;font-family:var(--mono);font-size:11px">
             <span>L2 <strong style="color:var(--orange)">5</strong><span style="color:var(--muted)">/8</span></span>
             <span>Upper <strong style="color:var(--rose)">6</strong><span style="color:var(--muted)">/8</span></span>
-            <span>L1 <strong style="color:var(--green)">5</strong><span style="color:var(--muted)">/8</span></span>
+            <span>L1 <strong style="color:var(--green)">6</strong><span style="color:var(--muted)">/8</span></span>
             <span>Core★ <strong style="color:var(--purple)">2</strong></span>
-            <span style="color:var(--muted)">· Łącznie <strong style="color:var(--text)">18</strong></span>
+            <span style="color:var(--muted)">· Łącznie <strong style="color:var(--text)">19</strong></span>
           </div>
 
           <!-- Kwiecień -->
@@ -1347,7 +1334,7 @@ Uwagi:</textarea>
             <div class="cal-grid">
               <div></div><div class="cal-head">Pn</div><div class="cal-head">Wt</div><div class="cal-head">Śr</div><div class="cal-head">Czw</div><div class="cal-head">Pt</div><div class="cal-head">Sob</div><div class="cal-head">Nd</div>
               <div class="cal-wk" style="color:var(--muted)">→</div><div class="cal-done-cell cal-plan">30<span>L2</span></div><div class="cal-d">31</div><div class="cal-e"></div><div class="cal-e"></div><div class="cal-e"></div><div class="cal-e"></div><div class="cal-e"></div>
-              <div class="cal-wk" style="color:var(--rose)">T6</div><div class="cal-done-cell cal-l2">23<span>L2 ✓</span></div><div class="cal-d">24</div><div class="cal-d">25</div><div class="cal-done-cell cal-upper">26<span>U ✓</span></div><div class="cal-d">27</div><div class="cal-done-cell cal-plan">28<span>L1</span></div><div class="cal-d">29</div>
+              <div class="cal-wk" style="color:var(--rose)">T6</div><div class="cal-done-cell cal-l2">23<span>L2 ✓</span></div><div class="cal-d">24</div><div class="cal-d">25</div><div class="cal-done-cell cal-upper">26<span>U ✓</span></div><div class="cal-d">27</div><div class="cal-done-cell cal-l1">28<span>L1 ✓</span></div><div class="cal-d">29</div>
               <div class="cal-wk">T5</div><div class="cal-done-cell cal-l2">16<span>L2</span></div><div class="cal-d">17</div><div class="cal-done-cell cal-upper">18<span>U</span></div><div class="cal-d">19</div><div class="cal-d">20</div><div class="cal-done-cell cal-l1">21<span>L1</span></div><div class="cal-d">22</div>
               <div class="cal-wk">T4</div><div class="cal-d">9</div><div class="cal-d">10</div><div class="cal-d">11</div><div class="cal-d">12</div><div class="cal-d">13</div><div class="cal-d">14</div><div class="cal-done-cell cal-upper">15<span>U 🩹</span></div>
               <div class="cal-wk">T3</div><div class="cal-done-cell cal-l2">2<span>L2</span></div><div class="cal-d">3</div><div class="cal-done-cell cal-upper">4<span>U</span></div><div class="cal-done-cell cal-l1">5<span>L1</span></div><div class="cal-d">6</div><div class="cal-d">7</div><div class="cal-d">8</div>
@@ -2163,7 +2150,7 @@ window.addEventListener('load', () => {
 <script>
 // ── Live Training Log ──
 const EX_COUNT = 7;
-const TRAIN_LABEL = '🍑 Lower 1 — Sob 28.03.2026';
+const TRAIN_LABEL = '🦵 Lower 2 — Pn 30.03.2026';
 
 function toggleLog(i) {
   const log = document.getElementById('log-' + i);
